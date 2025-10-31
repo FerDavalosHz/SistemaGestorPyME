@@ -24,6 +24,5 @@ namespace Entidades
         public string Contrasena { get; set; }
         public int IdRol { get; set; }
         public bool Activo { get; set; }
-
     }
 }

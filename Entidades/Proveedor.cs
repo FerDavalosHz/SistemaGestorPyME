@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Proveedor
+    public class Proveedor
     {
         public Proveedor(int idProveedor, string nombre, string contacto, string telefono, string correo, string direccion, bool activo)
         {
@@ -26,10 +26,5 @@ namespace Entidades
         public string Correo { get; set; }
         public string Direccion { get; set; }
         public bool Activo { get; set; }
-
-
-
-
-
     }
 }
