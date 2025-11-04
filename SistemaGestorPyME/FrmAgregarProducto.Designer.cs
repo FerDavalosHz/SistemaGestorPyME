@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnGuardar = new System.Windows.Forms.Button();
-            this.TxtPrecio = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TxtDescripcion = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtDescripcion = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtPrecio = new System.Windows.Forms.TextBox();
+            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
             this.TxtStock = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,16 +43,59 @@
             this.CbEstado = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // BtnCancelar
+            // label1
             // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.Chocolate;
-            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(261, 322);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(173, 71);
-            this.BtnCancelar.TabIndex = 56;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 25);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Nombre:";
+            // 
+            // TxtNombre
+            // 
+            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNombre.Location = new System.Drawing.Point(161, 22);
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(388, 30);
+            this.TxtNombre.TabIndex = 49;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(20, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 25);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Descripción:";
+            // 
+            // TxtDescripcion
+            // 
+            this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDescripcion.Location = new System.Drawing.Point(161, 68);
+            this.TxtDescripcion.Name = "TxtDescripcion";
+            this.TxtDescripcion.Size = new System.Drawing.Size(388, 30);
+            this.TxtDescripcion.TabIndex = 51;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(20, 115);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 25);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Precio:";
+            // 
+            // TxtPrecio
+            // 
+            this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPrecio.Location = new System.Drawing.Point(161, 112);
+            this.TxtPrecio.Name = "TxtPrecio";
+            this.TxtPrecio.Size = new System.Drawing.Size(388, 30);
+            this.TxtPrecio.TabIndex = 53;
             // 
             // BtnGuardar
             // 
@@ -66,59 +109,17 @@
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click_1);
             // 
-            // TxtPrecio
+            // BtnCancelar
             // 
-            this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPrecio.Location = new System.Drawing.Point(161, 112);
-            this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(388, 30);
-            this.TxtPrecio.TabIndex = 53;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 25);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "Precio:";
-            // 
-            // TxtDescripcion
-            // 
-            this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescripcion.Location = new System.Drawing.Point(161, 68);
-            this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Size = new System.Drawing.Size(388, 30);
-            this.TxtDescripcion.TabIndex = 51;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 25);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "Descripción:";
-            // 
-            // TxtNombre
-            // 
-            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombre.Location = new System.Drawing.Point(161, 22);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(388, 30);
-            this.TxtNombre.TabIndex = 49;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 25);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Nombre:";
+            this.BtnCancelar.BackColor = System.Drawing.Color.Chocolate;
+            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelar.Location = new System.Drawing.Point(261, 322);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(173, 71);
+            this.BtnCancelar.TabIndex = 56;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click_1);
             // 
             // CmbCategoria
             // 
@@ -196,14 +197,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Button BtnGuardar;
-        private System.Windows.Forms.TextBox TxtPrecio;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtDescripcion;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TxtNombre;
+
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtNombre;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtDescripcion;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TxtPrecio;
+        private System.Windows.Forms.Button BtnGuardar;
+        private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.ComboBox CmbCategoria;
         private System.Windows.Forms.TextBox TxtStock;
         private System.Windows.Forms.Label label5;

@@ -173,5 +173,10 @@ namespace SistemaGestorPyME
             Close();
 
         }
+
+        private void BtnCancelar_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
