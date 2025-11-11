@@ -48,6 +48,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Se solicita contar el dinero en \r\n caja antes de iniciar el turno. \r\n       Asegú" +
     "rese de hacerlo \r\n           cuidadosamente";
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
