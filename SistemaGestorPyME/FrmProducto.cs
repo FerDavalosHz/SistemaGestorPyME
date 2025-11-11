@@ -95,5 +95,7 @@ namespace SistemaGestorPyME
         {
             fila = e.RowIndex; columna = e.ColumnIndex;
         }
+
+
     }
 }

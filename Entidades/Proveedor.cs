@@ -8,11 +8,10 @@ namespace Entidades
 {
     public class Proveedor
     {
-        public Proveedor(int idProveedor, string nombre, string contacto, string telefono, string correo, string direccion, bool activo)
+        public Proveedor(int idProveedor, string nombre, string telefono, string correo, string direccion, string activo)
         {
             IdProveedor = idProveedor;
             Nombre = nombre;
-            Contacto = contacto;
             Telefono = telefono;
             Correo = correo;
             Direccion = direccion;
@@ -21,10 +20,9 @@ namespace Entidades
 
         public int IdProveedor { get; set; }
         public string Nombre { get; set; }
-        public string Contacto { get; set; }
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public string Direccion { get; set; }
-        public bool Activo { get; set; }
+        public string Activo { get; set; }
     }
 }

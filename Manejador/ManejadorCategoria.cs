@@ -13,7 +13,7 @@ namespace Manejador
 {
     public class ManejadorCategoria
     {
-        Base b = new Base("localhost", "root", "1234", "GestorPyme");
+        Base b = new Base("localhost", "root", "", "GestorPyme");
 
         public void Guardar(Categoria categoria)
         {
@@ -38,13 +38,13 @@ namespace Manejador
                       $"where id_categoria={categoria.IdCategoria}");
         }
 
-        // 6. Adaptamos el método Mostrar
+
         public void Mostrar(string consulta, DataGridView tabla, string datos)
         {
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
 
-            // Ocultamos la PK de 'tbl_categorias'
+         
             if (tabla.Columns.Contains("id_categoria"))
             {
                 tabla.Columns["id_categoria"].Visible = false;
