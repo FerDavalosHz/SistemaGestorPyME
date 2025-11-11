@@ -52,6 +52,12 @@
     <Compile Include="FrmAgregarCategoria.Designer.cs">
       <DependentUpon>FrmAgregarCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmHistorialAlertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorialAlertas.Designer.cs">
+      <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAgregarCategoria.resx">
       <DependentUpon>FrmAgregarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialAlertas.resx">
+      <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

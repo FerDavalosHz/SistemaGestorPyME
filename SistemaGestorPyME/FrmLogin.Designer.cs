@@ -43,7 +43,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Location = new System.Drawing.Point(-3, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(564, 46);
             this.panel1.TabIndex = 0;
@@ -52,9 +53,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(198, 9);
+            this.label2.Location = new System.Drawing.Point(197, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 31);
+            this.label2.Size = new System.Drawing.Size(130, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "BIENVENIDO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -65,7 +66,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(84, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 27);
+            this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Usuario:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -74,9 +75,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 156);
+            this.label3.Location = new System.Drawing.Point(35, 156);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 27);
+            this.label3.Size = new System.Drawing.Size(119, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "Contraseña:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -84,17 +85,19 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(191, 87);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(314, 33);
+            this.textBox1.Size = new System.Drawing.Size(313, 34);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(191, 156);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(314, 33);
+            this.textBox2.Size = new System.Drawing.Size(313, 34);
             this.textBox2.TabIndex = 5;
             // 
             // BtnSalir
@@ -104,7 +107,8 @@
             this.BtnSalir.FlatAppearance.BorderSize = 0;
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSalir.Location = new System.Drawing.Point(233, 243);
+            this.BtnSalir.Location = new System.Drawing.Point(233, 242);
+            this.BtnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(96, 42);
             this.BtnSalir.TabIndex = 6;
@@ -119,7 +123,9 @@
             this.BtnIngresar.FlatAppearance.BorderSize = 0;
             this.BtnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnIngresar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnIngresar.Location = new System.Drawing.Point(383, 243);
+            this.BtnIngresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnIngresar.Location = new System.Drawing.Point(371, 242);
+            this.BtnIngresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnIngresar.Name = "BtnIngresar";
             this.BtnIngresar.Size = new System.Drawing.Size(133, 42);
             this.BtnIngresar.TabIndex = 7;
@@ -140,6 +146,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
