@@ -21,5 +21,26 @@ namespace SistemaGestorPyME
         {
             Close();
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FrmLogin
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FrmLogin";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+
+
+            3
+        }
     }
 }
