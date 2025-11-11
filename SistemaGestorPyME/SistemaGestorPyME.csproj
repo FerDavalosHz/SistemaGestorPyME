@@ -46,23 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAgregarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarProveedor.Designer.cs">
+      <DependentUpon>FrmAgregarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAgregarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAgregarCategoria.Designer.cs">
       <DependentUpon>FrmAgregarCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmHistorialAlertas.cs">
+    <Compile Include="FrmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmHistorialAlertas.Designer.cs">
-      <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAtencion.Designer.cs">
-      <DependentUpon>FrmAtencion.cs</DependentUpon>
+    <Compile Include="FrmProveedor.Designer.cs">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -93,11 +93,11 @@
     <EmbeddedResource Include="FrmAgregarCategoria.resx">
       <DependentUpon>FrmAgregarCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmHistorialAlertas.resx">
-      <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAgregarProveedor.resx">
+      <DependentUpon>FrmAgregarProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProveedor.resx">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
