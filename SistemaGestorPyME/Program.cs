@@ -16,7 +16,7 @@ namespace SistemaGestorPyME
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMover());
+            Application.Run(new FrmProveedor());
         }
     }
 }
