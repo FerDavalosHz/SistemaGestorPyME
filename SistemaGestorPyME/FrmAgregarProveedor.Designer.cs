@@ -145,7 +145,7 @@
             this.CmbEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.CmbEstado.Location = new System.Drawing.Point(202, 550);
+            this.CmbEstado.Location = new System.Drawing.Point(193, 601);
             this.CmbEstado.Name = "CmbEstado";
             this.CmbEstado.Size = new System.Drawing.Size(880, 27);
             this.CmbEstado.TabIndex = 11;
