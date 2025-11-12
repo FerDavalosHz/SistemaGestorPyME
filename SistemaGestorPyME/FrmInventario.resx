@@ -121,11 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-<<<<<<< HEAD
-        DgAACw4BQL7hQQAAA15JREFUaEPt19nLrWMYBvBdFOJA+QPkD+BUTp1ukhNnSopyppQhxA6bTdpIMmQu
-=======
         DQAACw0B7QfALAAAA15JREFUaEPt19nLrWMYBvBdFOJA+QPkD+BUTp1ukhNnSopyppQhxA6bTdpIMmQu
->>>>>>> Agregue el FrmInventario y lo acomode para que al compilar se viera bien, aún falta que me digan si así lo dejo porque hay cosas que no me convencen. Tambien le di doble click a todos los botones tanto de este forms como el de Historial alerta y el de login.
         EltmNrZtnkIyyzxlnudh++nS/dbb872+9Vl7Wd9S71XvwfrWs577uq/3Hq5vzZoRI0b8I7Av3sB3+BDX
         Yq/23EKiyP+GL/EqnsD9uAx7tOcXDqX8V3gZj+EuXIdLcMTA+d0qyV/xRyX/E77F5/UG38SLeApbcFvd
         eQ0ux6W4CBdgI07FQdihjTcRVTZRvk8+l5+J9QPnHy/iIfwp3i/CEeC5Su4h3IvbsanuvBIXF+lzcDpO

@@ -25,5 +25,45 @@ namespace SistemaGestorPyME
         {
             Application.Exit();
         }
+
+        private void BtnVaciar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnRegresar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnInventario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnProveedores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

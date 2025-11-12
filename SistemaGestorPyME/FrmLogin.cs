@@ -26,5 +26,13 @@ namespace SistemaGestorPyME
         {
 
         }
+<<<<<<< HEAD
+=======
+
+        private void BtnIngresar_Click(object sender, EventArgs e)
+        {
+
+        }
+>>>>>>> Agregue el FrmInventario y lo acomode para que al compilar se viera bien, aún falta que me digan si así lo dejo porque hay cosas que no me convencen. Tambien le di doble click a todos los botones tanto de este forms como el de Historial alerta y el de login.
     }
 }
