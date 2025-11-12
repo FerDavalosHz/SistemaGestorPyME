@@ -16,10 +16,14 @@ namespace SistemaGestorPyME
         {
             InitializeComponent();
         }
-
-        private void lblApartado_Click(object sender, EventArgs e)
+        private void FrmHistorialAlertas_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
