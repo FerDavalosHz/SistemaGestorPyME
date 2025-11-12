@@ -1,16 +1,16 @@
 ﻿namespace SistemaGestorPyME
 {
-    partial class FrmMenu
+    partial class FrmHistorialAlertas
     {
         /// <summary>
-        /// Variable del diseñador necesaria.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpiar los recursos que se estén usando.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,17 +20,14 @@
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblApartado = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
@@ -38,50 +35,16 @@
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblApartado = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.lblApartado);
-            this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Location = new System.Drawing.Point(120, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1282, 64);
-            this.panel1.TabIndex = 0;
-            // 
-            // lblApartado
-            // 
-            this.lblApartado.AutoSize = true;
-            this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApartado.ForeColor = System.Drawing.Color.Black;
-            this.lblApartado.Location = new System.Drawing.Point(82, 9);
-            this.lblApartado.Name = "lblApartado";
-            this.lblApartado.Size = new System.Drawing.Size(268, 42);
-            this.lblApartado.TabIndex = 8;
-            this.lblApartado.Text = "Menu Principal";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1237, 8);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(34, 29);
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.Text = "X";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // panel2
             // 
@@ -93,11 +56,10 @@
             this.panel2.Controls.Add(this.btnInventario);
             this.panel2.Controls.Add(this.btnVentas);
             this.panel2.Controls.Add(this.ptbLogo);
-            this.panel2.Location = new System.Drawing.Point(2, 0);
+            this.panel2.Location = new System.Drawing.Point(-8, -1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(134, 900);
-            this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panel2.TabIndex = 3;
             // 
             // button1
             // 
@@ -146,7 +108,6 @@
             this.btnProductos.TabIndex = 3;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = false;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnInventario
             // 
@@ -171,28 +132,40 @@
             this.btnVentas.TabIndex = 1;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = false;
-            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
-            // lblNombre
+            // panel1
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.lblNombre.Location = new System.Drawing.Point(562, 521);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(518, 58);
-            this.lblNombre.TabIndex = 7;
-            this.lblNombre.Text = "Nombre de la Tienda";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.lblApartado);
+            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Location = new System.Drawing.Point(120, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1282, 64);
+            this.panel1.TabIndex = 2;
             // 
-            // pictureBox2
+            // lblApartado
             // 
-            this.pictureBox2.Image = global::SistemaGestorPyME.Properties.Resources.logo_removebg_preview;
-            this.pictureBox2.Location = new System.Drawing.Point(715, 340);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(185, 178);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
+            this.lblApartado.AutoSize = true;
+            this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApartado.ForeColor = System.Drawing.Color.Black;
+            this.lblApartado.Location = new System.Drawing.Point(115, 8);
+            this.lblApartado.Name = "lblApartado";
+            this.lblApartado.Size = new System.Drawing.Size(189, 42);
+            this.lblApartado.TabIndex = 8;
+            this.lblApartado.Text = "Inventario";
+            this.lblApartado.Click += new System.EventHandler(this.lblApartado_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
+            this.btnCerrar.Location = new System.Drawing.Point(1237, 8);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(34, 29);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "X";
+            this.btnCerrar.UseVisualStyleBackColor = true;
             // 
             // ptbLogo
             // 
@@ -214,48 +187,39 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // FrmMenu
+            // FrmHistorialAlertas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 900);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FrmMenu";
+            this.Name = "FrmHistorialAlertas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Menu_Load);
+            this.Text = "FrmHistorialAlertas";
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox ptbLogo;
-        private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnInventario;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Label lblApartado;
+        private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.PictureBox ptbLogo;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblApartado;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
-
