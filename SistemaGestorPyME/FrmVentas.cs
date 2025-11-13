@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SistemaGestorPyME
 {
-    public partial class Form9 : Form
+    public partial class FrmVentas : Form
     {
-        public Form9()
+        public FrmVentas()
         {
             InitializeComponent();
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
