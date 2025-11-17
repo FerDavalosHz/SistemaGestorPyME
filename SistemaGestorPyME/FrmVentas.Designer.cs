@@ -30,16 +30,16 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DtgProductos = new System.Windows.Forms.DataGridView();
             this.BtnAgregarProducto = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnCancelarVenta = new System.Windows.Forms.Button();
             this.pPagarTotal = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.LblPagar = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.BtnPagar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
             this.pPagarTotal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,13 +62,18 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // dataGridView1
+            // DtgProductos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(177, 96);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(814, 726);
-            this.dataGridView1.TabIndex = 1;
+            this.DtgProductos.AllowUserToAddRows = false;
+            this.DtgProductos.AllowUserToDeleteRows = false;
+            this.DtgProductos.AllowUserToResizeColumns = false;
+            this.DtgProductos.AllowUserToResizeRows = false;
+            this.DtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgProductos.Location = new System.Drawing.Point(177, 96);
+            this.DtgProductos.Name = "DtgProductos";
+            this.DtgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgProductos.Size = new System.Drawing.Size(814, 726);
+            this.DtgProductos.TabIndex = 1;
             // 
             // BtnAgregarProducto
             // 
@@ -78,6 +83,7 @@
             this.BtnAgregarProducto.TabIndex = 3;
             this.BtnAgregarProducto.Text = "AGREGAR PRODUCTO";
             this.BtnAgregarProducto.UseVisualStyleBackColor = true;
+            this.BtnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
             // 
             // BtnCancelar
             // 
@@ -87,6 +93,7 @@
             this.BtnCancelar.TabIndex = 4;
             this.BtnCancelar.Text = "CANCELAR PRODUCTO";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnCancelarVenta
             // 
@@ -96,24 +103,16 @@
             this.BtnCancelarVenta.TabIndex = 5;
             this.BtnCancelarVenta.Text = "CANCELAR VENTA";
             this.BtnCancelarVenta.UseVisualStyleBackColor = true;
+            this.BtnCancelarVenta.Click += new System.EventHandler(this.BtnCancelarVenta_Click);
             // 
             // pPagarTotal
             // 
             this.pPagarTotal.Controls.Add(this.LblPagar);
             this.pPagarTotal.Controls.Add(this.label1);
-            this.pPagarTotal.Location = new System.Drawing.Point(1032, 505);
+            this.pPagarTotal.Location = new System.Drawing.Point(1084, 505);
             this.pPagarTotal.Name = "pPagarTotal";
-            this.pPagarTotal.Size = new System.Drawing.Size(330, 124);
+            this.pPagarTotal.Size = new System.Drawing.Size(278, 124);
             this.pPagarTotal.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TOTAL A PAGAR";
             // 
             // LblPagar
             // 
@@ -124,6 +123,15 @@
             this.LblPagar.TabIndex = 1;
             this.LblPagar.Text = "00.00";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(49, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "TOTAL A PAGAR";
+            // 
             // BtnPagar
             // 
             this.BtnPagar.Location = new System.Drawing.Point(1084, 749);
@@ -132,6 +140,7 @@
             this.BtnPagar.TabIndex = 7;
             this.BtnPagar.Text = "PAGAR";
             this.BtnPagar.UseVisualStyleBackColor = true;
+            this.BtnPagar.Click += new System.EventHandler(this.BtnPagar_Click);
             // 
             // FrmVentas
             // 
@@ -143,13 +152,13 @@
             this.Controls.Add(this.BtnCancelarVenta);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnAgregarProducto);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DtgProductos);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVentas";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).EndInit();
             this.pPagarTotal.ResumeLayout(false);
             this.pPagarTotal.PerformLayout();
             this.ResumeLayout(false);
@@ -160,7 +169,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCerrar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DtgProductos;
         private System.Windows.Forms.Button BtnAgregarProducto;
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button BtnCancelarVenta;

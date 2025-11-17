@@ -111,6 +111,7 @@
             this.BtnAgregar.TabIndex = 1;
             this.BtnAgregar.Text = "+";
             this.BtnAgregar.UseVisualStyleBackColor = true;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // panel3
             // 
