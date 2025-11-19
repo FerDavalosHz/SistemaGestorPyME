@@ -11,22 +11,27 @@ namespace Manejador
     {
         Base b = new Base("localhost", "root", "", "GestorPyme");
 
-        // === MOSTRAR PRODUCTOS CON INVENTARIO GENERAL ===
+
         public void Mostrar(string filtro, DataGridView tabla, string datos)
         {
             string consulta =
-                "SELECT " +
-                "p.id_producto, " +
-                "p.nombre AS NombreProducto, " +
-                "cat.nombre AS Categoria, " +
-                "p.precio_venta_actual, " +
-                "COALESCE(inv.stock_actual, 0) AS cantidad_disponible " +
-                "FROM tbl_productos p " +
-                "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
-                "LEFT JOIN tbl_inventario_general inv ON p.id_producto = inv.id_producto " +
-                "WHERE p.activo = 1 AND " +
-                $"(p.nombre LIKE '%{filtro}%' OR cat.nombre LIKE '%{filtro}%') " +
-                "ORDER BY p.nombre ASC";
+        "SELECT " +
+    "p.id_producto, " +
+    "p.nombre AS NombreProducto, " +
+    "cat.nombre AS Categoria, " +
+    "p.precio_venta_actual, " +
+    "COALESCE(inv.stock_actual, 0) AS cantidad_disponible " +
+    "FROM tbl_productos p " +
+    "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
+    "LEFT JOIN ( " +
+    "    SELECT id_producto, SUM(stock_actual) AS stock_actual " +
+    "    FROM tbl_inventario_general " +
+    "    GROUP BY id_producto " +
+    ") inv ON p.id_producto = inv.id_producto " +
+    "WHERE p.activo = 1 AND " +
+    $"(p.nombre LIKE '%{filtro}%' OR cat.nombre LIKE '%{filtro}%') " +
+    "ORDER BY p.nombre ASC";
+
 
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
@@ -35,7 +40,6 @@ namespace Manejador
             tabla.AutoResizeRows();
         }
 
-        // ==== CREAR VENTA COMPLETA CON INVENTARIO GENERAL ====
         public int CrearVentaCompleta(
  
     string metodoPago,
@@ -68,13 +72,8 @@ namespace Manejador
                     b.Comando(insertarDetalle);
 
        
-                    string crearInventarioSiNoExiste =
-                        $"INSERT INTO tbl_inventario_general (id_producto, stock_actual) " +
-                        $"VALUES ({p.idProducto}, 0) " +
-                        $"ON DUPLICATE KEY UPDATE stock_actual = stock_actual";
-                    b.Comando(crearInventarioSiNoExiste);
-
-                    // 5. Actualizar stock
+         
+              
                     string actualizarInventario =
                         $"UPDATE tbl_inventario_general " +
                         $"SET stock_actual = stock_actual - {p.cantidad} " +
@@ -82,7 +81,7 @@ namespace Manejador
                     b.Comando(actualizarInventario);
                 }
 
-                // 6. Actualizar total
+
                 string actualizarTotal =
                     $"UPDATE tbl_ventas SET total = {totalVenta.ToString().Replace(",", ".")} WHERE id_venta = {idVenta}";
                 b.Comando(actualizarTotal);

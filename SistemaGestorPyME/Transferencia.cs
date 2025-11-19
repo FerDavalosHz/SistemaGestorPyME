@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaGestorPyME
 {
-    public partial class Form29 : Form
+    public partial class Transferencia : Form
     {
-        public Form29()
+        public Transferencia()
         {
             InitializeComponent();
         }

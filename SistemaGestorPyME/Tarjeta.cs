@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaGestorPyME
 {
-    public partial class Form3 : Form
+    public partial class Tarjeta : Form
     {
-        public Form3()
+        public Tarjeta()
         {
             InitializeComponent();
         }
