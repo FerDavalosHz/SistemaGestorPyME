@@ -1,99 +1,101 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 using System.Windows.Forms;
 using AccesoDatos;
+using Entidades;
 
 namespace Manejador
 {
     public class ManejadorVentas
     {
-
-
         Base b = new Base("localhost", "root", "", "GestorPyme");
-        public void Mostrar(string producto, DataGridView tabla, string datos)
-        {
 
+        // === MOSTRAR PRODUCTOS CON INVENTARIO GENERAL ===
+        public void Mostrar(string filtro, DataGridView tabla, string datos)
+        {
             string consulta =
-   "SELECT " +
-   "p.id_producto, " +
-   "l.id_lote, " +
-   "p.nombre AS NombreProducto, " +
-   "cat.nombre AS Categoria, " +
-   "l.codigo_lote, " +
-   "p.precio_venta_actual, " +
-   "l.cantidad_disponible AS Stock, " +
-   "l.fecha_vencimiento " +
-   "FROM tbl_productos p " +
-   "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
-   "INNER JOIN tbl_lotes l ON p.id_producto = l.id_producto " +
-   "WHERE p.activo = 1 " +
-   "AND l.fecha_vencimiento > CURDATE() " +        
-   "AND (p.nombre LIKE '%" + producto + "%' " +      
-   "OR cat.nombre LIKE '%" + producto + "%') " +     
-   "ORDER BY l.fecha_vencimiento ASC;";
+                "SELECT " +
+                "p.id_producto, " +
+                "p.nombre AS NombreProducto, " +
+                "cat.nombre AS Categoria, " +
+                "p.precio_venta_actual, " +
+                "COALESCE(inv.stock_actual, 0) AS cantidad_disponible " +
+                "FROM tbl_productos p " +
+                "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
+                "LEFT JOIN tbl_inventario_general inv ON p.id_producto = inv.id_producto " +
+                "WHERE p.activo = 1 AND " +
+                $"(p.nombre LIKE '%{filtro}%' OR cat.nombre LIKE '%{filtro}%') " +
+                "ORDER BY p.nombre ASC";
 
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
-
             tabla.Columns["id_producto"].Visible = false;
-            tabla.Columns["id_lote"].Visible = false;
-            tabla.Columns["codigo_lote"].Visible = false;
-        //    tabla.Columns["Stock"].Visible = false;
-
-
-
             tabla.AutoResizeColumns();
             tabla.AutoResizeRows();
         }
 
-        public int CrearVentaCompleta(int idUsuario, string metodoPago, List<(int idProducto, int idLote, string nombre, string categoria, string codigoLote, decimal precio, int stock, int cantidad, DateTime fechaVencimiento)> ProductosSeleccionados)
+        // ==== CREAR VENTA COMPLETA CON INVENTARIO GENERAL ====
+        public int CrearVentaCompleta(
+ 
+    string metodoPago,
+    List<(int idProducto, string nombre, string categoria,
+         decimal precio, int stock, int cantidad)> ProductosSeleccionados)
         {
-          
-            string insertarVenta =
-                $"INSERT INTO tbl_ventas (id_usuario, fecha, total, metodo_pago) " +
-                $"VALUES ({idUsuario}, NOW(), 0, '{metodoPago}')";
+            b.Comando("START TRANSACTION");
 
-            b.Comando(insertarVenta);
+            try
+            {
+                string insertarVenta =
+                    $"INSERT INTO tbl_ventas (id_usuario, fecha, total, metodo_pago) " +
+                    $"VALUES ({Sesion.id}, NOW(), 0, '{metodoPago}')";
+                b.Comando(insertarVenta);
+
+                var tabla = b.Consultar("SELECT LAST_INSERT_ID()", "venta").Tables[0];
+                int idVenta = Convert.ToInt32(tabla.Rows[0][0]);
+
+                decimal totalVenta = 0;
+
+                foreach (var p in ProductosSeleccionados)
+                {
+                    decimal subtotal = p.precio * p.cantidad;
+                    totalVenta += subtotal;
+
+                    string insertarDetalle =
+                        "INSERT INTO tbl_detalle_venta " +
+                        "(id_venta, id_producto, cantidad, precio_unitario, subtotal) VALUES (" +
+                        $"{idVenta}, {p.idProducto}, {p.cantidad}, {p.precio.ToString().Replace(",", ".")}, {subtotal.ToString().Replace(",", ".")})";
+                    b.Comando(insertarDetalle);
 
        
-            string consultaId = "SELECT MAX(id_venta) FROM tbl_ventas";
-            var tabla = b.Consultar(consultaId, "venta").Tables[0];
-            int idVenta = Convert.ToInt32(tabla.Rows[0][0]);
+                    string crearInventarioSiNoExiste =
+                        $"INSERT INTO tbl_inventario_general (id_producto, stock_actual) " +
+                        $"VALUES ({p.idProducto}, 0) " +
+                        $"ON DUPLICATE KEY UPDATE stock_actual = stock_actual";
+                    b.Comando(crearInventarioSiNoExiste);
 
-            decimal totalVenta = 0;
+                    // 5. Actualizar stock
+                    string actualizarInventario =
+                        $"UPDATE tbl_inventario_general " +
+                        $"SET stock_actual = stock_actual - {p.cantidad} " +
+                        $"WHERE id_producto = {p.idProducto}";
+                    b.Comando(actualizarInventario);
+                }
 
-            
-            foreach (var p in ProductosSeleccionados)
-            {
-                decimal subtotal = p.precio * p.cantidad;
-                totalVenta += subtotal;
+                // 6. Actualizar total
+                string actualizarTotal =
+                    $"UPDATE tbl_ventas SET total = {totalVenta.ToString().Replace(",", ".")} WHERE id_venta = {idVenta}";
+                b.Comando(actualizarTotal);
 
-                string insertarDetalle =
-                    "INSERT INTO tbl_detalle_venta " +
-                    "(id_venta, id_producto, id_lote, cantidad, precio_unitario, subtotal) VALUES (" +
-                    $"{idVenta}, {p.idProducto}, {p.idLote}, {p.cantidad}, {p.precio}, {subtotal})";
+                b.Comando("COMMIT");
 
-                b.Comando(insertarDetalle);
-
-               
-                string actualizarLote =
-                    $"UPDATE tbl_lotes " +
-                    $"SET cantidad_disponible = cantidad_disponible - {p.cantidad} " +
-                    $"WHERE id_lote = {p.idLote}";
-
-                b.Comando(actualizarLote);
+                return idVenta;
             }
-
-            string actualizarTotal =
-                $"UPDATE tbl_ventas SET total = {totalVenta} WHERE id_venta = {idVenta}";
-
-            b.Comando(actualizarTotal);
-
-            return idVenta;
+            catch
+            {
+                b.Comando("ROLLBACK");
+                throw;
+            }
         }
 
     }
