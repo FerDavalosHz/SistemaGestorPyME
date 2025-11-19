@@ -15,6 +15,7 @@ namespace SistemaGestorPyME
     {
         ManejadorProducto mp;
         int fila = 0; int columna = 0;
+        int idProductoSeleccionado = 0;
         public FrmMover()
         {
             InitializeComponent();
@@ -23,12 +24,21 @@ namespace SistemaGestorPyME
 
         private void FrmMover_Load(object sender, EventArgs e)
         {
-          
+            CargarProveedores();
+            LblNombreProducto.Text = "--- Seleccione un producto ---";
+        }
+
+        private void CargarProveedores()
+        {
+            CmbProveedor.DataSource = mp.ObtenerProveedores();
+            CmbProveedor.DisplayMember = "nombre";       
+            CmbProveedor.ValueMember = "id_proveedor";   
+            CmbProveedor.SelectedIndex = -1;            
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            string consulta = "SELECT id_producto, nombre, stock_minimo " + // Ya no está codigo_barras
+            string consulta = "SELECT id_producto, nombre, descripcion, stock_minimo " +
                               "FROM tbl_productos " +
                               $"WHERE nombre LIKE '%{TxtBuscar.Text}%' AND activo = 1";
 
@@ -37,39 +47,70 @@ namespace SistemaGestorPyME
 
         private void dtgProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-
-            fila = e.RowIndex;
-            columna = e.ColumnIndex;
-
-            if (dtgProductos.Columns[columna] is DataGridViewButtonColumn)
+            if (e.RowIndex >= 0) 
             {
-                string nombreProducto = dtgProductos.Rows[fila].Cells["nombre"].Value.ToString();
-                int idProducto = int.Parse(dtgProductos.Rows[fila].Cells["id_producto"].Value.ToString());
+                idProductoSeleccionado = int.Parse(dtgProductos.Rows[e.RowIndex].Cells["id_producto"].Value.ToString());
+                string nombre = dtgProductos.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
 
-                DialogResult respuesta = MessageBox.Show($"¿Deseas agregar una entrada para el producto: {nombreProducto}?",
-                                                         "Confirmar Entrada",
-                                                         MessageBoxButtons.YesNo,
-                                                         MessageBoxIcon.Question);
+                LblNombreProducto.Text = nombre;
 
-                if (respuesta == DialogResult.Yes)
-                {
-
-                    int cantidad = 10; 
-                    decimal precioCompra = 0; 
-
-                    mp.RegistrarEntrada(idProducto, cantidad, precioCompra);
-
-
-
-                    MessageBox.Show("Producto agregado al inventario correctamente.");
-                }
+                TxtCantidad.Focus();
             }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idProductoSeleccionado == 0)
+                {
+                    MessageBox.Show("Por favor, seleccione un producto de la tabla izquierda.");
+                    return;
+                }
+                if (string.IsNullOrEmpty(TxtCantidad.Text) || string.IsNullOrEmpty(TxtPrecio.Text))
+                {
+                    MessageBox.Show("Debe llenar la Cantidad y el Precio.");
+                    return;
+                }
+                if (CmbProveedor.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un proveedor.");
+                    return;
+                }
+
+                int cantidad = int.Parse(TxtCantidad.Text);
+                decimal precio = decimal.Parse(TxtPrecio.Text);
+                int idProveedor = int.Parse(CmbProveedor.SelectedValue.ToString());
+                string nota = TxtNotas.Text;
+
+                mp.RegistrarEntrada(idProductoSeleccionado, cantidad, precio, idProveedor, nota);
+
+                MessageBox.Show($"Entrada registrada correctamente.\nSe sumaron {cantidad} unidades al inventario.");
+
+                LimpiarCampos();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Revise que la Cantidad y el Precio sean números válidos.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar: " + ex.Message);
+            }
+        }
+        public void LimpiarCampos()
+        {
+            TxtCantidad.Clear();
+            TxtPrecio.Clear();
+            TxtNotas.Clear();
+            CmbProveedor.SelectedIndex = -1;
+            LblNombreProducto.Text = "--- Seleccione un producto ---";
+            idProductoSeleccionado = 0;
         }
     }
 }

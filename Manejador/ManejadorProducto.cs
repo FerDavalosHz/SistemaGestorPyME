@@ -13,7 +13,7 @@ namespace Manejador
 {
     public class ManejadorProducto
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
         public void Guardar(Producto producto)
         {
@@ -89,8 +89,7 @@ namespace Manejador
 
             tabla.Columns["id_producto"].Visible = false;
             if (tabla.Columns.Contains("id_categoria")) tabla.Columns["id_categoria"].Visible = false;
-
-            tabla.Columns.Add(Boton("Agregar", Color.RoyalBlue));
+            if (tabla.Columns.Contains("activo")) tabla.Columns["activo"].Visible = false;
 
             tabla.AutoResizeColumns();
         }
@@ -105,11 +104,17 @@ namespace Manejador
             tabla.DataSource = b.Consultar(consulta, "tbl_historial_entradas").Tables[0];
             tabla.AutoResizeColumns();
         }
-
-        public void RegistrarEntrada(int idProducto, int cantidad, decimal precioCompra)
+        public DataTable ObtenerProveedores()
         {
-            string sql = $"INSERT INTO tbl_historial_entradas(id_producto, cantidad_agregada, precio_compra, id_usuario, id_proveedor) " +
-                         $"VALUES({idProducto}, {cantidad}, {precioCompra}, 1, 1)";
+            return b.Consultar("SELECT id_proveedor, nombre FROM tbl_proveedores WHERE activo = 1", "tbl_proveedores").Tables[0];
+        }
+
+        public void RegistrarEntrada(int idProducto, int cantidad, decimal precioCompra, int idProveedor, string nota)
+        {
+            string sql = $"INSERT INTO tbl_historial_entradas " +
+                         $"(id_producto, cantidad_agregada, precio_compra, id_usuario, id_proveedor, nota) " +
+                         $"VALUES " +
+                         $"({idProducto}, {cantidad}, {precioCompra}, 1, {idProveedor}, '{nota}')";
 
             b.Comando(sql);
         }
