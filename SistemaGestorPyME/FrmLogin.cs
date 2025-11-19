@@ -17,6 +17,11 @@ namespace SistemaGestorPyME
             InitializeComponent();
         }
 
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
+
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             Close();

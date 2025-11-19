@@ -82,6 +82,37 @@ namespace Manejador
 
             return b.Consultar(consulta, "tbl_categorias").Tables[0];
         }
+        public void MostrarParaEntrada(string consulta, DataGridView tabla, string datos)
+        {
+            tabla.Columns.Clear();
+            tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
+
+            tabla.Columns["id_producto"].Visible = false;
+            if (tabla.Columns.Contains("id_categoria")) tabla.Columns["id_categoria"].Visible = false;
+
+            tabla.Columns.Add(Boton("Agregar", Color.RoyalBlue));
+
+            tabla.AutoResizeColumns();
+        }
+        public void MostrarHistorialEntradas(DataGridView tabla)
+        {
+            tabla.Columns.Clear();
+            string consulta = "SELECT h.id_entrada, p.nombre, h.cantidad_agregada, h.fecha_registro " +
+                              "FROM tbl_historial_entradas h " +
+                              "INNER JOIN tbl_productos p ON h.id_producto = p.id_producto " +
+                              "ORDER BY h.fecha_registro DESC";
+
+            tabla.DataSource = b.Consultar(consulta, "tbl_historial_entradas").Tables[0];
+            tabla.AutoResizeColumns();
+        }
+
+        public void RegistrarEntrada(int idProducto, int cantidad, decimal precioCompra)
+        {
+            string sql = $"INSERT INTO tbl_historial_entradas(id_producto, cantidad_agregada, precio_compra, id_usuario, id_proveedor) " +
+                         $"VALUES({idProducto}, {cantidad}, {precioCompra}, 1, 1)";
+
+            b.Comando(sql);
+        }
 
     }
 }
