@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaGestorPyME
 {
     public partial class FrmVentas : Form
     {
+        // Estructura simplificada sin lotes
+        public static List<(int idProducto, string nombre, string categoria,
+                            decimal precio, int stock, int cantidad)>
+        ProductosSeleccionados = new List<(int, string, string, decimal, int, int)>();
 
-        public static List<(int idProducto, int idLote, string nombre, string categoria, string codigoLote, decimal precio, int stock, int cantidad, DateTime fechaVencimiento)> ProductosSeleccionados
-       = new List<(int, int, string, string, string, decimal, int, int, DateTime)>();
         public FrmVentas()
         {
             InitializeComponent();
@@ -27,13 +24,11 @@ namespace SistemaGestorPyME
 
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
-            FrmSeleccionProducto frmSeleccionProducto = new FrmSeleccionProducto();
-            frmSeleccionProducto.ShowDialog();
+            FrmSeleccionProducto frm = new FrmSeleccionProducto();
+            frm.ShowDialog();
             CargarProductosSeleccionados();
             ActualizarTotal();
-
         }
-
 
         private void CargarProductosSeleccionados()
         {
@@ -41,10 +36,6 @@ namespace SistemaGestorPyME
             {
                 DtgProductos.Columns.Add("idProducto", "ID Producto");
                 DtgProductos.Columns["idProducto"].Visible = false;
-
-                DtgProductos.Columns.Add("idLote", "ID Lote");
-                DtgProductos.Columns["idLote"].Visible = false;
-
                 DtgProductos.Columns.Add("nombre", "Producto");
                 DtgProductos.Columns.Add("cantidad", "Cantidad");
                 DtgProductos.Columns.Add("precio", "Precio Unitario");
@@ -52,39 +43,40 @@ namespace SistemaGestorPyME
             }
 
             DtgProductos.Rows.Clear();
-
             foreach (var p in ProductosSeleccionados)
             {
                 decimal subtotal = p.precio * p.cantidad;
-                DtgProductos.Rows.Add(p.idProducto, p.idLote, p.nombre, p.cantidad, p.precio.ToString("0.00"), subtotal.ToString("0.00"));
+                DtgProductos.Rows.Add(
+                    p.idProducto,
+                    p.nombre,
+                    p.cantidad,
+                    p.precio.ToString("0.00"),
+                    subtotal.ToString("0.00")
+                );
             }
-
-            ActualizarTotal();
             DtgProductos.ClearSelection();
         }
 
         private void ActualizarTotal()
         {
             decimal total = ProductosSeleccionados.Sum(x => x.precio * x.cantidad);
-            LblPagar.Text = $"$ {total}";
+            LblPagar.Text = $"$ {total:0.00}";
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             if (DtgProductos.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecciona un producto para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecciona un producto para eliminar.", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var fila = DtgProductos.SelectedRows[0];
             int idProducto = Convert.ToInt32(fila.Cells["idProducto"].Value);
-            int idLote = Convert.ToInt32(fila.Cells["idLote"].Value);
 
-            ProductosSeleccionados.RemoveAll(p => p.idProducto == idProducto && p.idLote == idLote);
-
+            ProductosSeleccionados.RemoveAll(x => x.idProducto == idProducto);
             DtgProductos.Rows.Remove(fila);
-
             ActualizarTotal();
         }
 
@@ -96,7 +88,7 @@ namespace SistemaGestorPyME
         private void BtnPagar_Click(object sender, EventArgs e)
         {
             decimal total = ProductosSeleccionados.Sum(x => x.precio * x.cantidad);
-            Pagar p = new Pagar(total);
+            Pagar p = new Pagar(total, ProductosSeleccionados);
             p.ShowDialog();
         }
     }
