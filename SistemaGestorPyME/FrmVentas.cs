@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Entidades;
 
 namespace SistemaGestorPyME
 {
     public partial class FrmVentas : Form
     {
-        // Estructura simplificada sin lotes
+
+        public static int Estado = 0;
+
+
         public static List<(int idProducto, string nombre, string categoria,
                             decimal precio, int stock, int cantidad)>
         ProductosSeleccionados = new List<(int, string, string, decimal, int, int)>();
@@ -43,7 +47,13 @@ namespace SistemaGestorPyME
             }
 
             DtgProductos.Rows.Clear();
-            foreach (var p in ProductosSeleccionados)
+
+
+            var lista = FrmVentas.ProductosSeleccionados
+                .OrderBy(x => x.nombre)
+                .ToList();
+
+            foreach (var p in lista)
             {
                 decimal subtotal = p.precio * p.cantidad;
                 DtgProductos.Rows.Add(
@@ -54,6 +64,7 @@ namespace SistemaGestorPyME
                     subtotal.ToString("0.00")
                 );
             }
+
             DtgProductos.ClearSelection();
         }
 
@@ -90,6 +101,15 @@ namespace SistemaGestorPyME
             decimal total = ProductosSeleccionados.Sum(x => x.precio * x.cantidad);
             Pagar p = new Pagar(total, ProductosSeleccionados);
             p.ShowDialog();
+
+            if (Estado == 1)
+            {
+                ProductosSeleccionados.Clear();
+                DtgProductos.Rows.Clear();
+                ActualizarTotal();
+                Estado = 0;
+
+            }
         }
     }
 }

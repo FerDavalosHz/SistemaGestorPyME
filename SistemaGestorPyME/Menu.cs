@@ -27,13 +27,14 @@ namespace SistemaGestorPyME
                 btnUsuarios.Enabled = true;
                 btnProveedores.Enabled = true;
                 btnUsuarios.Enabled = true;
+                btnProductos.Enabled = true;
             }
         
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-           FrmAgregarCategoria fs = new FrmAgregarCategoria();
+           FrmVentas fs = new FrmVentas();
             fs.ShowDialog();
         }
 

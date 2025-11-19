@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Manejador;
 
@@ -67,6 +68,37 @@ namespace SistemaGestorPyME
             decimal precio = Convert.ToDecimal(fila.Cells["precio_venta_actual"].Value);
             int stock = Convert.ToInt32(fila.Cells["cantidad_disponible"].Value);
 
+         
+            var existente = FrmVentas.ProductosSeleccionados
+                .FirstOrDefault(x => x.idProducto == idProducto);
+
+            if (existente.idProducto != 0)
+            {
+                int nuevaCantidad = existente.cantidad + cantidad;
+
+                if (nuevaCantidad > stock)
+                {
+                    MessageBox.Show("La cantidad total supera el stock disponible.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+          
+                FrmVentas.ProductosSeleccionados =
+                    FrmVentas.ProductosSeleccionados
+                        .Select(x =>
+                            x.idProducto == idProducto
+                            ? (x.idProducto, x.nombre, x.categoria, x.precio, x.stock, nuevaCantidad)
+                            : x
+                        ).ToList();
+
+                MessageBox.Show($"Cantidad actualizada para '{nombre}'.", "Actualizado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Close();
+                return;
+            }
+
             if (cantidad > stock)
             {
                 MessageBox.Show("Stock insuficiente.", "Error",
@@ -74,13 +106,14 @@ namespace SistemaGestorPyME
                 return;
             }
 
+
             FrmVentas.ProductosSeleccionados.Add((
                 idProducto,
                 nombre,
                 categoria,
                 precio,
-                cantidad,
-                stock
+                stock,
+                cantidad
             ));
 
             MessageBox.Show($"Producto '{nombre}' agregado.", "Éxito",
@@ -89,5 +122,5 @@ namespace SistemaGestorPyME
             Close();
         }
 
-    }
+        }
 }
