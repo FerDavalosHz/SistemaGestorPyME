@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 using Manejador;
 
 namespace SistemaGestorPyME
@@ -34,7 +35,15 @@ namespace SistemaGestorPyME
 
         private void FrmAlertas_Load(object sender, EventArgs e)
         {
+
+            if (!Sesion.Rango.Equals("Administrador"))
+            {
+                BtnLeidas.Enabled = false;
+            }
+
+
             mi.LlenarAlertas(LsbAlertas);
+
         }
     }
 }

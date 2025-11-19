@@ -91,6 +91,12 @@
     <Compile Include="FrmVentas.Designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,12 +141,6 @@
     </Compile>
     <Compile Include="FrmMover.Designer.cs">
       <DependentUpon>FrmMover.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAgregarProducto.cs">
       <SubType>Form</SubType>
@@ -210,14 +210,8 @@
     <EmbeddedResource Include="FrmHistorialAlertas.resx">
       <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProveedor.resx">
-      <DependentUpon>FrmProveedor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmMover.resx">
       <DependentUpon>FrmMover.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAgregarProducto.resx">
       <DependentUpon>FrmAgregarProducto.cs</DependentUpon>
@@ -227,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pagar.resx">
       <DependentUpon>Pagar.cs</DependentUpon>

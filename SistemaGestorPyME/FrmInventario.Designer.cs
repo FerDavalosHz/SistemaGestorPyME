@@ -43,13 +43,13 @@
             this.Datos.AllowUserToResizeColumns = false;
             this.Datos.AllowUserToResizeRows = false;
             this.Datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Datos.Enabled = false;
             this.Datos.Location = new System.Drawing.Point(170, 74);
             this.Datos.Name = "Datos";
             this.Datos.RowHeadersVisible = false;
             this.Datos.Size = new System.Drawing.Size(876, 680);
             this.Datos.TabIndex = 0;
             this.Datos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Datos_CellClick);
-            this.Datos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Datos_CellEnter);
             // 
             // TxtBuscar
             // 
@@ -58,9 +58,11 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(622, 30);
             this.TxtBuscar.TabIndex = 1;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // BtnEntradas
             // 
+            this.BtnEntradas.Enabled = false;
             this.BtnEntradas.Location = new System.Drawing.Point(814, 21);
             this.BtnEntradas.Name = "BtnEntradas";
             this.BtnEntradas.Size = new System.Drawing.Size(128, 30);

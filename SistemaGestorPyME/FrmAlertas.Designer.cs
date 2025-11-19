@@ -43,6 +43,7 @@
             // 
             // BtnLeidas
             // 
+            this.BtnLeidas.Enabled = false;
             this.BtnLeidas.Location = new System.Drawing.Point(661, 24);
             this.BtnLeidas.Name = "BtnLeidas";
             this.BtnLeidas.Size = new System.Drawing.Size(144, 23);

@@ -40,7 +40,8 @@ namespace SistemaGestorPyME
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-
+            FrmProducto fs = new FrmProducto();
+            fs.ShowDialog();
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -72,10 +73,10 @@ namespace SistemaGestorPyME
             proveedores.ShowDialog();
         }
 
-        private void btnUsuarios_Click(object sender, EventArgs e)
+        private void btnInventario_Click(object sender, EventArgs e)
         {
-            FrmUsuarios usuarios = new FrmUsuarios();
-            usuarios.ShowDialog();
+            FrmInventario fi = new FrmInventario();
+            fi.ShowDialog();
         }
     }
 }

@@ -18,14 +18,29 @@ namespace SistemaGestorPyME
         int fila = 0; int columna = 0;
         public static Producto producto = new Producto(0, "", "", 0, 0, false, 0);
 
+        private Timer timerBusqueda;
+
         public FrmProducto()
         {
             InitializeComponent();
             mp = new ManejadorProducto();
+
+            timerBusqueda = new Timer();
+            timerBusqueda.Interval = 600;
+            timerBusqueda.Tick += TimerBusqueda_Tick;
+
+            TxtBuscar.TextChanged += TxtBuscar_TextChanged;
         }
 
-        private void BtnBuscar_Click(object sender, EventArgs e)
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
+            timerBusqueda.Stop();
+            timerBusqueda.Start();
+        }
+
+        private void TimerBusqueda_Tick(object sender, EventArgs e)
+        {
+            timerBusqueda.Stop();
 
             string consulta = "SELECT " +
                 "p.id_producto, " +
@@ -34,11 +49,11 @@ namespace SistemaGestorPyME
                 "p.precio_venta_actual, " +
                 "p.stock_minimo, " +
                 "p.activo, " +
-                "cat.nombre AS Categoria, " + 
-                "p.id_categoria " +            
+                "cat.nombre AS Categoria, " +
+                "p.id_categoria " +
             "FROM tbl_productos p " +
             "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
-            $"WHERE p.nombre LIKE '%{TxtBuscar.Text}%'"; 
+            $"WHERE p.nombre LIKE '%{TxtBuscar.Text}%'";
 
             mp.Mostrar(consulta, DtgDatos, "tbl_productos");
         }
@@ -51,7 +66,7 @@ namespace SistemaGestorPyME
             producto.PrecioVentaActual = 0;
             producto.StockMinimo = 0;
             producto.Activo = true;
-            producto.IdCategoria = 0; 
+            producto.IdCategoria = 0;
 
             FrmAgregarProducto iu = new FrmAgregarProducto();
             iu.ShowDialog();
@@ -61,30 +76,27 @@ namespace SistemaGestorPyME
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
- 
-           producto.IdProducto = int.Parse(DtgDatos.Rows[fila].Cells["id_producto"].Value.ToString());
-           producto.Nombre = DtgDatos.Rows[fila].Cells["nombre"].Value.ToString();
-           producto.Descripcion = DtgDatos.Rows[fila].Cells["descripcion"].Value.ToString();
-           producto.PrecioVentaActual = decimal.Parse(DtgDatos.Rows[fila].Cells["precio_venta_actual"].Value.ToString());
-           producto.StockMinimo = int.Parse(DtgDatos.Rows[fila].Cells["stock_minimo"].Value.ToString());
-           producto.Activo = bool.Parse(DtgDatos.Rows[fila].Cells["activo"].Value.ToString());
-           producto.IdCategoria = int.Parse(DtgDatos.Rows[fila].Cells["id_categoria"].Value.ToString());
+            producto.IdProducto = int.Parse(DtgDatos.Rows[fila].Cells["id_producto"].Value.ToString());
+            producto.Nombre = DtgDatos.Rows[fila].Cells["nombre"].Value.ToString();
+            producto.Descripcion = DtgDatos.Rows[fila].Cells["descripcion"].Value.ToString();
+            producto.PrecioVentaActual = decimal.Parse(DtgDatos.Rows[fila].Cells["precio_venta_actual"].Value.ToString());
+            producto.StockMinimo = int.Parse(DtgDatos.Rows[fila].Cells["stock_minimo"].Value.ToString());
+            producto.Activo = bool.Parse(DtgDatos.Rows[fila].Cells["activo"].Value.ToString());
+            producto.IdCategoria = int.Parse(DtgDatos.Rows[fila].Cells["id_categoria"].Value.ToString());
 
             switch (columna)
             {
-                case 7: 
+                case 7:
                     {
                         FrmAgregarProducto iu = new FrmAgregarProducto();
                         iu.ShowDialog();
-
                         DtgDatos.Columns.Clear();
                     }
                     break;
 
-                case 8: 
+                case 8:
                     {
                         mp.Borrar(producto);
-
                         DtgDatos.Columns.Clear();
                     }
                     break;
@@ -95,7 +107,5 @@ namespace SistemaGestorPyME
         {
             fila = e.RowIndex; columna = e.ColumnIndex;
         }
-
-
     }
 }

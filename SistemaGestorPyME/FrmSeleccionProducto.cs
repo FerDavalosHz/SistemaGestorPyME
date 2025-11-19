@@ -9,8 +9,8 @@ namespace SistemaGestorPyME
     public partial class FrmSeleccionProducto : Form
     {
         ManejadorVentas Mv;
+        private Timer timerBusqueda;
 
-        // ✔ Reactivado: Aquí se guarda el producto seleccionado
         public (int idProducto, string nombre, string categoria,
                 string codigoLote, decimal precio, int stock, DateTime fechaVencimiento)?
         ProductoSeleccionado
@@ -21,11 +21,25 @@ namespace SistemaGestorPyME
             InitializeComponent();
             this.Size = new Size(1100, 900);
             Mv = new ManejadorVentas();
+
+            timerBusqueda = new Timer();
+            timerBusqueda.Interval = 500; 
+            timerBusqueda.Tick += TimerBusqueda_Tick;
+
+            TxtBuscar.TextChanged += TxtBuscar_TextChanged;
         }
 
-        private void BtnClose_Click(object sender, EventArgs e)
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Close();
+            timerBusqueda.Stop();
+            timerBusqueda.Start();
+        }
+
+        private void TimerBusqueda_Tick(object sender, EventArgs e)
+        {
+            timerBusqueda.Stop();
+            Mv.Mostrar(TxtBuscar.Text, DtgDatos, "tbl_lotes");
+            DtgDatos.ClearSelection();
         }
 
         private void FrmSeleccionProducto_Load(object sender, EventArgs e)
@@ -36,7 +50,6 @@ namespace SistemaGestorPyME
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex < 0) return;
 
             var fila = DtgDatos.Rows[e.RowIndex];
@@ -68,7 +81,6 @@ namespace SistemaGestorPyME
             decimal precio = Convert.ToDecimal(fila.Cells["precio_venta_actual"].Value);
             int stock = Convert.ToInt32(fila.Cells["cantidad_disponible"].Value);
 
-         
             var existente = FrmVentas.ProductosSeleccionados
                 .FirstOrDefault(x => x.idProducto == idProducto);
 
@@ -83,7 +95,6 @@ namespace SistemaGestorPyME
                     return;
                 }
 
-          
                 FrmVentas.ProductosSeleccionados =
                     FrmVentas.ProductosSeleccionados
                         .Select(x =>
@@ -106,7 +117,6 @@ namespace SistemaGestorPyME
                 return;
             }
 
-
             FrmVentas.ProductosSeleccionados.Add((
                 idProducto,
                 nombre,
@@ -122,5 +132,9 @@ namespace SistemaGestorPyME
             Close();
         }
 
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
+    }
 }
