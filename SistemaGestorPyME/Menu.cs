@@ -65,5 +65,11 @@ namespace SistemaGestorPyME
             FrmUsuarios usuarios = new FrmUsuarios();
             usuarios.ShowDialog();
         }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedor proveedores = new FrmProveedor();  
+            proveedores.ShowDialog();
+        }
     }
 }

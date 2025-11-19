@@ -46,17 +46,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAlertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlertas.Designer.cs">
+      <DependentUpon>FrmAlertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDatosUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDatosUsuarios.Designer.cs">
       <DependentUpon>FrmDatosUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="FrmHistorial.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorial.Designer.cs">
+      <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInventario.Designer.cs">
+      <DependentUpon>FrmInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuitarInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuitarInventario.Designer.cs">
+      <DependentUpon>FrmQuitarInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -100,10 +121,6 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAtencion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAtencion.Designer.cs" />
     <Compile Include="FrmHistorialAlertas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,11 +174,20 @@
     <Compile Include="Transferencia.Designer.cs">
       <DependentUpon>Transferencia.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAlertas.resx">
+      <DependentUpon>FrmAlertas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDatosUsuarios.resx">
       <DependentUpon>FrmDatosUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmHistorial.resx">
+      <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInventario.resx">
+      <DependentUpon>FrmInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuitarInventario.resx">
+      <DependentUpon>FrmQuitarInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSeleccionProducto.resx">
       <DependentUpon>FrmSeleccionProducto.cs</DependentUpon>
@@ -180,9 +206,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmAtencion.resx">
-      <DependentUpon>FrmAtencion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHistorialAlertas.resx">
       <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>

@@ -23,7 +23,7 @@ namespace SistemaGestorPyME
 
         private void FrmMover_Load(object sender, EventArgs e)
         {
-            mp.MostrarHistorialEntradas(dtgEntrada);
+          
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -60,9 +60,9 @@ namespace SistemaGestorPyME
 
                     mp.RegistrarEntrada(idProducto, cantidad, precioCompra);
 
-                    mp.MostrarHistorialEntradas(dtgEntrada);
 
-                    MessageBox.Show("Producto agregado al historial correctamente.");
+
+                    MessageBox.Show("Producto agregado al inventario correctamente.");
                 }
             }
         }
