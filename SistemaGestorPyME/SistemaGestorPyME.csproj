@@ -210,8 +210,8 @@
     <EmbeddedResource Include="FrmHistorialAlertas.resx">
       <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProveedor.resx">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMover.resx">
       <DependentUpon>FrmMover.cs</DependentUpon>
