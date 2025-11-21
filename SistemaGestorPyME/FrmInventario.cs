@@ -96,5 +96,10 @@ namespace SistemaGestorPyME
             BtnNotificaciones.Enabled = mi.HayAlertasSinLeer();
             zero.Visible = mi.HayAlertasSinLeer();
         }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

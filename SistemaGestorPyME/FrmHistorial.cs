@@ -31,6 +31,8 @@ namespace SistemaGestorPyME
        
             mi.MostrarHistorial(idProducto, Datos, "inventario");
         }
+
+
     }
 }
 

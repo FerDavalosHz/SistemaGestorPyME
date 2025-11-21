@@ -137,5 +137,10 @@ namespace SistemaGestorPyME
             checkBox2.CheckedChanged += checkBox2_CheckedChanged;
             checkBox3.CheckedChanged += checkBox3_CheckedChanged;
         }
+
+        private void BtnSalirPagar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

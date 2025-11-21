@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Manejador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
-using Manejador;
+using Taller_Kike;
 
 namespace SistemaGestorPyME
 {
@@ -107,5 +108,48 @@ namespace SistemaGestorPyME
         {
             fila = e.RowIndex; columna = e.ColumnIndex;
         }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            FrmVentas fs = new FrmVentas();
+            fs.ShowDialog();
+        }
+
+        private void BtnInventario_Click(object sender, EventArgs e)
+        {
+            FrmInventario fi = new FrmInventario();
+            fi.ShowDialog();
+        }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProducto fs = new FrmProducto();
+            fs.ShowDialog();
+        }
+
+        private void BtnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedor proveedores = new FrmProveedor();
+            proveedores.ShowDialog();
+        }
+
+        private void BtnUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios usuarios = new FrmUsuarios();
+            usuarios.ShowDialog();
+        }
+
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+            FrmMenu fm = new FrmMenu();
+            fm.ShowDialog();
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            FrmMenu fm = new FrmMenu();
+            fm.ShowDialog();
+        }
     }
+    
 }

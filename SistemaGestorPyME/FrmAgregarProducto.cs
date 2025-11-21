@@ -178,5 +178,10 @@ namespace SistemaGestorPyME
         {
             Close();
         }
+
+        private void BtnSalirProductos_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

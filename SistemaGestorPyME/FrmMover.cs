@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Manejador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Manejador;
+using Taller_Kike;
 
 namespace SistemaGestorPyME
 {
@@ -111,6 +112,48 @@ namespace SistemaGestorPyME
             CmbProveedor.SelectedIndex = -1;
             LblNombreProducto.Text = "--- Seleccione un producto ---";
             idProductoSeleccionado = 0;
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            FrmVentas fs = new FrmVentas();
+            fs.ShowDialog();
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            FrmInventario fi = new FrmInventario();
+            fi.ShowDialog();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProducto fs = new FrmProducto();
+            fs.ShowDialog();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedor proveedores = new FrmProveedor();
+            proveedores.ShowDialog();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios usuarios = new FrmUsuarios();
+            usuarios.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMenu fm = new FrmMenu();
+            fm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmMenu fm = new FrmMenu();
+            fm.ShowDialog();
         }
     }
 }

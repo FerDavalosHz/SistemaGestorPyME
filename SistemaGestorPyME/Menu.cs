@@ -78,5 +78,6 @@ namespace SistemaGestorPyME
             FrmInventario fi = new FrmInventario();
             fi.ShowDialog();
         }
+
     }
 }
