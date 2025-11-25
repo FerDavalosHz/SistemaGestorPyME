@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInventario));
             this.Datos = new System.Windows.Forms.DataGridView();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
@@ -60,11 +63,35 @@
             this.Datos.AllowUserToDeleteRows = false;
             this.Datos.AllowUserToResizeColumns = false;
             this.Datos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Datos.DefaultCellStyle = dataGridViewCellStyle2;
             this.Datos.Enabled = false;
             this.Datos.Location = new System.Drawing.Point(194, 161);
-            this.Datos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Datos.Margin = new System.Windows.Forms.Padding(4);
             this.Datos.Name = "Datos";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Datos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Datos.RowHeadersVisible = false;
             this.Datos.RowHeadersWidth = 51;
             this.Datos.Size = new System.Drawing.Size(1177, 685);
@@ -75,7 +102,7 @@
             // 
             this.TxtBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtBuscar.Location = new System.Drawing.Point(194, 92);
-            this.TxtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.TxtBuscar.Multiline = true;
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(835, 40);
@@ -89,7 +116,7 @@
             this.BtnEntradas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEntradas.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEntradas.Location = new System.Drawing.Point(1048, 95);
-            this.BtnEntradas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnEntradas.Margin = new System.Windows.Forms.Padding(4);
             this.BtnEntradas.Name = "BtnEntradas";
             this.BtnEntradas.Size = new System.Drawing.Size(171, 37);
             this.BtnEntradas.TabIndex = 2;
@@ -104,7 +131,7 @@
             this.BtnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNotificaciones.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnNotificaciones.Location = new System.Drawing.Point(1233, 95);
-            this.BtnNotificaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnNotificaciones.Margin = new System.Windows.Forms.Padding(4);
             this.BtnNotificaciones.Name = "BtnNotificaciones";
             this.BtnNotificaciones.Size = new System.Drawing.Size(138, 37);
             this.BtnNotificaciones.TabIndex = 4;
@@ -116,7 +143,7 @@
             // 
             this.zero.BackColor = System.Drawing.Color.Red;
             this.zero.Location = new System.Drawing.Point(1359, 86);
-            this.zero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zero.Margin = new System.Windows.Forms.Padding(4);
             this.zero.Name = "zero";
             this.zero.Size = new System.Drawing.Size(17, 16);
             this.zero.TabIndex = 5;
@@ -301,7 +328,7 @@
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.Datos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmInventario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInventario";

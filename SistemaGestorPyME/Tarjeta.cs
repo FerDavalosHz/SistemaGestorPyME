@@ -17,5 +17,9 @@ namespace SistemaGestorPyME
             InitializeComponent();
         }
 
+        private void BtnSalirTerminal_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

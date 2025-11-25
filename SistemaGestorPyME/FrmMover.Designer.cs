@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnInicio = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
@@ -37,6 +39,7 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnSalirEntradaProductos = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblApartado = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -55,7 +58,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.BtnSalirEntradaProductos = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -187,6 +189,19 @@
             this.panel1.Size = new System.Drawing.Size(1260, 64);
             this.panel1.TabIndex = 5;
             // 
+            // BtnSalirEntradaProductos
+            // 
+            this.BtnSalirEntradaProductos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalirEntradaProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
+            this.BtnSalirEntradaProductos.Location = new System.Drawing.Point(1201, 14);
+            this.BtnSalirEntradaProductos.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnSalirEntradaProductos.Name = "BtnSalirEntradaProductos";
+            this.BtnSalirEntradaProductos.Size = new System.Drawing.Size(45, 36);
+            this.BtnSalirEntradaProductos.TabIndex = 23;
+            this.BtnSalirEntradaProductos.Text = "X";
+            this.BtnSalirEntradaProductos.UseVisualStyleBackColor = true;
+            this.BtnSalirEntradaProductos.Click += new System.EventHandler(this.button2_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaGestorPyME.Properties.Resources.icons8_home_50;
@@ -226,7 +241,23 @@
             // dtgProductos
             // 
             this.dtgProductos.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgProductos.Location = new System.Drawing.Point(187, 151);
             this.dtgProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgProductos.Name = "dtgProductos";
@@ -375,19 +406,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 23);
             this.label3.TabIndex = 14;
-            // 
-            // BtnSalirEntradaProductos
-            // 
-            this.BtnSalirEntradaProductos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSalirEntradaProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.BtnSalirEntradaProductos.Location = new System.Drawing.Point(1201, 14);
-            this.BtnSalirEntradaProductos.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnSalirEntradaProductos.Name = "BtnSalirEntradaProductos";
-            this.BtnSalirEntradaProductos.Size = new System.Drawing.Size(45, 36);
-            this.BtnSalirEntradaProductos.TabIndex = 23;
-            this.BtnSalirEntradaProductos.Text = "X";
-            this.BtnSalirEntradaProductos.UseVisualStyleBackColor = true;
-            this.BtnSalirEntradaProductos.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmMover
             // 

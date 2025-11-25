@@ -45,7 +45,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(78, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(724, 140);
+            this.label1.Size = new System.Drawing.Size(580, 112);
             this.label1.TabIndex = 11;
             this.label1.Text = "INSERTE  LA  TARJETA  EN\r\n LA  TERMINAL";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -76,6 +76,7 @@
             this.BtnSalirTerminal.TabIndex = 19;
             this.BtnSalirTerminal.Text = "X";
             this.BtnSalirTerminal.UseVisualStyleBackColor = false;
+            this.BtnSalirTerminal.Click += new System.EventHandler(this.BtnSalirTerminal_Click);
             // 
             // BtnSalir
             // 

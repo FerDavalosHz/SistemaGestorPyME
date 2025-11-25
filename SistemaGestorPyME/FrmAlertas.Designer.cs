@@ -58,11 +58,11 @@
             // 
             this.LsbAlertas.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsbAlertas.FormattingEnabled = true;
-            this.LsbAlertas.ItemHeight = 21;
+            this.LsbAlertas.ItemHeight = 19;
             this.LsbAlertas.Location = new System.Drawing.Point(221, 161);
-            this.LsbAlertas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LsbAlertas.Margin = new System.Windows.Forms.Padding(4);
             this.LsbAlertas.Name = "LsbAlertas";
-            this.LsbAlertas.Size = new System.Drawing.Size(843, 697);
+            this.LsbAlertas.Size = new System.Drawing.Size(843, 688);
             this.LsbAlertas.TabIndex = 0;
             // 
             // BtnLeidas
@@ -72,7 +72,7 @@
             this.BtnLeidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLeidas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLeidas.Location = new System.Drawing.Point(1113, 175);
-            this.BtnLeidas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnLeidas.Margin = new System.Windows.Forms.Padding(4);
             this.BtnLeidas.Name = "BtnLeidas";
             this.BtnLeidas.Size = new System.Drawing.Size(248, 59);
             this.BtnLeidas.TabIndex = 1;
@@ -86,7 +86,7 @@
             this.BtnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAtras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAtras.Location = new System.Drawing.Point(1113, 273);
-            this.BtnAtras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAtras.Name = "BtnAtras";
             this.BtnAtras.Size = new System.Drawing.Size(248, 53);
             this.BtnAtras.TabIndex = 2;
@@ -105,6 +105,7 @@
             this.BtnSalir.TabIndex = 4;
             this.BtnSalir.Text = "X";
             this.BtnSalir.UseVisualStyleBackColor = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // panel1
             // 
@@ -138,7 +139,7 @@
             this.lblApartado.Location = new System.Drawing.Point(104, 10);
             this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApartado.Name = "lblApartado";
-            this.lblApartado.Size = new System.Drawing.Size(199, 44);
+            this.lblApartado.Size = new System.Drawing.Size(160, 36);
             this.lblApartado.TabIndex = 8;
             this.lblApartado.Text = "Inventario";
             // 
@@ -265,7 +266,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(51, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(331, 37);
+            this.label1.Size = new System.Drawing.Size(265, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "HISTORIAL DE ALERTAS";
             // 
@@ -290,7 +291,7 @@
             this.Controls.Add(this.BtnLeidas);
             this.Controls.Add(this.LsbAlertas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAlertas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAlertas";

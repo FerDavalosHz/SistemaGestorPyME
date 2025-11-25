@@ -49,7 +49,7 @@
             this.TxtCantidad.Location = new System.Drawing.Point(57, 152);
             this.TxtCantidad.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.TxtCantidad.Name = "TxtCantidad";
-            this.TxtCantidad.Size = new System.Drawing.Size(443, 36);
+            this.TxtCantidad.Size = new System.Drawing.Size(443, 30);
             this.TxtCantidad.TabIndex = 0;
             // 
             // BtnAceptar
@@ -87,7 +87,7 @@
             this.LblNombreProducto.Location = new System.Drawing.Point(53, 93);
             this.LblNombreProducto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LblNombreProducto.Name = "LblNombreProducto";
-            this.LblNombreProducto.Size = new System.Drawing.Size(113, 31);
+            this.LblNombreProducto.Size = new System.Drawing.Size(90, 23);
             this.LblNombreProducto.TabIndex = 3;
             this.LblNombreProducto.Text = "Nombre";
             // 
@@ -116,6 +116,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -136,7 +137,7 @@
             this.lblApartado.Location = new System.Drawing.Point(71, 11);
             this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApartado.Name = "lblApartado";
-            this.lblApartado.Size = new System.Drawing.Size(219, 31);
+            this.lblApartado.Size = new System.Drawing.Size(171, 23);
             this.lblApartado.TabIndex = 16;
             this.lblApartado.Text = "Quitar inventario";
             // 
@@ -166,7 +167,7 @@
             // 
             // FrmQuitarInventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 330);
             this.Controls.Add(this.panel2);

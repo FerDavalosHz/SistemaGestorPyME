@@ -81,7 +81,7 @@
             this.lblApartado.Location = new System.Drawing.Point(103, 11);
             this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApartado.Name = "lblApartado";
-            this.lblApartado.Size = new System.Drawing.Size(286, 44);
+            this.lblApartado.Size = new System.Drawing.Size(233, 37);
             this.lblApartado.TabIndex = 8;
             this.lblApartado.Text = "Menu Principal";
             // 
@@ -89,7 +89,7 @@
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1201, 13);
+            this.btnCerrar.Location = new System.Drawing.Point(1191, 13);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(45, 36);
@@ -131,7 +131,6 @@
             // btnUsuarios
             // 
             this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.btnUsuarios.Enabled = false;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.Location = new System.Drawing.Point(1, 616);
@@ -146,7 +145,6 @@
             // btnProveedores
             // 
             this.btnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.btnProveedores.Enabled = false;
             this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedores.Location = new System.Drawing.Point(1, 504);
@@ -161,7 +159,6 @@
             // btnProductos
             // 
             this.btnProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.btnProductos.Enabled = false;
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.Location = new System.Drawing.Point(1, 392);
@@ -220,7 +217,7 @@
             this.lblNombre.Location = new System.Drawing.Point(468, 526);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(652, 74);
+            this.lblNombre.Size = new System.Drawing.Size(518, 58);
             this.lblNombre.TabIndex = 7;
             this.lblNombre.Text = "Nombre de la Tienda";
             // 
@@ -243,7 +240,7 @@
             this.LblInfo.Location = new System.Drawing.Point(1404, 1026);
             this.LblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblInfo.Name = "LblInfo";
-            this.LblInfo.Size = new System.Drawing.Size(396, 44);
+            this.LblInfo.Size = new System.Drawing.Size(317, 36);
             this.LblInfo.TabIndex = 8;
             this.LblInfo.Text = "Nombre de la Tienda";
             // 
@@ -251,7 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1410, 900);
+            this.ClientSize = new System.Drawing.Size(1400, 900);
             this.Controls.Add(this.LblInfo);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.pictureBox2);

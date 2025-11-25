@@ -152,8 +152,7 @@ namespace SistemaGestorPyME
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmMenu fm = new FrmMenu();
-            fm.ShowDialog();
+            Close();
         }
     }
 }
