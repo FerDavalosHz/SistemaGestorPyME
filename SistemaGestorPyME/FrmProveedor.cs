@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Taller_Kike;
 
 namespace SistemaGestorPyME
 {
@@ -113,6 +114,46 @@ namespace SistemaGestorPyME
         private void FrmProveedor_Load(object sender, EventArgs e)
         {
             CargarDatos();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios fu = new FrmUsuarios();
+            fu.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProducto fp = new FrmProducto();
+            fp.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            FrmInventario Fi = new FrmInventario();
+            Fi.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            FrmVentas Fv = new FrmVentas();
+            Fv.ShowDialog();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMenu fm = new FrmMenu();
+            fm.ShowDialog();
+            this.Hide();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using Manejador;
+using SistemaGestorPyME;
 
 namespace Taller_Kike
 {
@@ -52,6 +53,53 @@ namespace Taller_Kike
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
               mu.Mostrar($"SELECT * FROM tbl_usuarios WHERE nombre LIKE '%{TxtUsuario.Text}%'", DtgDatos);
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedor Fp = new FrmProveedor();
+            Fp.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProducto frm = new FrmProducto();
+            frm.ShowDialog();
+            this.Hide();    
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            FrmInventario Fi = new FrmInventario();
+            Fi.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            FrmVentas Fv = new FrmVentas();
+            Fv.ShowDialog();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMenu Fm = new FrmMenu();
+            Fm.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios Fu = new FrmUsuarios();
+            Fu.ShowDialog();
+            this.Hide();
         }
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
