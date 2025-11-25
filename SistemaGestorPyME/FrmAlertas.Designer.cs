@@ -49,9 +49,9 @@
             this.LsbAlertas.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LsbAlertas.FormattingEnabled = true;
             this.LsbAlertas.ItemHeight = 19;
-            this.LsbAlertas.Location = new System.Drawing.Point(65, 131);
+            this.LsbAlertas.Location = new System.Drawing.Point(24, 131);
             this.LsbAlertas.Name = "LsbAlertas";
-            this.LsbAlertas.Size = new System.Drawing.Size(712, 555);
+            this.LsbAlertas.Size = new System.Drawing.Size(774, 555);
             this.LsbAlertas.TabIndex = 0;
             // 
             // BtnLeidas
@@ -152,10 +152,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(65, 88);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(24, 88);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(712, 43);
+            this.panel3.Size = new System.Drawing.Size(774, 43);
             this.panel3.TabIndex = 10;
             // 
             // FrmAlertas
