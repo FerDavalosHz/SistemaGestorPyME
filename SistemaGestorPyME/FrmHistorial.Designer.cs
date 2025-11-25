@@ -68,7 +68,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Datos.DefaultCellStyle = dataGridViewCellStyle3;
             this.Datos.EnableHeadersVisualStyles = false;
-            this.Datos.Location = new System.Drawing.Point(71, 126);
+            this.Datos.Location = new System.Drawing.Point(71, 122);
             this.Datos.Name = "Datos";
             this.Datos.RowHeadersVisible = false;
             this.Datos.RowHeadersWidth = 51;
