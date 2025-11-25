@@ -46,7 +46,7 @@
             this.label2.Location = new System.Drawing.Point(82, 87);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 27);
+            this.label2.Size = new System.Drawing.Size(75, 22);
             this.label2.TabIndex = 22;
             this.label2.Text = "Usuario";
             // 
@@ -54,7 +54,7 @@
             // 
             this.TxtUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUsuario.Location = new System.Drawing.Point(201, 87);
-            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.TxtUsuario.Multiline = true;
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(313, 34);
@@ -64,7 +64,7 @@
             // 
             this.TxtClave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtClave.Location = new System.Drawing.Point(201, 156);
-            this.TxtClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtClave.Margin = new System.Windows.Forms.Padding(4);
             this.TxtClave.Multiline = true;
             this.TxtClave.Name = "TxtClave";
             this.TxtClave.Size = new System.Drawing.Size(313, 34);
@@ -77,7 +77,7 @@
             this.label1.Location = new System.Drawing.Point(27, 156);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 27);
+            this.label1.Size = new System.Drawing.Size(126, 22);
             this.label1.TabIndex = 24;
             this.label1.Text = "Constraseña";
             // 
@@ -87,10 +87,10 @@
             this.BtnAceptar.FlatAppearance.BorderSize = 0;
             this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAceptar.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAceptar.Location = new System.Drawing.Point(381, 240);
-            this.BtnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAceptar.Location = new System.Drawing.Point(365, 240);
+            this.BtnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAceptar.Name = "BtnAceptar";
-            this.BtnAceptar.Size = new System.Drawing.Size(133, 47);
+            this.BtnAceptar.Size = new System.Drawing.Size(149, 47);
             this.BtnAceptar.TabIndex = 29;
             this.BtnAceptar.Text = "INGRESAR";
             this.BtnAceptar.UseVisualStyleBackColor = false;
@@ -102,8 +102,8 @@
             this.BtnCancelar.FlatAppearance.BorderSize = 0;
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(243, 240);
-            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnCancelar.Location = new System.Drawing.Point(222, 240);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(100, 47);
             this.BtnCancelar.TabIndex = 30;
@@ -127,7 +127,7 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(177, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 37);
+            this.label3.Size = new System.Drawing.Size(157, 30);
             this.label3.TabIndex = 1;
             this.label3.Text = "BIENVENIDO";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -147,7 +147,7 @@
             this.Controls.Add(this.TxtUsuario);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";

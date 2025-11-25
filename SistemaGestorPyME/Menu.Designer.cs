@@ -64,6 +64,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Enabled = false;
             this.pictureBox1.Image = global::SistemaGestorPyME.Properties.Resources.icons8_home_50;
             this.pictureBox1.Location = new System.Drawing.Point(36, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -75,13 +76,12 @@
             // 
             // lblApartado
             // 
-            this.lblApartado.AutoSize = true;
             this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApartado.ForeColor = System.Drawing.Color.Black;
             this.lblApartado.Location = new System.Drawing.Point(103, 11);
             this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApartado.Name = "lblApartado";
-            this.lblApartado.Size = new System.Drawing.Size(233, 37);
+            this.lblApartado.Size = new System.Drawing.Size(445, 53);
             this.lblApartado.TabIndex = 8;
             this.lblApartado.Text = "Menu Principal";
             // 
@@ -200,6 +200,7 @@
             // 
             // ptbLogo
             // 
+            this.ptbLogo.Enabled = false;
             this.ptbLogo.Image = global::SistemaGestorPyME.Properties.Resources.logo_removebg_preview;
             this.ptbLogo.Location = new System.Drawing.Point(47, 0);
             this.ptbLogo.Margin = new System.Windows.Forms.Padding(4);
@@ -214,7 +215,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.lblNombre.Location = new System.Drawing.Point(468, 526);
+            this.lblNombre.Location = new System.Drawing.Point(524, 526);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(518, 58);
@@ -224,10 +225,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SistemaGestorPyME.Properties.Resources.logo_removebg_preview;
-            this.pictureBox2.Location = new System.Drawing.Point(672, 303);
+            this.pictureBox2.Location = new System.Drawing.Point(664, 303);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(247, 219);
+            this.pictureBox2.Size = new System.Drawing.Size(228, 219);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -246,9 +247,8 @@
             // 
             // FrmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 900);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1410, 900);
             this.Controls.Add(this.LblInfo);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.pictureBox2);
@@ -261,7 +261,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();

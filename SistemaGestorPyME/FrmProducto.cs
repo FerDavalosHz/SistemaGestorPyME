@@ -141,9 +141,8 @@ namespace SistemaGestorPyME
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
-            FrmMenu fm = new FrmMenu();
-            fm.ShowDialog();
-            Close();
+           Close();
+            
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)

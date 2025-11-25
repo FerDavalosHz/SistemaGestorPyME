@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using Manejador;
+using Taller_Kike;
 
 namespace SistemaGestorPyME
 {
@@ -100,6 +101,46 @@ namespace SistemaGestorPyME
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            FrmVentas fv = new FrmVentas();
+            fv.ShowDialog();
+            this.Hide();
+        }
+
+        private void BtnInventario_Click(object sender, EventArgs e)
+        {
+            FrmInventario fi = new FrmInventario();
+            fi.ShowDialog();
+            this.Hide();
+        }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProducto fp = new FrmProducto();
+            fp.ShowDialog();
+            this.Hide();
+        }
+
+        private void BtnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedor fp2 = new FrmProveedor();
+            fp2.ShowDialog();
+            this.Hide();
+        }
+
+        private void BtnUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios fu = new FrmUsuarios();
+            fu.ShowDialog();
+            this.Hide();
         }
     }
 }
