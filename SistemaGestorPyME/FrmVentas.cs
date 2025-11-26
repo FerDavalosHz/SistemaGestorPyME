@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Entidades;
+using Taller_Kike;
 
 namespace SistemaGestorPyME
 {
@@ -98,6 +100,7 @@ namespace SistemaGestorPyME
 
         private void BtnPagar_Click(object sender, EventArgs e)
         {
+
             decimal total = ProductosSeleccionados.Sum(x => x.precio * x.cantidad);
             Pagar p = new Pagar(total, ProductosSeleccionados);
             p.ShowDialog();
@@ -110,6 +113,67 @@ namespace SistemaGestorPyME
                 Estado = 0;
 
             }
+        }
+
+        private void BtnPagar_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.FromArgb(120, 140, 170);
+        }
+
+        private void BtnPagar_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.FromArgb(135, 158, 196);
+        }
+
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnInicio_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnInventario_Click_1(object sender, EventArgs e)
+        {
+            FrmInventario fi = new FrmInventario();
+            fi.ShowDialog();
+        }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+            FrmProducto fp = new FrmProducto();
+            fp.ShowDialog();
+        }
+
+        private void BtnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmCategoria fc = new FrmCategoria();
+            fc.ShowDialog();
+        }
+
+        private void BtnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedor fpr = new FrmProveedor();
+            fpr.ShowDialog();
+        }
+
+        private void BtnUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios fu = new FrmUsuarios();
+            fu.ShowDialog();
+        }
+
+        private void BtnVenta_Click(object sender, EventArgs e)
+        {
+            FrmVentas fv = new FrmVentas();
+            fv.ShowDialog();
         }
     }
 }
