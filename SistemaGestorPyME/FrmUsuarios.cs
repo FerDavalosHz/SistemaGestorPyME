@@ -102,6 +102,13 @@ namespace Taller_Kike
             this.Hide();
         }
 
+        private void BtnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmCategoria fc = new FrmCategoria();
+            fc.ShowDialog();
+            this.Hide();
+        }
+
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
          if (e.RowIndex < 0 || e.ColumnIndex < 0) return;

@@ -47,6 +47,7 @@
             this.lblApartado = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDatos)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
@@ -129,6 +130,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnUsuarios);
             this.panel2.Controls.Add(this.btnProveedores);
@@ -160,7 +162,7 @@
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.Color.Black;
-            this.btnUsuarios.Location = new System.Drawing.Point(-5, 513);
+            this.btnUsuarios.Location = new System.Drawing.Point(-5, 606);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(139, 93);
             this.btnUsuarios.TabIndex = 5;
@@ -174,7 +176,7 @@
             this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedores.ForeColor = System.Drawing.Color.White;
-            this.btnProveedores.Location = new System.Drawing.Point(-5, 422);
+            this.btnProveedores.Location = new System.Drawing.Point(-5, 515);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(139, 93);
             this.btnProveedores.TabIndex = 4;
@@ -284,6 +286,19 @@
             this.label2.TabIndex = 44;
             this.label2.Text = "Proveedor";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(-2, 423);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(136, 93);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Categorias";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,5 +346,6 @@
         private System.Windows.Forms.Label lblApartado;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }
