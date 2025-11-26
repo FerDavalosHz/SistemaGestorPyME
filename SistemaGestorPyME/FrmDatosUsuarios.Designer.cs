@@ -172,7 +172,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmDatosUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Datos usuario";
+            this.Text = "7";
             this.ResumeLayout(false);
             this.PerformLayout();
 
