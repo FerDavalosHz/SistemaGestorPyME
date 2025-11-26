@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Taller_Kike;
 
 namespace SistemaGestorPyME
 {
@@ -80,52 +79,6 @@ namespace SistemaGestorPyME
         private void DtgDatos_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             fila = e.RowIndex; columna = e.ColumnIndex;
-        }
-
-        private void BtnSalir_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void BtnCategorias_Click(object sender, EventArgs e)
-        {
-            FrmCategoria fc = new FrmCategoria();
-            fc.ShowDialog();
-        }
-
-        private void BtnInicio_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void BtnVenta_Click(object sender, EventArgs e)
-        {
-            FrmVentas fv = new FrmVentas();
-            fv.ShowDialog();
-        }
-
-        private void BtnInventario_Click(object sender, EventArgs e)
-        {
-            FrmInventario fi = new FrmInventario();
-            fi.ShowDialog();
-        }
-
-        private void BtnProductos_Click(object sender, EventArgs e)
-        {
-            FrmProducto fp = new FrmProducto();
-            fp.ShowDialog();
-        }
-
-        private void BtnProveedores_Click(object sender, EventArgs e)
-        {
-            FrmProveedor fpr = new FrmProveedor();
-            fpr.ShowDialog();
-        }
-
-        private void BtnUsuarios_Click(object sender, EventArgs e)
-        {
-            FrmUsuarios fu = new FrmUsuarios();
-            fu.ShowDialog();
         }
     }
 }

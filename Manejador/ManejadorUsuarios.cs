@@ -77,8 +77,8 @@ namespace Manejador
             tabla.Columns["id_usuario"].Visible = false;
             tabla.Columns["contrasena"].Visible = false;
 
-            tabla.Columns.Insert(6, Boton("Modificar", Color.Green));
-            tabla.Columns.Insert(7, Boton("Borrar", Color.Red));
+            tabla.Columns.Insert(7, Boton("Modificar", Color.Green));
+            tabla.Columns.Insert(8, Boton("Borrar", Color.Red));
 
             tabla.AutoResizeColumns();
         }
