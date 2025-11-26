@@ -44,13 +44,13 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnCategoria = new System.Windows.Forms.Button();
             this.BtnInicio = new System.Windows.Forms.Button();
             this.BtnUsuarios = new System.Windows.Forms.Button();
             this.BtnProveedores = new System.Windows.Forms.Button();
             this.BtnProductos = new System.Windows.Forms.Button();
             this.BtnInventario = new System.Windows.Forms.Button();
             this.BtnVentas = new System.Windows.Forms.Button();
-            this.BtnCategoria = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Datos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -239,6 +239,20 @@
             this.panel2.Size = new System.Drawing.Size(157, 900);
             this.panel2.TabIndex = 7;
             // 
+            // BtnCategoria
+            // 
+            this.BtnCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCategoria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCategoria.Location = new System.Drawing.Point(1, 505);
+            this.BtnCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCategoria.Name = "BtnCategoria";
+            this.BtnCategoria.Size = new System.Drawing.Size(156, 114);
+            this.BtnCategoria.TabIndex = 7;
+            this.BtnCategoria.Text = "Categorías";
+            this.BtnCategoria.UseVisualStyleBackColor = false;
+            this.BtnCategoria.Click += new System.EventHandler(this.BtnCategoria_Click);
+            // 
             // BtnInicio
             // 
             this.BtnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
@@ -323,24 +337,10 @@
             this.BtnVentas.UseVisualStyleBackColor = false;
             this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
             // 
-            // BtnCategoria
-            // 
-            this.BtnCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.BtnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCategoria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCategoria.Location = new System.Drawing.Point(1, 505);
-            this.BtnCategoria.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnCategoria.Name = "BtnCategoria";
-            this.BtnCategoria.Size = new System.Drawing.Size(156, 114);
-            this.BtnCategoria.TabIndex = 7;
-            this.BtnCategoria.Text = "Categorías";
-            this.BtnCategoria.UseVisualStyleBackColor = false;
-            this.BtnCategoria.Click += new System.EventHandler(this.BtnCategoria_Click);
-            // 
             // FrmInventario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1410, 900);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.zero);
