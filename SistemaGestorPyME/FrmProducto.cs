@@ -149,6 +149,13 @@ namespace SistemaGestorPyME
         {
            Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmCategoria fc = new FrmCategoria();
+            fc.ShowDialog();
+            this.Hide();
+        }
     }
     
 }

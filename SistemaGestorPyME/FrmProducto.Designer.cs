@@ -48,6 +48,7 @@
             this.BtnProductos = new System.Windows.Forms.Button();
             this.BtnInventario = new System.Windows.Forms.Button();
             this.BtnVentas = new System.Windows.Forms.Button();
+            this.BtnCategoría = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDatos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,7 +81,7 @@
             this.DtgDatos.AllowUserToAddRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -193,6 +194,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.panel2.Controls.Add(this.BtnCategoría);
             this.panel2.Controls.Add(this.BtnInicio);
             this.panel2.Controls.Add(this.BtnUsuarios);
             this.panel2.Controls.Add(this.BtnProveedores);
@@ -225,7 +227,7 @@
             this.BtnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnUsuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUsuarios.Location = new System.Drawing.Point(1, 616);
+            this.BtnUsuarios.Location = new System.Drawing.Point(1, 724);
             this.BtnUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.BtnUsuarios.Name = "BtnUsuarios";
             this.BtnUsuarios.Size = new System.Drawing.Size(156, 114);
@@ -239,7 +241,7 @@
             this.BtnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnProveedores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnProveedores.Location = new System.Drawing.Point(1, 504);
+            this.BtnProveedores.Location = new System.Drawing.Point(1, 615);
             this.BtnProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.BtnProveedores.Name = "BtnProveedores";
             this.BtnProveedores.Size = new System.Drawing.Size(156, 114);
@@ -290,6 +292,20 @@
             this.BtnVentas.UseVisualStyleBackColor = false;
             this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
             // 
+            // BtnCategoría
+            // 
+            this.BtnCategoría.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnCategoría.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCategoría.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCategoría.Location = new System.Drawing.Point(1, 505);
+            this.BtnCategoría.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCategoría.Name = "BtnCategoría";
+            this.BtnCategoría.Size = new System.Drawing.Size(156, 114);
+            this.BtnCategoría.TabIndex = 7;
+            this.BtnCategoría.Text = "Categorías";
+            this.BtnCategoría.UseVisualStyleBackColor = false;
+            this.BtnCategoría.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -337,5 +353,6 @@
         private System.Windows.Forms.Button BtnProductos;
         private System.Windows.Forms.Button BtnInventario;
         private System.Windows.Forms.Button BtnVentas;
+        private System.Windows.Forms.Button BtnCategoría;
     }
 }

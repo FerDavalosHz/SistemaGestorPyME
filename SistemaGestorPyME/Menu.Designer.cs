@@ -43,6 +43,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.LblInfo = new System.Windows.Forms.Label();
+            this.BtnCategoria = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -89,7 +90,7 @@
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1191, 13);
+            this.btnCerrar.Location = new System.Drawing.Point(1195, 13);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(45, 36);
@@ -101,6 +102,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.panel2.Controls.Add(this.BtnCategoria);
             this.panel2.Controls.Add(this.BtnInicio);
             this.panel2.Controls.Add(this.btnUsuarios);
             this.panel2.Controls.Add(this.btnProveedores);
@@ -133,7 +135,7 @@
             this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuarios.Location = new System.Drawing.Point(1, 616);
+            this.btnUsuarios.Location = new System.Drawing.Point(1, 731);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(156, 115);
@@ -147,7 +149,7 @@
             this.btnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedores.Location = new System.Drawing.Point(1, 504);
+            this.btnProveedores.Location = new System.Drawing.Point(1, 619);
             this.btnProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(156, 115);
@@ -245,6 +247,20 @@
             this.LblInfo.TabIndex = 8;
             this.LblInfo.Text = "Nombre de la Tienda";
             // 
+            // BtnCategoria
+            // 
+            this.BtnCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCategoria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCategoria.Location = new System.Drawing.Point(1, 506);
+            this.BtnCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCategoria.Name = "BtnCategoria";
+            this.BtnCategoria.Size = new System.Drawing.Size(156, 115);
+            this.BtnCategoria.TabIndex = 7;
+            this.BtnCategoria.Text = "Categorías";
+            this.BtnCategoria.UseVisualStyleBackColor = false;
+            this.BtnCategoria.Click += new System.EventHandler(this.BtnCategoria_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -287,6 +303,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnInicio;
         private System.Windows.Forms.Label LblInfo;
+        private System.Windows.Forms.Button BtnCategoria;
     }
 }
 
