@@ -31,6 +31,11 @@ namespace SistemaGestorPyME
        
             mi.MostrarHistorial(idProducto, Datos, "inventario");
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
 
