@@ -127,12 +127,6 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmHistorialAlertas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmHistorialAlertas.Designer.cs">
-      <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +180,9 @@
     <EmbeddedResource Include="FrmInventario.resx">
       <DependentUpon>FrmInventario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmQuitarInventario.resx">
       <DependentUpon>FrmQuitarInventario.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,9 +203,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmHistorialAlertas.resx">
-      <DependentUpon>FrmHistorialAlertas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMover.resx">
       <DependentUpon>FrmMover.cs</DependentUpon>
@@ -238,6 +232,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Tarjeta.resx">
+      <DependentUpon>Tarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transferencia.resx">
+      <DependentUpon>Transferencia.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -78,5 +78,12 @@ namespace SistemaGestorPyME
             FrmInventario fi = new FrmInventario();
             fi.ShowDialog();
         }
+
+        private void BtnCategoria_Click(object sender, EventArgs e)
+        {
+            FrmCategoria fc = new FrmCategoria();
+            fc.ShowDialog();
+            this.Hide();
+        }
     }
 }
