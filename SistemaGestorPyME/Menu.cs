@@ -20,6 +20,10 @@ namespace SistemaGestorPyME
             InitializeComponent();
         }
 
+        // Variable para saber qué formulario está abierto actualmente dentro del panel
+        private Form formularioActivo = null;
+
+
         public void CargarPermisos() { 
         
 
@@ -34,12 +38,14 @@ namespace SistemaGestorPyME
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-           FrmVentas fs = new FrmVentas();
-            fs.ShowDialog();
+            this.Close();
+            FrmVentas fs = new FrmVentas();
+            fs.Show();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmProducto fs = new FrmProducto();
             fs.ShowDialog();
         }
@@ -63,27 +69,35 @@ namespace SistemaGestorPyME
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmUsuarios usuarios = new FrmUsuarios();
             usuarios.ShowDialog();
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmProveedor proveedores = new FrmProveedor();  
             proveedores.ShowDialog();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmInventario fi = new FrmInventario();
             fi.ShowDialog();
         }
 
         private void BtnCategoria_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmCategoria fc = new FrmCategoria();
             fc.ShowDialog();
-            this.Hide();
+        }
+
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

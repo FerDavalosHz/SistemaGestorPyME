@@ -9,52 +9,57 @@ namespace Manejador
 {
     public class ManejadorVentas
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
-
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
         public void Mostrar(string filtro, DataGridView tabla, string datos)
         {
             string consulta =
-        "SELECT " +
-    "p.id_producto, " +
-    "p.nombre AS NombreProducto, " +
-    "cat.nombre AS Categoria, " +
-    "p.precio_venta_actual, " +
-    "COALESCE(inv.stock_actual, 0) AS cantidad_disponible " +
-    "FROM tbl_productos p " +
-    "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
-    "LEFT JOIN ( " +
-    "    SELECT id_producto, SUM(stock_actual) AS stock_actual " +
-    "    FROM tbl_inventario_general " +
-    "    GROUP BY id_producto " +
-    ") inv ON p.id_producto = inv.id_producto " +
-    "WHERE p.activo = 1 AND " +
-    $"(p.nombre LIKE '%{filtro}%' OR cat.nombre LIKE '%{filtro}%') " +
-    "ORDER BY p.nombre ASC";
-
+                "SELECT " +
+                "p.id_producto, " +
+                "p.nombre AS NombreProducto, " +
+                "cat.nombre AS Categoria, " +
+                "p.precio_venta_actual, " +
+                "COALESCE(inv.stock_actual, 0) AS cantidad_disponible " +
+                "FROM tbl_productos p " +
+                "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
+                "LEFT JOIN ( " +
+                "    SELECT id_producto, SUM(stock_actual) AS stock_actual " +
+                "    FROM tbl_inventario_general " +
+                "    GROUP BY id_producto " +
+                ") inv ON p.id_producto = inv.id_producto " +
+                "WHERE p.activo = 1 AND " +
+                $"(p.nombre LIKE '%{filtro}%' OR cat.nombre LIKE '%{filtro}%') " +
+                "ORDER BY p.nombre ASC";
 
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
-            tabla.Columns["id_producto"].Visible = false;
+
+            // Verificamos si existe la columna antes de ocultarla para evitar errores
+            if (tabla.Columns.Contains("id_producto"))
+            {
+                tabla.Columns["id_producto"].Visible = false;
+            }
+
             tabla.AutoResizeColumns();
             tabla.AutoResizeRows();
         }
 
-        public int CrearVentaCompleta(
- 
-    string metodoPago,
-    List<(int idProducto, string nombre, string categoria,
-         decimal precio, int stock, int cantidad)> ProductosSeleccionados)
+        public int CrearVentaCompleta(string metodoPago,
+         List<(int idProducto, string nombre, string categoria, decimal precio, int stock, int cantidad)> ProductosSeleccionados)
         {
             b.Comando("START TRANSACTION");
 
             try
             {
+                // --- PARCHE ---
+                // Seguimos usando el ID 1 para asegurar que funcione
                 string insertarVenta =
                     $"INSERT INTO tbl_ventas (id_usuario, fecha, total, metodo_pago) " +
-                    $"VALUES ({Sesion.id}, NOW(), 0, '{metodoPago}')";
+                    $"VALUES (1, NOW(), 0, '{metodoPago}')";
+
                 b.Comando(insertarVenta);
 
+                // Recuperar el ID de la venta
                 var tabla = b.Consultar("SELECT LAST_INSERT_ID()", "venta").Tables[0];
                 int idVenta = Convert.ToInt32(tabla.Rows[0][0]);
 
@@ -69,33 +74,38 @@ namespace Manejador
                         "INSERT INTO tbl_detalle_venta " +
                         "(id_venta, id_producto, cantidad, precio_unitario, subtotal) VALUES (" +
                         $"{idVenta}, {p.idProducto}, {p.cantidad}, {p.precio.ToString().Replace(",", ".")}, {subtotal.ToString().Replace(",", ".")})";
+
                     b.Comando(insertarDetalle);
 
-       
-         
-              
+                    // Actualizar Stock
                     string actualizarInventario =
                         $"UPDATE tbl_inventario_general " +
                         $"SET stock_actual = stock_actual - {p.cantidad} " +
                         $"WHERE id_producto = {p.idProducto}";
+
                     b.Comando(actualizarInventario);
                 }
 
-
+                // Actualizar el Total final
                 string actualizarTotal =
                     $"UPDATE tbl_ventas SET total = {totalVenta.ToString().Replace(",", ".")} WHERE id_venta = {idVenta}";
+
                 b.Comando(actualizarTotal);
 
+                // Confirmar la transacción
                 b.Comando("COMMIT");
+
+                // --- MENSAJE DE ÉXITO AGREGADO AQUÍ ---
+                MessageBox.Show("Venta registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return idVenta;
             }
-            catch
+            catch (Exception ex)
             {
                 b.Comando("ROLLBACK");
-                throw;
+                MessageBox.Show("Error al procesar la venta: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
             }
         }
-
     }
 }

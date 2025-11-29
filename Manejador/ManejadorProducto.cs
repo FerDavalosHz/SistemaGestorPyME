@@ -13,7 +13,7 @@ namespace Manejador
 {
     public class ManejadorProducto
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
         public void Guardar(Producto producto)
         {
@@ -21,6 +21,8 @@ namespace Manejador
 
             b.Comando($"insert into tbl_productos(nombre, descripcion, precio_venta_actual, stock_minimo, activo, id_categoria) " +
                       $"values('{producto.Nombre}', '{producto.Descripcion}', {producto.PrecioVentaActual}, {producto.StockMinimo}, {activoValue}, {producto.IdCategoria})");
+
+            MessageBox.Show("Producto registrado con éxito.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void Borrar(Producto producto)
@@ -30,6 +32,9 @@ namespace Manejador
             {
                 b.Comando($"delete from tbl_productos where id_producto={producto.IdProducto}");
             }
+
+            MessageBox.Show("Producto eliminado con éxito.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         public void Modificar(Producto producto)
@@ -44,6 +49,9 @@ namespace Manejador
                       $"activo={activoValue}, " +
                       $"id_categoria={producto.IdCategoria} " +
                       $"where id_producto={producto.IdProducto}");
+
+            MessageBox.Show("Producto modificado con éxito.", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         public void Mostrar(string consulta, DataGridView tabla, string datos)

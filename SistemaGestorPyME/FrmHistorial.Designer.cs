@@ -139,6 +139,7 @@
             this.Controls.Add(this.Datos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmHistorial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHistorial";
             this.Load += new System.EventHandler(this.FrmHistorial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Datos)).EndInit();

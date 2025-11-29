@@ -14,7 +14,7 @@ namespace Manejador
 {
     public class ManejadorLogin
     {
-        Base b = new Base("localhost", "root", "", "gestorpyme");
+        Base b = new Base("localhost", "root", "1234", "gestorpyme");
 
         public bool validar(TextBox usuario, TextBox clave)
         {

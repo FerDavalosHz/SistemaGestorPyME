@@ -12,49 +12,58 @@ namespace Manejador
 {
     public class ManejadorUsuarios
     {
-        Base b = new Base("localhost", "root", "", "gestorpyme");
+        Base b = new Base("localhost", "root", "1234", "gestorpyme");
 
         public void Guardar(Usuario u)
         {
+            int estadoActivo = u.Activo ? 1 : 0;
+
             b.Comando($@"
-        INSERT INTO tbl_usuarios
+        INSERT INTO tbl_usuarios (id_usuario, nombre, usuario, contrasena, activo, rango)
         VALUES (
             NULL,
             '{u.Nombre}',
             '{u.UsuarioNombre}',
             SHA1('{u.Contrasena}'),
-            {u.Activo},
+            {estadoActivo}, 
             '{u.Rango}'
         )");
+
+            MessageBox.Show("Usuario registrado con éxito.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         public void Modificar(Usuario u)
         {
             string sql;
+            int estadoActivo = u.Activo ? 1 : 0;
 
-              if (string.IsNullOrWhiteSpace(u.Contrasena))
+            if (string.IsNullOrWhiteSpace(u.Contrasena))
             {
                 sql = $@"
-            UPDATE tbl_usuarios SET
-                nombre = '{u.Nombre}',
-                usuario = '{u.UsuarioNombre}',
-                activo = {u.Activo},
-                rango = '{u.Rango}'
-            WHERE id_usuario = {u.IdUsuario}";
+        UPDATE tbl_usuarios SET
+            nombre = '{u.Nombre}',
+            usuario = '{u.UsuarioNombre}',
+            activo = {estadoActivo},
+            rango = '{u.Rango}'
+        WHERE id_usuario = {u.IdUsuario}";
             }
             else
             {
-                  sql = $@"
-            UPDATE tbl_usuarios SET
-                nombre = '{u.Nombre}',
-                usuario = '{u.UsuarioNombre}',
-                contrasena = SHA1('{u.Contrasena}'),
-                activo = {u.Activo},
-                rango = '{u.Rango}'
-            WHERE id_usuario = {u.IdUsuario}";
+                sql = $@"
+        UPDATE tbl_usuarios SET
+            nombre = '{u.Nombre}',
+            usuario = '{u.UsuarioNombre}',
+            contrasena = SHA1('{u.Contrasena}'),
+            activo = {estadoActivo},
+            rango = '{u.Rango}'
+        WHERE id_usuario = {u.IdUsuario}";
             }
 
             b.Comando(sql);
+
+            MessageBox.Show("Proveedor modificado con éxito.", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         public void Borrar(Usuario u)
@@ -66,6 +75,9 @@ namespace Manejador
             {
                 b.Comando($"DELETE FROM tbl_usuarios WHERE id_usuario={u.IdUsuario}");
             }
+
+            MessageBox.Show("Usuario eliminado con éxito.", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         public void Mostrar(string consulta, DataGridView tabla)

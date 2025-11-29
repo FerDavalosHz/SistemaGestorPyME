@@ -29,35 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnSalir = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.DtgProductos = new System.Windows.Forms.DataGridView();
             this.BtnAgregarProducto = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnCancelarVenta = new System.Windows.Forms.Button();
             this.pPagarTotal = new System.Windows.Forms.Panel();
             this.LblPagar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnPagar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnSalir = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.BtnCategorias = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnUsuarios = new System.Windows.Forms.Button();
-            this.BtnVenta = new System.Windows.Forms.Button();
-            this.BtnProveedores = new System.Windows.Forms.Button();
-            this.BtnInicio = new System.Windows.Forms.Button();
-            this.BtnProductos = new System.Windows.Forms.Button();
             this.BtnInventario = new System.Windows.Forms.Button();
+            this.BtnProductos = new System.Windows.Forms.Button();
+            this.BtnInicio = new System.Windows.Forms.Button();
+            this.BtnProveedores = new System.Windows.Forms.Button();
+            this.BtnVenta = new System.Windows.Forms.Button();
+            this.BtnUsuarios = new System.Windows.Forms.Button();
+            this.BtnCategorias = new System.Windows.Forms.Button();
+            this.ptbLogo = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
             this.pPagarTotal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,8 +70,20 @@
             this.panel1.Controls.Add(this.BtnCerrar);
             this.panel1.Location = new System.Drawing.Point(99, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1287, 64);
+            this.panel1.Size = new System.Drawing.Size(1311, 64);
             this.panel1.TabIndex = 0;
+            // 
+            // BtnSalir
+            // 
+            this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
+            this.BtnSalir.Location = new System.Drawing.Point(1263, 7);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(45, 41);
+            this.BtnSalir.TabIndex = 11;
+            this.BtnSalir.Text = "X";
+            this.BtnSalir.UseVisualStyleBackColor = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // label6
             // 
@@ -108,28 +120,28 @@
             this.DtgProductos.AllowUserToResizeColumns = false;
             this.DtgProductos.AllowUserToResizeRows = false;
             this.DtgProductos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtgProductos.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DtgProductos.DefaultCellStyle = dataGridViewCellStyle4;
             this.DtgProductos.EnableHeadersVisualStyles = false;
             this.DtgProductos.Location = new System.Drawing.Point(229, 128);
             this.DtgProductos.Name = "DtgProductos";
             this.DtgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgProductos.Size = new System.Drawing.Size(765, 579);
+            this.DtgProductos.Size = new System.Drawing.Size(784, 735);
             this.DtgProductos.TabIndex = 1;
             // 
             // BtnAgregarProducto
@@ -137,7 +149,7 @@
             this.BtnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregarProducto.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnAgregarProducto.Location = new System.Drawing.Point(1088, 173);
+            this.BtnAgregarProducto.Location = new System.Drawing.Point(1085, 176);
             this.BtnAgregarProducto.Name = "BtnAgregarProducto";
             this.BtnAgregarProducto.Size = new System.Drawing.Size(258, 55);
             this.BtnAgregarProducto.TabIndex = 3;
@@ -150,7 +162,7 @@
             this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnCancelar.Location = new System.Drawing.Point(1088, 270);
+            this.BtnCancelar.Location = new System.Drawing.Point(1085, 292);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(258, 51);
             this.BtnCancelar.TabIndex = 4;
@@ -158,38 +170,26 @@
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // BtnCancelarVenta
-            // 
-            this.BtnCancelarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.BtnCancelarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelarVenta.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnCancelarVenta.Location = new System.Drawing.Point(1088, 366);
-            this.BtnCancelarVenta.Name = "BtnCancelarVenta";
-            this.BtnCancelarVenta.Size = new System.Drawing.Size(258, 54);
-            this.BtnCancelarVenta.TabIndex = 5;
-            this.BtnCancelarVenta.Text = "CANCELAR VENTA";
-            this.BtnCancelarVenta.UseVisualStyleBackColor = false;
-            this.BtnCancelarVenta.Click += new System.EventHandler(this.BtnCancelarVenta_Click);
-            // 
             // pPagarTotal
             // 
             this.pPagarTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
             this.pPagarTotal.Controls.Add(this.LblPagar);
             this.pPagarTotal.Controls.Add(this.label1);
-            this.pPagarTotal.Location = new System.Drawing.Point(1058, 524);
+            this.pPagarTotal.Location = new System.Drawing.Point(1066, 577);
             this.pPagarTotal.Name = "pPagarTotal";
             this.pPagarTotal.Size = new System.Drawing.Size(288, 93);
             this.pPagarTotal.TabIndex = 6;
+            this.pPagarTotal.Paint += new System.Windows.Forms.PaintEventHandler(this.pPagarTotal_Paint);
             // 
             // LblPagar
             // 
             this.LblPagar.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.LblPagar.Location = new System.Drawing.Point(51, 48);
+            this.LblPagar.Location = new System.Drawing.Point(50, 48);
             this.LblPagar.Name = "LblPagar";
             this.LblPagar.Size = new System.Drawing.Size(195, 29);
             this.LblPagar.TabIndex = 1;
             this.LblPagar.Text = "00.00";
-            this.LblPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LblPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label1
             // 
@@ -206,7 +206,7 @@
             this.BtnPagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
             this.BtnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPagar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.BtnPagar.Location = new System.Drawing.Point(1058, 642);
+            this.BtnPagar.Location = new System.Drawing.Point(1066, 704);
             this.BtnPagar.Name = "BtnPagar";
             this.BtnPagar.Size = new System.Drawing.Size(288, 67);
             this.BtnPagar.TabIndex = 7;
@@ -221,27 +221,120 @@
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(1244, 646);
+            this.pictureBox1.Location = new System.Drawing.Point(1291, 713);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(101, 59);
+            this.pictureBox1.Size = new System.Drawing.Size(52, 45);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // BtnSalir
+            // BtnInventario
             // 
-            this.BtnSalir.Location = new System.Drawing.Point(1227, 12);
-            this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(38, 31);
-            this.BtnSalir.TabIndex = 11;
-            this.BtnSalir.Text = "X";
-            this.BtnSalir.UseVisualStyleBackColor = true;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            this.BtnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnInventario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnInventario.Location = new System.Drawing.Point(1, 292);
+            this.BtnInventario.Name = "BtnInventario";
+            this.BtnInventario.Size = new System.Drawing.Size(156, 115);
+            this.BtnInventario.TabIndex = 9;
+            this.BtnInventario.Text = "Inventario";
+            this.BtnInventario.UseVisualStyleBackColor = false;
+            this.BtnInventario.Click += new System.EventHandler(this.BtnInventario_Click_1);
+            // 
+            // BtnProductos
+            // 
+            this.BtnProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnProductos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProductos.Location = new System.Drawing.Point(1, 406);
+            this.BtnProductos.Name = "BtnProductos";
+            this.BtnProductos.Size = new System.Drawing.Size(156, 115);
+            this.BtnProductos.TabIndex = 10;
+            this.BtnProductos.Text = "Productos";
+            this.BtnProductos.UseVisualStyleBackColor = false;
+            this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
+            // 
+            // BtnInicio
+            // 
+            this.BtnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnInicio.Location = new System.Drawing.Point(1, 64);
+            this.BtnInicio.Name = "BtnInicio";
+            this.BtnInicio.Size = new System.Drawing.Size(156, 115);
+            this.BtnInicio.TabIndex = 0;
+            this.BtnInicio.Text = "Inicio";
+            this.BtnInicio.UseVisualStyleBackColor = false;
+            this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click_1);
+            // 
+            // BtnProveedores
+            // 
+            this.BtnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnProveedores.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProveedores.Location = new System.Drawing.Point(1, 634);
+            this.BtnProveedores.Name = "BtnProveedores";
+            this.BtnProveedores.Size = new System.Drawing.Size(156, 115);
+            this.BtnProveedores.TabIndex = 11;
+            this.BtnProveedores.Text = "Proveedores";
+            this.BtnProveedores.UseVisualStyleBackColor = false;
+            this.BtnProveedores.Click += new System.EventHandler(this.BtnProveedores_Click);
+            // 
+            // BtnVenta
+            // 
+            this.BtnVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
+            this.BtnVenta.Enabled = false;
+            this.BtnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVenta.Location = new System.Drawing.Point(1, 178);
+            this.BtnVenta.Name = "BtnVenta";
+            this.BtnVenta.Size = new System.Drawing.Size(156, 115);
+            this.BtnVenta.TabIndex = 1;
+            this.BtnVenta.Text = "Ventas";
+            this.BtnVenta.UseVisualStyleBackColor = false;
+            this.BtnVenta.Click += new System.EventHandler(this.BtnVenta_Click);
+            // 
+            // BtnUsuarios
+            // 
+            this.BtnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnUsuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUsuarios.Location = new System.Drawing.Point(1, 748);
+            this.BtnUsuarios.Name = "BtnUsuarios";
+            this.BtnUsuarios.Size = new System.Drawing.Size(156, 115);
+            this.BtnUsuarios.TabIndex = 12;
+            this.BtnUsuarios.Text = "Usuarios";
+            this.BtnUsuarios.UseVisualStyleBackColor = false;
+            this.BtnUsuarios.Click += new System.EventHandler(this.BtnUsuarios_Click);
+            // 
+            // BtnCategorias
+            // 
+            this.BtnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnCategorias.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCategorias.Location = new System.Drawing.Point(1, 520);
+            this.BtnCategorias.Name = "BtnCategorias";
+            this.BtnCategorias.Size = new System.Drawing.Size(156, 115);
+            this.BtnCategorias.TabIndex = 14;
+            this.BtnCategorias.Text = "Categorias";
+            this.BtnCategorias.UseVisualStyleBackColor = true;
+            this.BtnCategorias.Click += new System.EventHandler(this.BtnCategorias_Click);
+            // 
+            // ptbLogo
+            // 
+            this.ptbLogo.Enabled = false;
+            this.ptbLogo.Image = global::SistemaGestorPyME.Properties.Resources.logo_removebg_preview;
+            this.ptbLogo.Location = new System.Drawing.Point(47, 0);
+            this.ptbLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.ptbLogo.Name = "ptbLogo";
+            this.ptbLogo.Size = new System.Drawing.Size(64, 64);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbLogo.TabIndex = 15;
+            this.ptbLogo.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.panel2.Controls.Add(this.ptbLogo);
             this.panel2.Controls.Add(this.BtnCategorias);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.BtnUsuarios);
             this.panel2.Controls.Add(this.BtnVenta);
             this.panel2.Controls.Add(this.BtnProveedores);
@@ -250,131 +343,32 @@
             this.panel2.Controls.Add(this.BtnInventario);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(157, 788);
+            this.panel2.Size = new System.Drawing.Size(157, 901);
             this.panel2.TabIndex = 40;
-            // 
-            // BtnCategorias
-            // 
-            this.BtnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnCategorias.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnCategorias.Location = new System.Drawing.Point(0, 455);
-            this.BtnCategorias.Name = "BtnCategorias";
-            this.BtnCategorias.Size = new System.Drawing.Size(156, 100);
-            this.BtnCategorias.TabIndex = 14;
-            this.BtnCategorias.Text = "Categorias";
-            this.BtnCategorias.UseVisualStyleBackColor = true;
-            this.BtnCategorias.Click += new System.EventHandler(this.BtnCategorias_Click);
-            // 
-            // label3
-            // 
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label3.Location = new System.Drawing.Point(50, 2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 60);
-            this.label3.TabIndex = 13;
-            // 
-            // BtnUsuarios
-            // 
-            this.BtnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.BtnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnUsuarios.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnUsuarios.Location = new System.Drawing.Point(0, 652);
-            this.BtnUsuarios.Name = "BtnUsuarios";
-            this.BtnUsuarios.Size = new System.Drawing.Size(156, 100);
-            this.BtnUsuarios.TabIndex = 12;
-            this.BtnUsuarios.Text = "Usuarios";
-            this.BtnUsuarios.UseVisualStyleBackColor = false;
-            this.BtnUsuarios.Click += new System.EventHandler(this.BtnUsuarios_Click);
-            // 
-            // BtnVenta
-            // 
-            this.BtnVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.BtnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVenta.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnVenta.Location = new System.Drawing.Point(0, 162);
-            this.BtnVenta.Name = "BtnVenta";
-            this.BtnVenta.Size = new System.Drawing.Size(156, 100);
-            this.BtnVenta.TabIndex = 1;
-            this.BtnVenta.Text = "Venta";
-            this.BtnVenta.UseVisualStyleBackColor = false;
-            this.BtnVenta.Click += new System.EventHandler(this.BtnVenta_Click);
-            // 
-            // BtnProveedores
-            // 
-            this.BtnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.BtnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnProveedores.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnProveedores.Location = new System.Drawing.Point(0, 553);
-            this.BtnProveedores.Name = "BtnProveedores";
-            this.BtnProveedores.Size = new System.Drawing.Size(156, 100);
-            this.BtnProveedores.TabIndex = 11;
-            this.BtnProveedores.Text = "Proveedores";
-            this.BtnProveedores.UseVisualStyleBackColor = false;
-            this.BtnProveedores.Click += new System.EventHandler(this.BtnProveedores_Click);
-            // 
-            // BtnInicio
-            // 
-            this.BtnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.BtnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnInicio.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnInicio.Location = new System.Drawing.Point(0, 63);
-            this.BtnInicio.Name = "BtnInicio";
-            this.BtnInicio.Size = new System.Drawing.Size(156, 100);
-            this.BtnInicio.TabIndex = 0;
-            this.BtnInicio.Text = "Inicio";
-            this.BtnInicio.UseVisualStyleBackColor = false;
-            this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click_1);
-            // 
-            // BtnProductos
-            // 
-            this.BtnProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.BtnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnProductos.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnProductos.Location = new System.Drawing.Point(0, 357);
-            this.BtnProductos.Name = "BtnProductos";
-            this.BtnProductos.Size = new System.Drawing.Size(156, 100);
-            this.BtnProductos.TabIndex = 10;
-            this.BtnProductos.Text = "Productos";
-            this.BtnProductos.UseVisualStyleBackColor = false;
-            this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
-            // 
-            // BtnInventario
-            // 
-            this.BtnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.BtnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnInventario.Font = new System.Drawing.Font("Century Gothic", 12.75F);
-            this.BtnInventario.Location = new System.Drawing.Point(0, 259);
-            this.BtnInventario.Name = "BtnInventario";
-            this.BtnInventario.Size = new System.Drawing.Size(156, 100);
-            this.BtnInventario.TabIndex = 9;
-            this.BtnInventario.Text = "Inventario";
-            this.BtnInventario.UseVisualStyleBackColor = false;
-            this.BtnInventario.Click += new System.EventHandler(this.BtnInventario_Click_1);
             // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1410, 900);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnPagar);
             this.Controls.Add(this.pPagarTotal);
-            this.Controls.Add(this.BtnCancelarVenta);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnAgregarProducto);
             this.Controls.Add(this.DtgProductos);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).EndInit();
             this.pPagarTotal.ResumeLayout(false);
             this.pPagarTotal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -387,7 +381,6 @@
         private System.Windows.Forms.DataGridView DtgProductos;
         private System.Windows.Forms.Button BtnAgregarProducto;
         private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Button BtnCancelarVenta;
         private System.Windows.Forms.Panel pPagarTotal;
         private System.Windows.Forms.Label LblPagar;
         private System.Windows.Forms.Label label1;
@@ -396,14 +389,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnSalir;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button BtnCategorias;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button BtnUsuarios;
-        private System.Windows.Forms.Button BtnVenta;
-        private System.Windows.Forms.Button BtnProveedores;
-        private System.Windows.Forms.Button BtnInicio;
-        private System.Windows.Forms.Button BtnProductos;
         private System.Windows.Forms.Button BtnInventario;
+        private System.Windows.Forms.Button BtnProductos;
+        private System.Windows.Forms.Button BtnInicio;
+        private System.Windows.Forms.Button BtnProveedores;
+        private System.Windows.Forms.Button BtnVenta;
+        private System.Windows.Forms.Button BtnUsuarios;
+        private System.Windows.Forms.Button BtnCategorias;
+        private System.Windows.Forms.PictureBox ptbLogo;
+        private System.Windows.Forms.Panel panel2;
     }
 }

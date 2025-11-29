@@ -13,12 +13,15 @@ namespace Manejador
 {
     public class ManejadorCategoria
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
         public void Guardar(Categoria categoria)
         {
             b.Comando($"insert into tbl_categorias(nombre, descripcion) " +
                       $"values('{categoria.Nombre}', '{categoria.Descripcion}')");
+
+            MessageBox.Show("Categoria registrado con éxito.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         public void Borrar(Categoria categoria)
@@ -28,6 +31,9 @@ namespace Manejador
             {
                 b.Comando($"delete from tbl_categorias where id_categoria={categoria.IdCategoria}");
             }
+
+            MessageBox.Show("Categoria eliminada con éxito.", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         public void Modificar(Categoria categoria)
@@ -36,6 +42,9 @@ namespace Manejador
                       $"nombre='{categoria.Nombre}', " +
                       $"descripcion='{categoria.Descripcion}' " +
                       $"where id_categoria={categoria.IdCategoria}");
+
+            MessageBox.Show("Categoria modificada con éxito.", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
 

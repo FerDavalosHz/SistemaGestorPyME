@@ -100,54 +100,54 @@ namespace SistemaGestorPyME
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
+            FrmMenu fm = new FrmMenu();
+            fm.ShowDialog();
         }
 
         private void BtnVentas_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmVentas fv = new FrmVentas();
             fv.ShowDialog();
-            this.Hide();
         }
 
         private void BtnInventario_Click(object sender, EventArgs e)
         {
-            FrmInventario fi = new FrmInventario();
-            fi.ShowDialog();
-            this.Hide();
+
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmProducto fp = new FrmProducto();
             fp.ShowDialog();
-            this.Hide();
         }
 
         private void BtnProveedores_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmProveedor fp2 = new FrmProveedor();
             fp2.ShowDialog();
-            this.Hide();
         }
 
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmUsuarios fu = new FrmUsuarios();
             fu.ShowDialog();
-            this.Hide();
         }
 
         private void BtnCategoria_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmCategoria fc = new FrmCategoria();
             fc.ShowDialog();
-            this.Hide();
         }
     }
 }

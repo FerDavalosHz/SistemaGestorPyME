@@ -167,10 +167,10 @@
             // 
             this.BtnSalir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.BtnSalir.Location = new System.Drawing.Point(1214, 15);
+            this.BtnSalir.Location = new System.Drawing.Point(1211, 4);
             this.BtnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(31, 28);
+            this.BtnSalir.Size = new System.Drawing.Size(45, 41);
             this.BtnSalir.TabIndex = 4;
             this.BtnSalir.Text = "X";
             this.BtnSalir.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@
             // 
             this.lblApartado.AutoSize = true;
             this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApartado.ForeColor = System.Drawing.Color.Black;
+            this.lblApartado.ForeColor = System.Drawing.Color.White;
             this.lblApartado.Location = new System.Drawing.Point(104, 10);
             this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApartado.Name = "lblApartado";
@@ -214,7 +214,7 @@
             // ptbLogo
             // 
             this.ptbLogo.Image = global::SistemaGestorPyME.Properties.Resources.logo_removebg_preview;
-            this.ptbLogo.Location = new System.Drawing.Point(35, -2);
+            this.ptbLogo.Location = new System.Drawing.Point(47, 0);
             this.ptbLogo.Margin = new System.Windows.Forms.Padding(4);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(64, 64);
@@ -233,18 +233,18 @@
             this.panel2.Controls.Add(this.BtnInventario);
             this.panel2.Controls.Add(this.BtnVentas);
             this.panel2.Controls.Add(this.ptbLogo);
-            this.panel2.Location = new System.Drawing.Point(-3, 1);
+            this.panel2.Location = new System.Drawing.Point(-3, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(157, 900);
+            this.panel2.Size = new System.Drawing.Size(157, 901);
             this.panel2.TabIndex = 7;
             // 
             // BtnCategoria
             // 
             this.BtnCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCategoria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCategoria.Location = new System.Drawing.Point(1, 505);
+            this.BtnCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCategoria.Location = new System.Drawing.Point(1, 515);
             this.BtnCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCategoria.Name = "BtnCategoria";
             this.BtnCategoria.Size = new System.Drawing.Size(156, 114);
@@ -272,7 +272,7 @@
             this.BtnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnUsuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUsuarios.Location = new System.Drawing.Point(1, 730);
+            this.BtnUsuarios.Location = new System.Drawing.Point(1, 741);
             this.BtnUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.BtnUsuarios.Name = "BtnUsuarios";
             this.BtnUsuarios.Size = new System.Drawing.Size(156, 114);
@@ -285,8 +285,8 @@
             // 
             this.BtnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnProveedores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnProveedores.Location = new System.Drawing.Point(1, 618);
+            this.BtnProveedores.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProveedores.Location = new System.Drawing.Point(1, 628);
             this.BtnProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.BtnProveedores.Name = "BtnProveedores";
             this.BtnProveedores.Size = new System.Drawing.Size(156, 114);
@@ -300,7 +300,7 @@
             this.BtnProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnProductos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnProductos.Location = new System.Drawing.Point(1, 392);
+            this.BtnProductos.Location = new System.Drawing.Point(1, 402);
             this.BtnProductos.Margin = new System.Windows.Forms.Padding(4);
             this.BtnProductos.Name = "BtnProductos";
             this.BtnProductos.Size = new System.Drawing.Size(156, 114);
@@ -311,10 +311,11 @@
             // 
             // BtnInventario
             // 
-            this.BtnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
+            this.BtnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
+            this.BtnInventario.Enabled = false;
             this.BtnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnInventario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnInventario.Location = new System.Drawing.Point(1, 281);
+            this.BtnInventario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnInventario.Location = new System.Drawing.Point(1, 289);
             this.BtnInventario.Margin = new System.Windows.Forms.Padding(4);
             this.BtnInventario.Name = "BtnInventario";
             this.BtnInventario.Size = new System.Drawing.Size(156, 114);
@@ -328,7 +329,7 @@
             this.BtnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnVentas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVentas.Location = new System.Drawing.Point(1, 171);
+            this.BtnVentas.Location = new System.Drawing.Point(1, 176);
             this.BtnVentas.Margin = new System.Windows.Forms.Padding(4);
             this.BtnVentas.Name = "BtnVentas";
             this.BtnVentas.Size = new System.Drawing.Size(156, 114);
@@ -340,7 +341,7 @@
             // FrmInventario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1410, 900);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.zero);

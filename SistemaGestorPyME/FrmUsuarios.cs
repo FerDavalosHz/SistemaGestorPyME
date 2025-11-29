@@ -62,51 +62,49 @@ namespace Taller_Kike
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmProveedor Fp = new FrmProveedor();
             Fp.ShowDialog();
-            this.Hide();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmProducto frm = new FrmProducto();
             frm.ShowDialog();
-            this.Hide();    
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmInventario Fi = new FrmInventario();
             Fi.ShowDialog();
-            this.Hide();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmVentas Fv = new FrmVentas();
             Fv.ShowDialog();
-            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmMenu Fm = new FrmMenu();
             Fm.ShowDialog();
-            this.Hide();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            FrmUsuarios Fu = new FrmUsuarios();
-            Fu.ShowDialog();
-            this.Hide();
+
         }
 
         private void BtnCategorias_Click(object sender, EventArgs e)
         {
+            this.Close();
             FrmCategoria fc = new FrmCategoria();
             fc.ShowDialog();
-            this.Hide();
         }
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
