@@ -33,25 +33,24 @@ namespace SistemaGestorPyME
 
         private void CargarDatos()
         {
-            
             string consulta = "SELECT id_proveedor, nombre, telefono, correo, direccion, activo " +
                               "FROM tbl_proveedores " +
-                              $"WHERE nombre LIKE '%{TxtBuscar.Text.Trim()}%'"; 
+                              $"WHERE activo = 1 AND nombre LIKE '%{TxtBuscar.Text.Trim()}%'";
 
-            mp.Mostrar(consulta, DtgDatos, "tbl_proveedores"); 
+            mp.Mostrar(consulta, DtgDatos, "tbl_proveedores");
         }
 
-   
+
+
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            // Reiniciar el proveedor estático para un nuevo registro
+       
             proveedor = new Proveedor(0, "", "", "", "", "activo");
 
-            // Abre el formulario de agregar/modificar
+
             FrmAgregarProveedor iu = new FrmAgregarProveedor(2); // Asume que existe FrmAgregarProveedor
             iu.ShowDialog();
 
-            // Recargar datos al cerrar el formulario de agregar/modificar
             CargarDatos();
         }
 
@@ -125,42 +124,41 @@ namespace SistemaGestorPyME
         {
             this.Close();
             FrmUsuarios fu = new FrmUsuarios();
-            fu.ShowDialog();
+            fu.Show();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmProducto fp = new FrmProducto();
-            fp.ShowDialog();
+            fp.Show();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmInventario Fi = new FrmInventario();
-            Fi.ShowDialog();
+            Fi.Show();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmVentas Fv = new FrmVentas();
-            Fv.ShowDialog();
+            Fv.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmMenu fm = new FrmMenu();
-            fm.ShowDialog();
+        
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmCategoria fc = new FrmCategoria();
-            fc.ShowDialog();
+            fc.Show();
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)

@@ -95,8 +95,7 @@ namespace SistemaGestorPyME
         private void BtnInicio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmMenu fm = new FrmMenu();
-            fm.ShowDialog();
+           
         }
 
         private void BtnVenta_Click(object sender, EventArgs e)

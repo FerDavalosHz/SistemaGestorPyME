@@ -20,9 +20,9 @@ namespace SistemaGestorPyME
             InitializeComponent();
         }
 
-        // Variable para saber qué formulario está abierto actualmente dentro del panel
         private Form formularioActivo = null;
 
+   
 
         public void CargarPermisos() { 
         
@@ -38,16 +38,16 @@ namespace SistemaGestorPyME
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            this.Close();
             FrmVentas fs = new FrmVentas();
             fs.Show();
+            fs.Focus();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            this.Close();
             FrmProducto fs = new FrmProducto();
-            fs.ShowDialog();
+            fs.Show();
+            fs.Focus();
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -69,30 +69,34 @@ namespace SistemaGestorPyME
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            this.Close();
+      
             FrmUsuarios usuarios = new FrmUsuarios();
-            usuarios.ShowDialog();
+            usuarios.Show();
+            usuarios.Focus();
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
             FrmProveedor proveedores = new FrmProveedor();  
-            proveedores.ShowDialog();
+            proveedores.Show();
+            proveedores.Focus();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             FrmInventario fi = new FrmInventario();
-            fi.ShowDialog();
+            fi.Show();
+            fi.Focus();
         }
 
         private void BtnCategoria_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
             FrmCategoria fc = new FrmCategoria();
-            fc.ShowDialog();
+            fc.Show();
+            fc.Focus();
         }
 
         private void BtnInicio_Click(object sender, EventArgs e)

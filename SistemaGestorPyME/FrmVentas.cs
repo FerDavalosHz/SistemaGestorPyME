@@ -127,7 +127,9 @@ namespace SistemaGestorPyME
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
+         
+           
         }
         
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -138,43 +140,42 @@ namespace SistemaGestorPyME
         private void BtnInicio_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            FrmMenu fm = new FrmMenu();
-            fm.ShowDialog();
+          
         }
 
         private void BtnInventario_Click_1(object sender, EventArgs e)
         {
             this.Close();
             FrmInventario fi = new FrmInventario();
-            fi.ShowDialog();
+            fi.Show();
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmProducto fp = new FrmProducto();
-            fp.ShowDialog();
+            fp.Show();
         }
 
         private void BtnCategorias_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmCategoria fc = new FrmCategoria();
-            fc.ShowDialog();
+            fc.Show();
         }
 
         private void BtnProveedores_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmProveedor fpr = new FrmProveedor();
-            fpr.ShowDialog();
+            fpr.Show();
         }
 
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmUsuarios fu = new FrmUsuarios();
-            fu.ShowDialog();
+            fu.Show();
         }
 
         private void BtnVenta_Click(object sender, EventArgs e)
@@ -186,5 +187,7 @@ namespace SistemaGestorPyME
         {
 
         }
+
+   
     }
 }

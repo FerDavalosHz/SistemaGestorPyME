@@ -16,6 +16,7 @@ namespace Taller_Kike
     public partial class FrmUsuarios : Form
     {
         ManejadorUsuarios mu;
+        ManejadorExcel ME;
 
           public static Usuario usuario = new Usuario(0, "", "", "", false, "");
 
@@ -25,6 +26,7 @@ namespace Taller_Kike
         {
             InitializeComponent();
             mu = new ManejadorUsuarios();
+            ME = new ManejadorExcel();
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -52,7 +54,10 @@ namespace Taller_Kike
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-              mu.Mostrar($"SELECT * FROM tbl_usuarios WHERE nombre LIKE '%{TxtUsuario.Text}%'", DtgDatos);
+            mu.Mostrar(
+                  $"SELECT * FROM tbl_usuarios WHERE activo = 1 AND nombre LIKE '%{TxtUsuario.Text}%'",
+                  DtgDatos
+              );
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -64,35 +69,34 @@ namespace Taller_Kike
         {
             this.Close();
             FrmProveedor Fp = new FrmProveedor();
-            Fp.ShowDialog();
+            Fp.Show();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmProducto frm = new FrmProducto();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmInventario Fi = new FrmInventario();
-            Fi.ShowDialog();
+            Fi.Show();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmVentas Fv = new FrmVentas();
-            Fv.ShowDialog();
+            Fv.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmMenu Fm = new FrmMenu();
-            Fm.ShowDialog();
+         
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
@@ -104,7 +108,12 @@ namespace Taller_Kike
         {
             this.Close();
             FrmCategoria fc = new FrmCategoria();
-            fc.ShowDialog();
+            fc.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ME.ExportarReporteVentasACsv();
         }
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)

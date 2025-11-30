@@ -273,5 +273,8 @@
   <ItemGroup>
     <None Include="Resources\logo_proveedor.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ms-excel-50 %283%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

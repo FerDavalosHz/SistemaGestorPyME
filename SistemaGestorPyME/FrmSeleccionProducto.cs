@@ -19,6 +19,7 @@ namespace SistemaGestorPyME
         public FrmSeleccionProducto()
         {
             InitializeComponent();
+   
             this.Size = new Size(1100, 900);
             Mv = new ManejadorVentas();
 
@@ -44,6 +45,8 @@ namespace SistemaGestorPyME
 
         private void FrmSeleccionProducto_Load(object sender, EventArgs e)
         {
+            TxtCantidad.KeyDown += TxtCantidad_KeyDown;
+
             Mv.Mostrar(TxtBuscar.Text, DtgDatos, "tbl_lotes");
             DtgDatos.ClearSelection();
         }
@@ -135,6 +138,17 @@ namespace SistemaGestorPyME
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void BtnAgregar_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void TxtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            TxtCantidad.KeyDown += TxtCantidad_KeyDown;
+
         }
     }
 }

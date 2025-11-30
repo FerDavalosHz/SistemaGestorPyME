@@ -110,7 +110,7 @@
             this.pnlContenedor.Controls.Add(this.btnInventario);
             this.pnlContenedor.Controls.Add(this.btnVentas);
             this.pnlContenedor.Controls.Add(this.ptbLogo);
-            this.pnlContenedor.Location = new System.Drawing.Point(-5, 0);
+            this.pnlContenedor.Location = new System.Drawing.Point(-3, 0);
             this.pnlContenedor.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContenedor.Name = "pnlContenedor";
             this.pnlContenedor.Size = new System.Drawing.Size(157, 900);

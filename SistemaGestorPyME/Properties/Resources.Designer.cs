@@ -83,6 +83,16 @@ namespace SistemaGestorPyME.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_ms_excel_50__3_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-ms-excel-50 (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_proveedor {
             get {
                 object obj = ResourceManager.GetObject("logo_proveedor", resourceCulture);

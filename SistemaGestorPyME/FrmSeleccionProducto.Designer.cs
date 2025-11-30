@@ -143,6 +143,7 @@
             this.TxtCantidad.Name = "TxtCantidad";
             this.TxtCantidad.Size = new System.Drawing.Size(134, 24);
             this.TxtCantidad.TabIndex = 2;
+            this.TxtCantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCantidad_KeyDown);
             // 
             // BtnAgregar
             // 
@@ -154,6 +155,7 @@
             this.BtnAgregar.Text = "+";
             this.BtnAgregar.UseVisualStyleBackColor = true;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
+            this.BtnAgregar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnAgregar_KeyDown);
             // 
             // panel3
             // 

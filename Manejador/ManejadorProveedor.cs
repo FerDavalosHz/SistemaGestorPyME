@@ -9,12 +9,11 @@ namespace SistemaGestorPyme
 {
     public class ManejadorProveedor
     {
-        Base b = new Base("localhost", "root", "1234", "GestorPyme");
+        Base b = new Base("localhost", "root", "", "GestorPyme");
 
         public void Guardar(Proveedor proveedor)
         {
-            // CORRECCIÓN: Comparamos el texto. 
-            // Si dice "Activo", guardamos un 1. Si dice cualquier otra cosa, guardamos un 0.
+        
             int estado = (proveedor.Activo == "Activo") ? 1 : 0;
 
             b.Comando($"insert into tbl_proveedores(nombre, telefono, correo, direccion, activo) " +
@@ -30,7 +29,7 @@ namespace SistemaGestorPyme
 
             if (rs == DialogResult.Yes)
             {
-                // Aquí mandamos directo el 0 porque es una baja
+            
                 b.Comando($"update tbl_proveedores set activo = 0 where id_proveedor={proveedor.IdProveedor}");
 
                 MessageBox.Show("Proveedor dado de baja con éxito (marcado como inactivo).", "Baja Lógica", MessageBoxButtons.OK, MessageBoxIcon.Information);

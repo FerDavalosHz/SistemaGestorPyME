@@ -54,7 +54,7 @@ namespace SistemaGestorPyME
                 "p.id_categoria " +
             "FROM tbl_productos p " +
             "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
-            $"WHERE p.nombre LIKE '%{TxtBuscar.Text}%'";
+            $"WHERE p.activo = 1 AND p.nombre LIKE '%{TxtBuscar.Text}%'";
 
             mp.Mostrar(consulta, DtgDatos, "tbl_productos");
         }
@@ -113,14 +113,14 @@ namespace SistemaGestorPyME
         {
             this.Close();
             FrmVentas fs = new FrmVentas();
-            fs.ShowDialog();
+            fs.Show();
         }
 
         private void BtnInventario_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmInventario fi = new FrmInventario();
-            fi.ShowDialog();
+            fi.Show();
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
@@ -132,21 +132,20 @@ namespace SistemaGestorPyME
         {
             this.Close();
             FrmProveedor proveedores = new FrmProveedor();
-            proveedores.ShowDialog();
+            proveedores.Show();
         }
 
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmUsuarios usuarios = new FrmUsuarios();
-            usuarios.ShowDialog();
+            usuarios.Show();
         }
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmMenu fm = new FrmMenu();
-            fm.ShowDialog();
+         
 
         }
 
@@ -159,7 +158,7 @@ namespace SistemaGestorPyME
         {
             this.Close();
             FrmCategoria fc = new FrmCategoria();
-            fc.ShowDialog();
+            fc.Show();
         }
     }
     

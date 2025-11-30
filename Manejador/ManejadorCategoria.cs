@@ -13,7 +13,7 @@ namespace Manejador
 {
     public class ManejadorCategoria
     {
-        Base b = new Base("localhost", "root", "1234", "GestorPyme");
+        Base b = new Base("localhost", "root", "", "GestorPyme");
 
         public void Guardar(Categoria categoria)
         {
@@ -26,14 +26,24 @@ namespace Manejador
 
         public void Borrar(Categoria categoria)
         {
-            var rs = MessageBox.Show($"Estas seguro de eliminar {categoria.Nombre}", "!Atencion¡", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var rs = MessageBox.Show(
+                $"¿Estás seguro de eliminar la categoría {categoria.Nombre}? Esto dejará los productos sin categoría.",
+                "¡Atención!",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
             if (rs == DialogResult.Yes)
             {
-                b.Comando($"delete from tbl_categorias where id_categoria={categoria.IdCategoria}");
+                // Primero dejar productos sin categoría
+                b.Comando($"UPDATE tbl_productos SET id_categoria = NULL WHERE id_categoria = {categoria.IdCategoria}");
+
+                // Luego borrar la categoría
+                b.Comando($"DELETE FROM tbl_categorias WHERE id_categoria = {categoria.IdCategoria}");
+
+                MessageBox.Show("Categoría eliminada los productos relacionados quedaron sin categoría.",
+                                "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show("Categoria eliminada con éxito.", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         public void Modificar(Categoria categoria)

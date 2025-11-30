@@ -12,7 +12,7 @@ namespace Manejador
 {
     public class ManejadorUsuarios
     {
-        Base b = new Base("localhost", "root", "1234", "gestorpyme");
+        Base b = new Base("localhost", "root", "", "gestorpyme");
 
         public void Guardar(Usuario u)
         {
@@ -73,12 +73,14 @@ namespace Manejador
 
             if (rs == DialogResult.Yes)
             {
-                b.Comando($"DELETE FROM tbl_usuarios WHERE id_usuario={u.IdUsuario}");
+                // En vez de borrar, marcamos como inactivo
+                b.Comando($"UPDATE tbl_usuarios SET activo = 0 WHERE id_usuario = {u.IdUsuario}");
+
+                MessageBox.Show("Usuario marcado como inactivo con éxito.",
+                    "Inactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show("Usuario eliminado con éxito.", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
+
 
         public void Mostrar(string consulta, DataGridView tabla)
         {

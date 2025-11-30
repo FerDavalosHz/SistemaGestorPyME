@@ -13,7 +13,7 @@ namespace Manejador
     public class ManejadorInventario
     {
 
-        Base b = new Base("localhost", "root", "1234", "GestorPyme");
+        Base b = new Base("localhost", "root", "", "GestorPyme");
 
 
 
@@ -51,12 +51,12 @@ namespace Manejador
                 "p.id_producto, " +
                 "p.nombre AS nombre_producto, " +
                 "c.nombre AS categoria, " +
-                "COALESCE(ig.stock_actual, 0) AS stock_actual, " +
+                "ig.stock_actual, " +
                 "p.stock_minimo, " +
                 "he.fecha_registro AS ultima_entrada " +
                 "FROM tbl_productos p " +
                 "INNER JOIN tbl_categorias c ON p.id_categoria = c.id_categoria " +
-                "LEFT JOIN tbl_inventario_general ig ON p.id_producto = ig.id_producto " +
+                "INNER JOIN tbl_inventario_general ig ON p.id_producto = ig.id_producto " + // INNER JOIN asegura que el producto tiene un registro de inventario.
                 "LEFT JOIN tbl_historial_entradas he " +
                 "   ON he.id_producto = p.id_producto " +
                 "   AND he.id_entrada = ( " +
@@ -67,7 +67,6 @@ namespace Manejador
                 "WHERE p.activo = 1 " +
                 $"AND (p.nombre LIKE '%{filtro}%' OR c.nombre LIKE '%{filtro}%') " +
                 "ORDER BY p.nombre ASC";
-
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
 
