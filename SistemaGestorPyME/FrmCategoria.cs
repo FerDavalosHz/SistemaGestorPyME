@@ -15,16 +15,34 @@ namespace SistemaGestorPyME
 {
     public partial class FrmCategoria : Form
     {
-        ManejadorCategoria mc; 
-        int fila = 0; int columna = 0;
+        ManejadorCategoria mc;
+        int fila = 0;
+        int columna = 0;
 
-        public static Categoria categoria = new Categoria(0, "", ""); 
+        public static Categoria categoria = new Categoria(0, "", "");
 
         public FrmCategoria()
         {
             InitializeComponent();
-            mc = new ManejadorCategoria(); 
+            mc = new ManejadorCategoria();
         }
+
+       
+        private bool TienePermisoAdmin()
+        {
+            if (!Sesion.Rango.Equals("Administrador"))
+            {
+                MessageBox.Show(
+                    $"{Sesion.Nombre} no tiene permiso de hacer eso. Inicie sesión como administrador.",
+                    "Acceso denegado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return false;
+            }
+            return true;
+        }
+
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
@@ -53,24 +71,24 @@ namespace SistemaGestorPyME
                 categoria.Nombre = DtgDatos.Rows[fila].Cells["nombre"].Value.ToString();
                 categoria.Descripcion = DtgDatos.Rows[fila].Cells["descripcion"].Value.ToString();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
 
             switch (columna)
             {
-                case 3: 
+                case 3:
                     {
-                        FrmAgregarCategoria iu = new FrmAgregarCategoria(); 
+                        FrmAgregarCategoria iu = new FrmAgregarCategoria();
                         iu.ShowDialog();
                         DtgDatos.Columns.Clear();
                     }
                     break;
 
-                case 4: 
+                case 4:
                     {
-                        mc.Borrar(categoria); 
+                        mc.Borrar(categoria);
                         DtgDatos.Columns.Clear();
                     }
                     break;
@@ -79,7 +97,8 @@ namespace SistemaGestorPyME
 
         private void DtgDatos_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            fila = e.RowIndex; columna = e.ColumnIndex;
+            fila = e.RowIndex;
+            columna = e.ColumnIndex;
         }
 
         private void BtnSalir_Click_1(object sender, EventArgs e)
@@ -89,17 +108,17 @@ namespace SistemaGestorPyME
 
         private void BtnCategorias_Click(object sender, EventArgs e)
         {
-
         }
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
             this.Close();
-           
         }
 
         private void BtnVenta_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmVentas fv = new FrmVentas();
             fv.ShowDialog();
@@ -107,20 +126,28 @@ namespace SistemaGestorPyME
 
         private void BtnInventario_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmInventario fi = new FrmInventario();
             fi.ShowDialog();
         }
 
+    
         private void BtnProductos_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmProducto fp = new FrmProducto();
             fp.ShowDialog();
         }
 
+
         private void BtnProveedores_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmProveedor fpr = new FrmProveedor();
             fpr.ShowDialog();
@@ -128,6 +155,8 @@ namespace SistemaGestorPyME
 
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmUsuarios fu = new FrmUsuarios();
             fu.ShowDialog();

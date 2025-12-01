@@ -304,7 +304,7 @@
             this.panel2.Controls.Add(this.BtnInicio);
             this.panel2.Controls.Add(this.BtnProductos);
             this.panel2.Controls.Add(this.BtnInventario);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(-3, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(157, 900);
             this.panel2.TabIndex = 40;

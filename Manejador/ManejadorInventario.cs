@@ -144,7 +144,6 @@ string consulta = "SELECT a.id_alerta, p.nombre AS producto, a.mensaje, a.fecha_
         }
         public void ReducirStock(int idProducto, int nuevaCantidad)
         {
-         
             string consultaStock = $"SELECT stock_actual FROM tbl_inventario_general WHERE id_producto = {idProducto}";
             DataTable dt = b.Consultar(consultaStock, "inventario").Tables[0];
 
@@ -153,11 +152,18 @@ string consulta = "SELECT a.id_alerta, p.nombre AS producto, a.mensaje, a.fecha_
 
             int stockActual = Convert.ToInt32(dt.Rows[0]["stock_actual"]);
 
-            if (nuevaCantidad >= stockActual)
-                throw new Exception("La nueva cantidad debe ser menor al stock actual.");
+            if (nuevaCantidad > stockActual)
+                throw new Exception("No hay suficiente stock para realizar la reducción.");
 
-            string actualizarInventario = $"UPDATE tbl_inventario_general SET stock_actual = {nuevaCantidad} WHERE id_producto = {idProducto}";
+ 
+            int stockFinal = stockActual - nuevaCantidad;
+
+   
+            string actualizarInventario =
+                $"UPDATE tbl_inventario_general SET stock_actual = {stockFinal} WHERE id_producto = {idProducto}";
+
             b.Comando(actualizarInventario);
         }
+
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manejador", "Manejador\Mane
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{A0FDB66E-DF8E-4297-AA10-4C4A159AD875}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador GestorPyme", "Instalador GestorPyme\Instalador GestorPyme.vdproj", "{B7AC9AD4-DC2B-41A6-8A62-BD1DE7C43161}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,8 @@ Global
 		{A0FDB66E-DF8E-4297-AA10-4C4A159AD875}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0FDB66E-DF8E-4297-AA10-4C4A159AD875}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0FDB66E-DF8E-4297-AA10-4C4A159AD875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7AC9AD4-DC2B-41A6-8A62-BD1DE7C43161}.Debug|Any CPU.ActiveCfg = Debug
+		{B7AC9AD4-DC2B-41A6-8A62-BD1DE7C43161}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

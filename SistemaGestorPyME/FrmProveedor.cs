@@ -125,6 +125,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmUsuarios fu = new FrmUsuarios();
             fu.Show();
+            fu.Focus();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)

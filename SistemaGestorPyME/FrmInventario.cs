@@ -23,7 +23,6 @@ namespace SistemaGestorPyME
             InitializeComponent();
             mi = new ManejadorInventario();
 
-
             timerBusqueda = new Timer();
             timerBusqueda.Interval = 500;
             timerBusqueda.Tick += TimerBusqueda_Tick;
@@ -31,15 +30,31 @@ namespace SistemaGestorPyME
             TxtBuscar.TextChanged += TxtBuscar_TextChanged;
         }
 
+        private bool TienePermisoAdmin()
+        {
+            if (!Sesion.Rango.Equals("Administrador"))
+            {
+                MessageBox.Show(
+                    $"{Sesion.Nombre} no tiene permiso de hacer eso. Inicie sesión como administrador.",
+                    "Acceso denegado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return false;
+            }
+            return true;
+        }
+
+
         private void FrmInventario_Load(object sender, EventArgs e)
         {
 
-            if (Sesion.Rango.Equals("Administrador")) { 
-            
+            if (Sesion.Rango.Equals("Administrador"))
+            {
                 Datos.Enabled = true;
                 BtnEntradas.Enabled = true;
-
             }
+
             mi.Mostrar("", Datos, "inventario");
             BtnNotificaciones.Enabled = mi.HayAlertasSinLeer();
             zero.Visible = mi.HayAlertasSinLeer();
@@ -47,7 +62,6 @@ namespace SistemaGestorPyME
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            
             timerBusqueda.Stop();
             timerBusqueda.Start();
         }
@@ -55,8 +69,7 @@ namespace SistemaGestorPyME
         private void TimerBusqueda_Tick(object sender, EventArgs e)
         {
             timerBusqueda.Stop();
-
-            string consulta = TxtBuscar.Text; 
+            string consulta = TxtBuscar.Text;
             mi.Mostrar(consulta, Datos, "inventario");
         }
 
@@ -77,15 +90,20 @@ namespace SistemaGestorPyME
             }
             else if (e.ColumnIndex == indiceBotonQuitar)
             {
-                FrmQuitarInventario fq = new FrmQuitarInventario(idProducto, nombreProducto);
-                fq.ShowDialog();
+                if (TienePermisoAdmin())
+                {
+                    FrmQuitarInventario fq = new FrmQuitarInventario(idProducto, nombreProducto);
+                    fq.ShowDialog();
 
-                mi.Mostrar(TxtBuscar.Text, Datos, "inventario"); 
+
+                    mi.Mostrar(TxtBuscar.Text, Datos, "inventario");
+                }
             }
         }
 
         private void BtnEntradas_Click(object sender, EventArgs e)
         {
+
             FrmMover fm = new FrmMover();
             fm.ShowDialog();
         }
@@ -106,7 +124,6 @@ namespace SistemaGestorPyME
         private void BtnInicio_Click(object sender, EventArgs e)
         {
             this.Close();
-         
         }
 
         private void BtnVentas_Click(object sender, EventArgs e)
@@ -118,35 +135,54 @@ namespace SistemaGestorPyME
 
         private void BtnInventario_Click(object sender, EventArgs e)
         {
-
+           
         }
 
+
+  
         private void BtnProductos_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmProducto fp = new FrmProducto();
-            fp.Show();
+            if (TienePermisoAdmin())
+            {
+                this.Close();
+                FrmProducto fp = new FrmProducto();
+                fp.Show();
+            }
         }
 
+
+   
         private void BtnProveedores_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmProveedor fp2 = new FrmProveedor();
-            fp2.Show();
+            if (TienePermisoAdmin())
+            {
+                this.Close();
+                FrmProveedor fp2 = new FrmProveedor();
+                fp2.Show();
+            }
         }
 
+
+    
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmUsuarios fu = new FrmUsuarios();
-            fu.Show();
+            if (TienePermisoAdmin())
+            {
+                this.Close();
+                FrmUsuarios fu = new FrmUsuarios();
+                fu.Show();
+            }
         }
+
 
         private void BtnCategoria_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmCategoria fc = new FrmCategoria();
-            fc.Show();
+            if (TienePermisoAdmin())
+            {
+                this.Close();
+                FrmCategoria fc = new FrmCategoria();
+                fc.Show();
+            }
         }
     }
 }

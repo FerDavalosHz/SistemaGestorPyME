@@ -16,7 +16,9 @@ namespace SistemaGestorPyME
     public partial class FrmProducto : Form
     {
         ManejadorProducto mp;
-        int fila = 0; int columna = 0;
+        int fila = 0;
+        int columna = 0;
+
         public static Producto producto = new Producto(0, "", "", 0, 0, false, 0);
 
         private Timer timerBusqueda;
@@ -32,6 +34,24 @@ namespace SistemaGestorPyME
 
             TxtBuscar.TextChanged += TxtBuscar_TextChanged;
         }
+
+
+        private bool TienePermisoAdmin()
+        {
+            if (!Sesion.Rango.Equals("Administrador"))
+            {
+                MessageBox.Show(
+                    $"{Sesion.Nombre} no tiene permiso de hacer eso. Inicie sesión como administrador.",
+                    "Acceso denegado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return false;
+            }
+            return true;
+        }
+
+
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
@@ -106,8 +126,11 @@ namespace SistemaGestorPyME
 
         private void DtgDatos_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            fila = e.RowIndex; columna = e.ColumnIndex;
+            fila = e.RowIndex;
+            columna = e.ColumnIndex;
         }
+
+
 
         private void BtnVentas_Click(object sender, EventArgs e)
         {
@@ -116,50 +139,67 @@ namespace SistemaGestorPyME
             fs.Show();
         }
 
+
+        // ---------------------------------------
+        // BOTÓN INVENTARIO (solo admin)
+        // ---------------------------------------
         private void BtnInventario_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmInventario fi = new FrmInventario();
             fi.Show();
         }
 
-        private void BtnProductos_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void BtnProveedores_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmProveedor proveedores = new FrmProveedor();
             proveedores.Show();
         }
 
+
+        
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmUsuarios usuarios = new FrmUsuarios();
             usuarios.Show();
         }
 
-        private void BtnInicio_Click(object sender, EventArgs e)
-        {
-            this.Close();
-         
 
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+          
         }
 
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-           Application.Exit();
-        }
 
+       
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!TienePermisoAdmin()) return;
+
             this.Close();
             FrmCategoria fc = new FrmCategoria();
             fc.Show();
         }
+
+
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
-    
 }

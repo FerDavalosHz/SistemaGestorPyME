@@ -23,6 +23,25 @@ namespace SistemaGestorPyME
             InitializeComponent();
         }
 
+
+     
+        private bool TienePermisoAdmin()
+        {
+            if (!Sesion.Rango.Equals("Administrador"))
+            {
+                MessageBox.Show(
+                    $"{Sesion.Nombre} no tiene permiso de hacer eso. Inicie sesión como administrador.",
+                    "Acceso denegado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return false;
+            }
+            return true;
+        }
+
+
+
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
@@ -49,7 +68,6 @@ namespace SistemaGestorPyME
             }
 
             DtgProductos.Rows.Clear();
-
 
             var lista = FrmVentas.ProductosSeleccionados
                 .OrderBy(x => x.nombre)
@@ -128,10 +146,8 @@ namespace SistemaGestorPyME
         private void BtnInicio_Click(object sender, EventArgs e)
         {
             this.Close();
-         
-           
         }
-        
+
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -140,43 +156,70 @@ namespace SistemaGestorPyME
         private void BtnInicio_Click_1(object sender, EventArgs e)
         {
             this.Close();
-          
         }
 
+
+     
         private void BtnInventario_Click_1(object sender, EventArgs e)
         {
+           
             this.Close();
             FrmInventario fi = new FrmInventario();
             fi.Show();
         }
 
+
+      
         private void BtnProductos_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmProducto fp = new FrmProducto();
-            fp.Show();
+            if (TienePermisoAdmin())
+            {
+
+                this.Close();
+                FrmProducto fp = new FrmProducto();
+                fp.Show();
+            }
         }
 
+
+    
         private void BtnCategorias_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmCategoria fc = new FrmCategoria();
-            fc.Show();
+            if (TienePermisoAdmin())
+            {
+
+                this.Close();
+                FrmCategoria fc = new FrmCategoria();
+                fc.Show();
+            }
         }
 
+
+     
         private void BtnProveedores_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmProveedor fpr = new FrmProveedor();
-            fpr.Show();
+            if (TienePermisoAdmin())
+            {
+
+                this.Close();
+                FrmProveedor fpr = new FrmProveedor();
+                fpr.Show();
+            }
         }
+
 
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmUsuarios fu = new FrmUsuarios();
-            fu.Show();
+            if (TienePermisoAdmin())
+            {
+                this.Close();
+                FrmUsuarios fu = new FrmUsuarios();
+                fu.Show();
+            }
         }
+
+
+
 
         private void BtnVenta_Click(object sender, EventArgs e)
         {
@@ -187,7 +230,5 @@ namespace SistemaGestorPyME
         {
 
         }
-
-   
     }
 }
