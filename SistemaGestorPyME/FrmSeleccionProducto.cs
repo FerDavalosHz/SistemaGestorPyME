@@ -19,12 +19,11 @@ namespace SistemaGestorPyME
         public FrmSeleccionProducto()
         {
             InitializeComponent();
-   
-            this.Size = new Size(1100, 900);
+
             Mv = new ManejadorVentas();
 
             timerBusqueda = new Timer();
-            timerBusqueda.Interval = 500; 
+            timerBusqueda.Interval = 500;
             timerBusqueda.Tick += TimerBusqueda_Tick;
 
             TxtBuscar.TextChanged += TxtBuscar_TextChanged;
@@ -40,6 +39,7 @@ namespace SistemaGestorPyME
         {
             timerBusqueda.Stop();
             Mv.Mostrar(TxtBuscar.Text, DtgDatos, "tbl_lotes");
+            PintarFilasSinStock();
             DtgDatos.ClearSelection();
         }
 
@@ -48,7 +48,39 @@ namespace SistemaGestorPyME
             TxtCantidad.KeyDown += TxtCantidad_KeyDown;
 
             Mv.Mostrar(TxtBuscar.Text, DtgDatos, "tbl_lotes");
+            PintarFilasSinStock();
             DtgDatos.ClearSelection();
+            Color morado = ColorTranslator.FromHtml("#7F66B6");
+
+            DtgDatos.EnableHeadersVisualStyles = false; 
+            DtgDatos.ColumnHeadersDefaultCellStyle.BackColor = morado;
+            DtgDatos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            DtgDatos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            DtgDatos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            DtgDatos.ColumnHeadersHeight = 35;
+        }
+
+        private void PintarFilasSinStock()
+        {
+            foreach (DataGridViewRow row in DtgDatos.Rows)
+            {
+                if (row.Cells["cantidad_disponible"].Value == null)
+                    continue;
+
+                int stock = Convert.ToInt32(row.Cells["cantidad_disponible"].Value);
+
+                if (stock == 0)
+                {
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(0xE2, 0xD9, 0xF6);
+
+                   
+                
+
+                 
+                    row.DefaultCellStyle.ForeColor = Color.Red;
+                }
+            }
         }
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -142,12 +174,16 @@ namespace SistemaGestorPyME
 
         private void BtnAgregar_KeyDown(object sender, KeyEventArgs e)
         {
-           
         }
 
         private void TxtCantidad_KeyDown(object sender, KeyEventArgs e)
         {
             TxtCantidad.KeyDown += TxtCantidad_KeyDown;
+            BtnAgregar.PerformClick();
+        }
+
+        private void TxtCantidad_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

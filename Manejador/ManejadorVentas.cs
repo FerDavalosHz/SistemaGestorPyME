@@ -14,27 +14,26 @@ namespace Manejador
         public void Mostrar(string filtro, DataGridView tabla, string datos)
         {
             string consulta =
-                "SELECT " +
-                "p.id_producto, " +
-                "p.nombre AS NombreProducto, " +
-                "cat.nombre AS Categoria, " +
-                "p.precio_venta_actual, " +
-                "COALESCE(inv.stock_actual, 0) AS cantidad_disponible " +
-                "FROM tbl_productos p " +
-                "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
-                "LEFT JOIN ( " +
-                "    SELECT id_producto, SUM(stock_actual) AS stock_actual " +
-                "    FROM tbl_inventario_general " +
-                "    GROUP BY id_producto " +
-                ") inv ON p.id_producto = inv.id_producto " +
-                "WHERE p.activo = 1 AND " +
-                $"(p.nombre LIKE '%{filtro}%' OR cat.nombre LIKE '%{filtro}%') " +
-                "ORDER BY p.nombre ASC";
+    "SELECT " +
+    "p.id_producto, " +
+    "p.nombre AS NombreProducto, " +
+    "cat.nombre AS Categoria, " +
+    "p.precio_venta_actual, " +
+    "COALESCE(inv.stock_actual, 0) AS cantidad_disponible " +
+    "FROM tbl_productos p " +
+    "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria " +
+    "LEFT JOIN ( " +
+    "    SELECT id_producto, SUM(stock_actual) AS stock_actual " +
+    "    FROM tbl_inventario_general " +
+    "    GROUP BY id_producto " +
+    ") inv ON p.id_producto = inv.id_producto " +
+    "WHERE p.activo = 1 AND " +
+    $"(p.nombre LIKE '%{filtro}%' OR cat.nombre LIKE '%{filtro}%') " +
+    "ORDER BY cantidad_disponible DESC, p.nombre ASC";
 
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
 
-            // Verificamos si existe la columna antes de ocultarla para evitar errores
             if (tabla.Columns.Contains("id_producto"))
             {
                 tabla.Columns["id_producto"].Visible = false;
@@ -86,16 +85,13 @@ namespace Manejador
                     b.Comando(actualizarInventario);
                 }
 
-                // Actualizar el Total final
                 string actualizarTotal =
                     $"UPDATE tbl_ventas SET total = {totalVenta.ToString().Replace(",", ".")} WHERE id_venta = {idVenta}";
 
                 b.Comando(actualizarTotal);
 
-                // Confirmar la transacción
                 b.Comando("COMMIT");
 
-                // --- MENSAJE DE ÉXITO AGREGADO AQUÍ ---
                 MessageBox.Show("Venta registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return idVenta;
