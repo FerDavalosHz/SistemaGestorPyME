@@ -13,7 +13,7 @@ namespace Manejador
 {
     public class ManejadorCategoria
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
         public void Guardar(Categoria categoria)
         {
@@ -26,24 +26,19 @@ namespace Manejador
 
         public void Borrar(Categoria categoria)
         {
-            var rs = MessageBox.Show(
-                $"¿Estás seguro de eliminar la categoría {categoria.Nombre}? Esto dejará los productos sin categoría.",
-                "¡Atención!",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
+            var rs = MessageBox.Show($"Estas seguro de eliminar {categoria.Nombre}", "!Atencion¡", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
             {
-                // Primero dejar productos sin categoría
-                b.Comando($"UPDATE tbl_productos SET id_categoria = NULL WHERE id_categoria = {categoria.IdCategoria}");
+                b.Comando($"delete from tbl_categorias where id_categoria={categoria.IdCategoria}");
 
-                // Luego borrar la categoría
-                b.Comando($"DELETE FROM tbl_categorias WHERE id_categoria = {categoria.IdCategoria}");
-
-                MessageBox.Show("Categoría eliminada los productos relacionados quedaron sin categoría.",
-                                "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Categoria eliminada con éxito.", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            if (rs == DialogResult.No)
+            {
+                MessageBox.Show("Borrar cancelado.", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
         }
 
         public void Modificar(Categoria categoria)
@@ -63,7 +58,6 @@ namespace Manejador
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
 
-         
             if (tabla.Columns.Contains("id_categoria"))
             {
                 tabla.Columns["id_categoria"].Visible = false;
@@ -79,11 +73,16 @@ namespace Manejador
         DataGridViewButtonColumn Boton(string titulo, Color fondo)
         {
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.Text = titulo;
+            btn.Text = titulo; 
             btn.UseColumnTextForButtonValue = true;
             btn.FlatStyle = FlatStyle.Popup;
             btn.DefaultCellStyle.BackColor = fondo;
             btn.DefaultCellStyle.ForeColor = Color.White;
+
+            btn.Name = "btn" + titulo;  
+            btn.HeaderText = "";        
+                                       
+
             return btn;
         }
     }

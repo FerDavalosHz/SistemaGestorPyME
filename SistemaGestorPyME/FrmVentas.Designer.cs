@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.DtgProductos = new System.Windows.Forms.DataGridView();
             this.BtnAgregarProducto = new System.Windows.Forms.Button();
@@ -52,42 +51,36 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
             this.pPagarTotal.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.BtnCerrar);
-            this.panel1.Location = new System.Drawing.Point(99, 0);
+            this.panel1.Location = new System.Drawing.Point(154, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1311, 64);
+            this.panel1.Size = new System.Drawing.Size(1260, 64);
             this.panel1.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(150, 13);
+            this.label6.Location = new System.Drawing.Point(67, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(139, 41);
             this.label6.TabIndex = 3;
             this.label6.Text = "Ventas";
-            // 
-            // label7
-            // 
-            this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            this.label7.Location = new System.Drawing.Point(65, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 61);
-            this.label7.TabIndex = 2;
             // 
             // BtnCerrar
             // 
@@ -105,6 +98,7 @@
             this.DtgProductos.AllowUserToDeleteRows = false;
             this.DtgProductos.AllowUserToResizeColumns = false;
             this.DtgProductos.AllowUserToResizeRows = false;
+            this.DtgProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgProductos.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
@@ -304,7 +298,7 @@
             this.panel2.Controls.Add(this.BtnInicio);
             this.panel2.Controls.Add(this.BtnProductos);
             this.panel2.Controls.Add(this.BtnInventario);
-            this.panel2.Location = new System.Drawing.Point(-3, 0);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(157, 900);
             this.panel2.TabIndex = 40;
@@ -313,7 +307,7 @@
             // 
             this.ptbLogo.Enabled = false;
             this.ptbLogo.Image = global::SistemaGestorPyME.Properties.Resources.logo_removebg_preview;
-            this.ptbLogo.Location = new System.Drawing.Point(47, 0);
+            this.ptbLogo.Location = new System.Drawing.Point(45, 0);
             this.ptbLogo.Margin = new System.Windows.Forms.Padding(4);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(64, 64);
@@ -331,6 +325,17 @@
             this.pictureBox1.Size = new System.Drawing.Size(52, 45);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(9, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // FrmVentas
             // 
@@ -356,6 +361,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,7 +378,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnPagar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnInventario;
         private System.Windows.Forms.Button BtnProductos;
@@ -383,5 +388,6 @@
         private System.Windows.Forms.Button BtnCategorias;
         private System.Windows.Forms.PictureBox ptbLogo;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

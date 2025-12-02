@@ -44,10 +44,10 @@
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
             this.BtnSalirProductos = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnSalir = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblApartado = new System.Windows.Forms.Label();
+            this.BtnSalir = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             this.label1.Location = new System.Drawing.Point(86, 82);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 27);
+            this.label1.Size = new System.Drawing.Size(86, 21);
             this.label1.TabIndex = 48;
             this.label1.Text = "Nombre:\r\n";
             // 
@@ -80,7 +80,7 @@
             this.label3.Location = new System.Drawing.Point(106, 362);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 27);
+            this.label3.Size = new System.Drawing.Size(70, 21);
             this.label3.TabIndex = 52;
             this.label3.Text = "Precio:";
             // 
@@ -90,7 +90,7 @@
             this.TxtPrecio.Location = new System.Drawing.Point(228, 362);
             this.TxtPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(580, 32);
+            this.TxtPrecio.Size = new System.Drawing.Size(580, 27);
             this.TxtPrecio.TabIndex = 53;
             // 
             // BtnGuardar
@@ -129,7 +129,7 @@
             this.CmbCategoria.Location = new System.Drawing.Point(228, 293);
             this.CmbCategoria.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(580, 31);
+            this.CmbCategoria.Size = new System.Drawing.Size(580, 29);
             this.CmbCategoria.TabIndex = 57;
             // 
             // TxtStock
@@ -138,7 +138,7 @@
             this.TxtStock.Location = new System.Drawing.Point(228, 221);
             this.TxtStock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtStock.Name = "TxtStock";
-            this.TxtStock.Size = new System.Drawing.Size(580, 32);
+            this.TxtStock.Size = new System.Drawing.Size(580, 27);
             this.TxtStock.TabIndex = 58;
             // 
             // label5
@@ -148,7 +148,7 @@
             this.label5.Location = new System.Drawing.Point(38, 221);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(170, 27);
+            this.label5.Size = new System.Drawing.Size(132, 21);
             this.label5.TabIndex = 59;
             this.label5.Text = "Stock minimo:";
             // 
@@ -159,7 +159,7 @@
             this.label6.Location = new System.Drawing.Point(67, 293);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 27);
+            this.label6.Size = new System.Drawing.Size(105, 21);
             this.label6.TabIndex = 60;
             this.label6.Text = "Categoria:";
             // 
@@ -170,7 +170,7 @@
             this.CbEstado.Location = new System.Drawing.Point(85, 431);
             this.CbEstado.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CbEstado.Name = "CbEstado";
-            this.CbEstado.Size = new System.Drawing.Size(110, 31);
+            this.CbEstado.Size = new System.Drawing.Size(89, 25);
             this.CbEstado.TabIndex = 61;
             this.CbEstado.Text = "Activo";
             this.CbEstado.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             this.label2.Location = new System.Drawing.Point(58, 150);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 27);
+            this.label2.Size = new System.Drawing.Size(112, 21);
             this.label2.TabIndex = 62;
             this.label2.Text = "Descripcion";
             // 
@@ -192,7 +192,7 @@
             this.TxtDescripcion.Location = new System.Drawing.Point(228, 150);
             this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Size = new System.Drawing.Size(580, 32);
+            this.TxtDescripcion.Size = new System.Drawing.Size(580, 27);
             this.TxtDescripcion.TabIndex = 63;
             // 
             // BtnSalirProductos
@@ -224,6 +224,29 @@
             this.panel1.Size = new System.Drawing.Size(884, 55);
             this.panel1.TabIndex = 64;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(24, 7);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 42);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 65;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblApartado
+            // 
+            this.lblApartado.AutoSize = true;
+            this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApartado.ForeColor = System.Drawing.Color.White;
+            this.lblApartado.Location = new System.Drawing.Point(82, 12);
+            this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApartado.Name = "lblApartado";
+            this.lblApartado.Size = new System.Drawing.Size(131, 30);
+            this.lblApartado.TabIndex = 66;
+            this.lblApartado.Text = "Productos";
+            // 
             // BtnSalir
             // 
             this.BtnSalir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -248,32 +271,9 @@
             this.btnCerrar.Text = "X";
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 42);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 65;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblApartado
-            // 
-            this.lblApartado.AutoSize = true;
-            this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApartado.ForeColor = System.Drawing.Color.Black;
-            this.lblApartado.Location = new System.Drawing.Point(86, 8);
-            this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApartado.Name = "lblApartado";
-            this.lblApartado.Size = new System.Drawing.Size(164, 37);
-            this.lblApartado.TabIndex = 66;
-            this.lblApartado.Text = "Productos";
-            // 
             // FrmAgregarProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 555);
             this.Controls.Add(this.panel1);

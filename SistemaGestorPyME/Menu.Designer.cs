@@ -67,22 +67,22 @@
             // 
             this.pictureBox1.Enabled = false;
             this.pictureBox1.Image = global::SistemaGestorPyME.Properties.Resources.icons8_home_50;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(14, 7);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 42);
+            this.pictureBox1.Size = new System.Drawing.Size(45, 45);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // lblApartado
             // 
-            this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApartado.ForeColor = System.Drawing.Color.White;
-            this.lblApartado.Location = new System.Drawing.Point(103, 11);
+            this.lblApartado.Location = new System.Drawing.Point(67, 9);
             this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApartado.Name = "lblApartado";
-            this.lblApartado.Size = new System.Drawing.Size(445, 53);
+            this.lblApartado.Size = new System.Drawing.Size(259, 39);
             this.lblApartado.TabIndex = 8;
             this.lblApartado.Text = "Menu Principal";
             // 
@@ -90,7 +90,7 @@
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1211, 4);
+            this.btnCerrar.Location = new System.Drawing.Point(1209, 7);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(45, 41);
@@ -110,7 +110,7 @@
             this.pnlContenedor.Controls.Add(this.btnInventario);
             this.pnlContenedor.Controls.Add(this.btnVentas);
             this.pnlContenedor.Controls.Add(this.ptbLogo);
-            this.pnlContenedor.Location = new System.Drawing.Point(-3, 0);
+            this.pnlContenedor.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedor.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContenedor.Name = "pnlContenedor";
             this.pnlContenedor.Size = new System.Drawing.Size(157, 900);
@@ -220,7 +220,7 @@
             // 
             this.ptbLogo.Enabled = false;
             this.ptbLogo.Image = global::SistemaGestorPyME.Properties.Resources.logo_removebg_preview;
-            this.ptbLogo.Location = new System.Drawing.Point(47, 0);
+            this.ptbLogo.Location = new System.Drawing.Point(45, 0);
             this.ptbLogo.Margin = new System.Windows.Forms.Padding(4);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(64, 64);

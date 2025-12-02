@@ -28,6 +28,20 @@ namespace SistemaGestorPyME
             InitializeComponent();
             mp = new ManejadorProducto();
 
+            string consultaInicial = "SELECT " +
+     "p.id_producto, " +
+     "p.nombre, " +
+     "p.descripcion, " +
+     "p.precio_venta_actual, " +
+     "p.stock_minimo, " +
+     "p.activo, " +
+     "cat.nombre AS Categoria, " +
+     "p.id_categoria " +
+ "FROM tbl_productos p " +
+ "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria";
+
+            mp.Mostrar(consultaInicial, DtgDatos, "tbl_productos");
+
             timerBusqueda = new Timer();
             timerBusqueda.Interval = 600;
             timerBusqueda.Tick += TimerBusqueda_Tick;
@@ -200,6 +214,36 @@ namespace SistemaGestorPyME
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void DtgDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            producto.IdProducto = int.Parse(DtgDatos.Rows[e.RowIndex].Cells["id_producto"].Value.ToString());
+            producto.Nombre = DtgDatos.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+            producto.Descripcion = DtgDatos.Rows[e.RowIndex].Cells["descripcion"].Value.ToString();
+            producto.PrecioVentaActual = decimal.Parse(DtgDatos.Rows[e.RowIndex].Cells["precio_venta_actual"].Value.ToString());
+            producto.StockMinimo = int.Parse(DtgDatos.Rows[e.RowIndex].Cells["stock_minimo"].Value.ToString());
+            producto.Activo = bool.Parse(DtgDatos.Rows[e.RowIndex].Cells["activo"].Value.ToString());
+            producto.IdCategoria = int.Parse(DtgDatos.Rows[e.RowIndex].Cells["id_categoria"].Value.ToString());
+
+            string nombreColumna = DtgDatos.Columns[e.ColumnIndex].Name;
+
+            if (nombreColumna == "btnModificar")
+            {
+                FrmAgregarProducto iu = new FrmAgregarProducto();
+                iu.ShowDialog();
+
+                TxtBuscar.Text = "";
+            }
+            else if (nombreColumna == "btnEliminar")
+            {
+                mp.Borrar(producto);
+
+                string consulta = "SELECT p.id_producto, p.nombre, p.descripcion, p.precio_venta_actual, p.stock_minimo, p.activo, cat.nombre AS Categoria, p.id_categoria FROM tbl_productos p INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria";
+                mp.Mostrar(consulta, DtgDatos, "tbl_productos");
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Manejador
     public class ManejadorExcel
     {
       
-            Base b = new Base("localhost", "root", "", "GestorPyme");
+            Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
       
             public void ExportarReporteVentasACsv()

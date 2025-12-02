@@ -21,12 +21,20 @@ namespace Taller_Kike
           public static Usuario usuario = new Usuario(0, "", "", "", false, "");
 
         int fila = 0, columna = 0;
+        private Timer timerBusqueda;
+
 
         public FrmUsuarios()
         {
             InitializeComponent();
             mu = new ManejadorUsuarios();
             ME = new ManejadorExcel();
+            mu.Mostrar("SELECT * FROM tbl_usuarios", DtgDatos, "tbl_usuarios");
+            timerBusque = new Timer();
+            timerBusque.Interval = 500;
+            timerBusque.Tick += timerBusque_Tick;
+
+            TxtUsuario.TextChanged += TxtUsuario_TextChanged;
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -54,9 +62,7 @@ namespace Taller_Kike
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            mu.Mostrar(
-                  $"SELECT * FROM tbl_usuarios WHERE activo = 1 AND nombre LIKE '%{TxtUsuario.Text}%'",
-                  DtgDatos
+            mu.Mostrar($"SELECT * FROM tbl_usuarios WHERE activo = 1 AND nombre LIKE '%{TxtUsuario.Text}%'",DtgDatos,"tbl_usuarios"
               );
         }
 
@@ -114,6 +120,21 @@ namespace Taller_Kike
         private void button2_Click(object sender, EventArgs e)
         {
             ME.ExportarReporteVentasACsv();
+        }
+
+        private void TxtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            timerBusque.Stop();
+            timerBusque.Start();
+        }
+
+        private void timerBusque_Tick(object sender, EventArgs e)
+        {
+            timerBusque.Stop();
+
+            string consulta = $"SELECT * FROM tbl_usuarios WHERE nombre LIKE '%{TxtUsuario.Text}%' OR usuario LIKE '%{TxtUsuario.Text}%'";
+
+            mu.Mostrar(consulta, DtgDatos, "tbl_usuarios");
         }
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)

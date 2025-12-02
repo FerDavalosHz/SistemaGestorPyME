@@ -133,8 +133,8 @@
             // 
             this.lblApartado.AutoSize = true;
             this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApartado.ForeColor = System.Drawing.Color.Black;
-            this.lblApartado.Location = new System.Drawing.Point(71, 11);
+            this.lblApartado.ForeColor = System.Drawing.Color.White;
+            this.lblApartado.Location = new System.Drawing.Point(71, 18);
             this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApartado.Name = "lblApartado";
             this.lblApartado.Size = new System.Drawing.Size(171, 23);

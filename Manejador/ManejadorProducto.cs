@@ -13,7 +13,7 @@ namespace Manejador
 {
     public class ManejadorProducto
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
         public void Guardar(Producto producto)
         {
@@ -27,17 +27,18 @@ namespace Manejador
 
         public void Borrar(Producto producto)
         {
-            var rs = MessageBox.Show($"Estas seguro de eliminar {producto.Nombre}",
-                "!Atención¡", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+            var rs = MessageBox.Show($"Estas seguro de eliminar {producto.Nombre}", "!Atencion¡", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
             {
-    
-                b.Comando($"UPDATE tbl_productos SET activo = 0 WHERE id_producto = {producto.IdProducto}");
+                b.Comando($"delete from tbl_productos where id_producto={producto.IdProducto}");
+                MessageBox.Show("Producto eliminado con éxito.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show("Producto eliminado con éxito.",
-                    "Inactivar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else if (rs == DialogResult.No)
+            {
+                MessageBox.Show("Borrar cancelado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         public void Modificar(Producto producto)
@@ -79,11 +80,15 @@ namespace Manejador
         DataGridViewButtonColumn Boton(string titulo, Color fondo)
         {
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.Text = titulo;
+            btn.Text = titulo; 
             btn.UseColumnTextForButtonValue = true;
             btn.FlatStyle = FlatStyle.Popup;
             btn.DefaultCellStyle.BackColor = fondo;
             btn.DefaultCellStyle.ForeColor = Color.White;
+
+            btn.Name = "btn" + titulo;  
+            btn.HeaderText = "";        
+
             return btn;
         }
 
