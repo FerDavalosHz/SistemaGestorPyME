@@ -27,7 +27,13 @@ namespace SistemaGestorPyME
         {
             InitializeComponent();
             mp = new ManejadorProveedor();
-           
+
+            timerBusque = new Timer();
+            timerBusque.Interval = 500;
+            timerBusque.Tick += timerBusque_Tick;
+
+            TxtBuscar.TextChanged += TxtBuscar_TextChanged;
+
         }
 
 
@@ -165,6 +171,21 @@ namespace SistemaGestorPyME
         private void btnProveedores_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            timerBusque.Stop();
+            timerBusque.Start();
+        }
+
+        private void timerBusque_Tick(object sender, EventArgs e)
+        {
+            timerBusque.Stop();
+
+            string consulta = $"SELECT * FROM tbl_proveedores WHERE nombre LIKE '%{TxtBuscar.Text}%' AND activo = 1";
+
+            mp.Mostrar(consulta, DtgDatos, "tbl_proveedores");
         }
     }
 }

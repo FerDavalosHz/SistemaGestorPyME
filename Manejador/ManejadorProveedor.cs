@@ -9,11 +9,10 @@ namespace SistemaGestorPyme
 {
     public class ManejadorProveedor
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
         public void Guardar(Proveedor proveedor)
         {
-        
             int estado = (proveedor.Activo == "Activo") ? 1 : 0;
 
             b.Comando($"insert into tbl_proveedores(nombre, telefono, correo, direccion, activo) " +
@@ -24,15 +23,13 @@ namespace SistemaGestorPyme
 
         public void Borrar(Proveedor proveedor)
         {
-            var rs = MessageBox.Show($"¿Estás seguro de **dar de baja** el proveedor: {proveedor.Nombre}?",
-                                     "!Atención¡", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var rs = MessageBox.Show($"¿Estás seguro de dar de baja al proveedor {proveedor.Nombre}?", "¡Atención!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (rs == DialogResult.Yes)
             {
-            
+                // Baja lógica: Cambiamos activo a 0 en lugar de eliminar el registro
                 b.Comando($"update tbl_proveedores set activo = 0 where id_proveedor={proveedor.IdProveedor}");
-
-                MessageBox.Show("Proveedor dado de baja con éxito (marcado como inactivo).", "Baja Lógica", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Proveedor dado de baja con éxito.", "Baja Lógica", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -58,9 +55,7 @@ namespace SistemaGestorPyme
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
 
             if (tabla.Columns.Contains("id_proveedor"))
-            {
                 tabla.Columns["id_proveedor"].Visible = false;
-            }
 
             tabla.Columns.Insert(6, Boton("Modificar", Color.Green));
             tabla.Columns.Insert(7, Boton("Eliminar", Color.Red));

@@ -25,6 +25,12 @@ namespace SistemaGestorPyME
         {
             InitializeComponent();
             mc = new ManejadorCategoria();
+            mc.Mostrar("SELECT * FROM tbl_categorias", DtgDatos, "tbl_categorias");
+            timerBusque = new Timer();
+            timerBusque.Interval = 500;
+            timerBusque.Tick += timerBusque_Tick;
+
+            TxtBuscar.TextChanged += TxtBuscar_TextChanged;
         }
 
        
@@ -60,7 +66,8 @@ namespace SistemaGestorPyME
 
             FrmAgregarCategoria iu = new FrmAgregarCategoria();
             iu.ShowDialog();
-            DtgDatos.Columns.Clear();
+
+            CargarDatos();
         }
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -160,6 +167,60 @@ namespace SistemaGestorPyME
             this.Close();
             FrmUsuarios fu = new FrmUsuarios();
             fu.ShowDialog();
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            timerBusque.Stop();
+            timerBusque.Start();
+        }
+
+        private void timerBusque_Tick(object sender, EventArgs e)
+        {
+            timerBusque.Stop();
+
+            string consulta = $"SELECT id_categoria, nombre, descripcion FROM tbl_categorias WHERE nombre LIKE '%{TxtBuscar.Text}%'";
+
+            mc.Mostrar(consulta, DtgDatos, "tbl_categorias");
+        }
+
+        private void DtgDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            try
+            {
+                categoria.IdCategoria = int.Parse(DtgDatos.Rows[e.RowIndex].Cells["id_categoria"].Value.ToString());
+                categoria.Nombre = DtgDatos.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                categoria.Descripcion = DtgDatos.Rows[e.RowIndex].Cells["descripcion"].Value.ToString();
+            }
+            catch { return; }
+
+            string nombreColumna = DtgDatos.Columns[e.ColumnIndex].Name;
+
+            if (nombreColumna == "btnModificar")
+            {
+                FrmAgregarCategoria iu = new FrmAgregarCategoria();
+                iu.ShowDialog();
+
+                CargarDatos();
+            }
+            else if (nombreColumna == "btnEliminar")
+            {
+                mc.Borrar(categoria);
+
+                CargarDatos();
+            }
+        }
+
+        private void CargarDatos()
+        {
+            // Si tienes texto en buscar, respétalo, si no, carga todo
+            string sql = string.IsNullOrWhiteSpace(TxtBuscar.Text)
+                ? "SELECT * FROM tbl_categorias"
+                : $"SELECT id_categoria, nombre, descripcion FROM tbl_categorias WHERE nombre LIKE '%{TxtBuscar.Text}%'";
+
+            mc.Mostrar(sql, DtgDatos, "tbl_categorias");
         }
     }
 }

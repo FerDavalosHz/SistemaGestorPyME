@@ -9,7 +9,7 @@ namespace Manejador
 {
     public class ManejadorVentas
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
         public void Mostrar(string filtro, DataGridView tabla, string datos)
         {

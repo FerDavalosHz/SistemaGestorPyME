@@ -13,7 +13,7 @@ namespace Manejador
     public class ManejadorInventario
     {
 
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "1234", "GestorPyme");
 
 
 

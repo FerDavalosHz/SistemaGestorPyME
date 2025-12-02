@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategoria));
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.BtnBuscar = new System.Windows.Forms.Button();
             this.DtgDatos = new System.Windows.Forms.DataGridView();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -49,8 +49,10 @@
             this.BtnInicio = new System.Windows.Forms.Button();
             this.BtnProductos = new System.Windows.Forms.Button();
             this.BtnInventario = new System.Windows.Forms.Button();
+            this.timerBusque = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DtgDatos)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
@@ -61,33 +63,19 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(206, 699);
+            this.BtnAgregar.Location = new System.Drawing.Point(1304, 111);
             this.BtnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(1125, 50);
+            this.BtnAgregar.Size = new System.Drawing.Size(38, 31);
             this.BtnAgregar.TabIndex = 36;
-            this.BtnAgregar.Text = "Agregar Categorias";
+            this.BtnAgregar.Text = "+";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnBuscar.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.BtnBuscar.Location = new System.Drawing.Point(1136, 120);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(118, 43);
-            this.BtnBuscar.TabIndex = 35;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // DtgDatos
             // 
             this.DtgDatos.AllowUserToAddRows = false;
+            this.DtgDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgDatos.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(158)))), ((int)(((byte)(196)))));
@@ -107,61 +95,66 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DtgDatos.DefaultCellStyle = dataGridViewCellStyle2;
             this.DtgDatos.EnableHeadersVisualStyles = false;
-            this.DtgDatos.Location = new System.Drawing.Point(206, 197);
+            this.DtgDatos.Location = new System.Drawing.Point(218, 172);
             this.DtgDatos.Margin = new System.Windows.Forms.Padding(2);
             this.DtgDatos.Name = "DtgDatos";
             this.DtgDatos.RowHeadersWidth = 51;
             this.DtgDatos.RowTemplate.Height = 24;
-            this.DtgDatos.Size = new System.Drawing.Size(1125, 470);
+            this.DtgDatos.Size = new System.Drawing.Size(1124, 672);
             this.DtgDatos.TabIndex = 34;
             this.DtgDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgDatos_CellClick);
+            this.DtgDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgDatos_CellContentClick);
             this.DtgDatos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgDatos_CellEnter);
             // 
             // TxtBuscar
             // 
             this.TxtBuscar.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBuscar.Location = new System.Drawing.Point(463, 116);
+            this.TxtBuscar.Location = new System.Drawing.Point(336, 112);
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBuscar.Multiline = true;
             this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(637, 43);
+            this.TxtBuscar.Size = new System.Drawing.Size(951, 30);
             this.TxtBuscar.TabIndex = 33;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(249, 120);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(214, 115);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 39);
+            this.label1.Size = new System.Drawing.Size(118, 24);
             this.label1.TabIndex = 32;
             this.label1.Text = "Categoria:";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.BtnCerrar);
-            this.panel1.Location = new System.Drawing.Point(99, 0);
+            this.panel1.Location = new System.Drawing.Point(154, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1312, 64);
+            this.panel1.Size = new System.Drawing.Size(1260, 64);
             this.panel1.TabIndex = 38;
             // 
-            // label7
+            // pictureBox1
             // 
-            this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            this.label7.Location = new System.Drawing.Point(60, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 61);
-            this.label7.TabIndex = 14;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(9, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(141, 10);
+            this.label6.Location = new System.Drawing.Point(67, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(218, 41);
             this.label6.TabIndex = 13;
@@ -187,7 +180,7 @@
             this.panel2.Controls.Add(this.BtnInicio);
             this.panel2.Controls.Add(this.BtnProductos);
             this.panel2.Controls.Add(this.BtnInventario);
-            this.panel2.Location = new System.Drawing.Point(-3, 0);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(157, 900);
             this.panel2.TabIndex = 39;
@@ -196,7 +189,7 @@
             // 
             this.ptbLogo.Enabled = false;
             this.ptbLogo.Image = global::SistemaGestorPyME.Properties.Resources.logo_removebg_preview;
-            this.ptbLogo.Location = new System.Drawing.Point(50, 0);
+            this.ptbLogo.Location = new System.Drawing.Point(45, 0);
             this.ptbLogo.Margin = new System.Windows.Forms.Padding(4);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(64, 64);
@@ -240,7 +233,7 @@
             this.BtnVenta.Name = "BtnVenta";
             this.BtnVenta.Size = new System.Drawing.Size(156, 115);
             this.BtnVenta.TabIndex = 1;
-            this.BtnVenta.Text = "Venta";
+            this.BtnVenta.Text = "Ventas";
             this.BtnVenta.UseVisualStyleBackColor = false;
             this.BtnVenta.Click += new System.EventHandler(this.BtnVenta_Click);
             // 
@@ -296,6 +289,10 @@
             this.BtnInventario.UseVisualStyleBackColor = false;
             this.BtnInventario.Click += new System.EventHandler(this.BtnInventario_Click);
             // 
+            // timerBusque
+            // 
+            this.timerBusque.Tick += new System.EventHandler(this.timerBusque_Tick);
+            // 
             // FrmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,7 +302,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.DtgDatos);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
@@ -316,6 +312,7 @@
             this.Text = "FrmCategoria";
             ((System.ComponentModel.ISupportInitialize)(this.DtgDatos)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.ResumeLayout(false);
@@ -326,7 +323,6 @@
         #endregion
 
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.DataGridView DtgDatos;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;
@@ -340,8 +336,9 @@
         private System.Windows.Forms.Button BtnProductos;
         private System.Windows.Forms.Button BtnInventario;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnCategorias;
         private System.Windows.Forms.PictureBox ptbLogo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timerBusque;
     }
 }
