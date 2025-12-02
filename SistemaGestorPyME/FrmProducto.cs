@@ -26,6 +26,20 @@ namespace SistemaGestorPyME
             InitializeComponent();
             mp = new ManejadorProducto();
 
+            string consultaInicial = "SELECT " +
+                "p.id_producto, " +
+                "p.nombre, " +
+                "p.descripcion, " +
+                "p.precio_venta_actual, " +
+                "p.stock_minimo, " +
+                "p.activo, " +
+                "cat.nombre AS Categoria, " +
+                "p.id_categoria " +
+            "FROM tbl_productos p " +
+            "INNER JOIN tbl_categorias cat ON p.id_categoria = cat.id_categoria";
+
+            mp.Mostrar(consultaInicial, DtgDatos, "tbl_productos");
+
             timerBusqueda = new Timer();
             timerBusqueda.Interval = 600;
             timerBusqueda.Tick += TimerBusqueda_Tick;

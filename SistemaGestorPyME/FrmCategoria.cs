@@ -18,12 +18,21 @@ namespace SistemaGestorPyME
         ManejadorCategoria mc; 
         int fila = 0; int columna = 0;
 
-        public static Categoria categoria = new Categoria(0, "", ""); 
+        public static Categoria categoria = new Categoria(0, "", "");
+        private Timer timerBusqued;
 
         public FrmCategoria()
         {
+
             InitializeComponent();
-            mc = new ManejadorCategoria(); 
+            mc = new ManejadorCategoria();
+
+            mc.Mostrar("SELECT * FROM tbl_categorias", DtgDatos, "tbl_categorias");
+            timerBusqued = new Timer();
+            timerBusqued.Interval = 500; 
+            timerBusqued.Tick += timerBusqued_Tick;
+
+            TxtBuscar.TextChanged += TxtBuscar_TextChanged;
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -132,6 +141,21 @@ namespace SistemaGestorPyME
             this.Close();
             FrmUsuarios fu = new FrmUsuarios();
             fu.ShowDialog();
+        }
+
+        private void timerBusqued_Tick(object sender, EventArgs e)
+        {
+            timerBusqued.Stop();
+
+            string consulta = $"SELECT id_categoria, nombre, descripcion FROM tbl_categorias WHERE nombre LIKE '%{TxtBuscar.Text}%'";
+
+            mc.Mostrar(consulta, DtgDatos, "tbl_categorias");
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            timerBusqued.Stop();
+            timerBusqued.Start();
         }
     }
 }

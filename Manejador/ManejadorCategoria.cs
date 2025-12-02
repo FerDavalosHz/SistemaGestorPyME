@@ -53,7 +53,6 @@ namespace Manejador
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
 
-         
             if (tabla.Columns.Contains("id_categoria"))
             {
                 tabla.Columns["id_categoria"].Visible = false;

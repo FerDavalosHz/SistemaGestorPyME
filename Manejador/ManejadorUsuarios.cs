@@ -40,59 +40,54 @@ namespace Manejador
 
             if (string.IsNullOrWhiteSpace(u.Contrasena))
             {
-                sql = $@"
-        UPDATE tbl_usuarios SET
-            nombre = '{u.Nombre}',
-            usuario = '{u.UsuarioNombre}',
-            activo = {estadoActivo},
-            rango = '{u.Rango}'
-        WHERE id_usuario = {u.IdUsuario}";
+                sql = $@"UPDATE tbl_usuarios SET 
+                        nombre = '{u.Nombre}', 
+                        usuario = '{u.UsuarioNombre}', 
+                        activo = {estadoActivo}, 
+                        rango = '{u.Rango}' 
+                        WHERE id_usuario = {u.IdUsuario}";
             }
             else
             {
-                sql = $@"
-        UPDATE tbl_usuarios SET
-            nombre = '{u.Nombre}',
-            usuario = '{u.UsuarioNombre}',
-            contrasena = SHA1('{u.Contrasena}'),
-            activo = {estadoActivo},
-            rango = '{u.Rango}'
-        WHERE id_usuario = {u.IdUsuario}";
+                sql = $@"UPDATE tbl_usuarios SET 
+                        nombre = '{u.Nombre}', 
+                        usuario = '{u.UsuarioNombre}', 
+                        contrasena = SHA1('{u.Contrasena}'), 
+                        activo = {estadoActivo}, 
+                        rango = '{u.Rango}' 
+                        WHERE id_usuario = {u.IdUsuario}";
             }
 
             b.Comando(sql);
-
-            MessageBox.Show("Proveedor modificado con éxito.", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Usuario modificado con éxito.", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         public void Borrar(Usuario u)
         {
-            var rs = MessageBox.Show($"¿Eliminar a {u.Nombre}?",
-                "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var rs = MessageBox.Show($"¿Eliminar a {u.Nombre}?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (rs == DialogResult.Yes)
             {
+                // Aquí podrías cambiar a una baja lógica (update activo=0) si prefieres no borrarlo físicamente
                 b.Comando($"DELETE FROM tbl_usuarios WHERE id_usuario={u.IdUsuario}");
+                MessageBox.Show("Usuario eliminado con éxito.", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show("Usuario eliminado con éxito.", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
-        public void Mostrar(string consulta, DataGridView tabla)
+        public void Mostrar(string consulta, DataGridView tabla, string datos)
         {
             tabla.Columns.Clear();
+            tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
 
-            tabla.DataSource = b.Consultar(consulta, "tbl_usuarios").Tables[0];
-
-            tabla.Columns["id_usuario"].Visible = false;
-            tabla.Columns["contrasena"].Visible = false;
+            if (tabla.Columns.Contains("id_usuario")) tabla.Columns["id_usuario"].Visible = false;
+            if (tabla.Columns.Contains("contrasena")) tabla.Columns["contrasena"].Visible = false;
 
             tabla.Columns.Insert(6, Boton("Modificar", Color.Green));
             tabla.Columns.Insert(7, Boton("Borrar", Color.Red));
 
-            tabla.AutoResizeColumns();
+            tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabla.AutoResizeRows();
         }
 
         public static DataGridViewButtonColumn Boton(string titulo, Color fondo)

@@ -17,7 +17,8 @@ namespace Taller_Kike
     {
         ManejadorUsuarios mu;
 
-          public static Usuario usuario = new Usuario(0, "", "", "", false, "");
+        public static Usuario usuario = new Usuario(0, "", "", "", false, "");
+        private Timer timerBusqueda;
 
         int fila = 0, columna = 0;
 
@@ -25,6 +26,12 @@ namespace Taller_Kike
         {
             InitializeComponent();
             mu = new ManejadorUsuarios();
+            mu.Mostrar("SELECT * FROM tbl_usuarios", DtgDatos, "tbl_usuarios");
+            timerBusqueda = new Timer();
+            timerBusqueda.Interval = 500;
+            timerBusqueda.Tick += timerBusqued_Tick;
+
+            TxtUsuario.TextChanged += TxtUsuario_TextChanged;
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -52,7 +59,7 @@ namespace Taller_Kike
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-              mu.Mostrar($"SELECT * FROM tbl_usuarios WHERE nombre LIKE '%{TxtUsuario.Text}%'", DtgDatos);
+            mu.Mostrar($"SELECT * FROM tbl_usuarios WHERE nombre LIKE '%{TxtUsuario.Text}%'", DtgDatos, "tbl_usuarios");
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -105,6 +112,21 @@ namespace Taller_Kike
             this.Close();
             FrmCategoria fc = new FrmCategoria();
             fc.ShowDialog();
+        }
+
+        private void TxtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            timerBusqueda.Stop();
+            timerBusqueda.Start();
+        }
+
+        private void timerBusqued_Tick(object sender, EventArgs e)
+        {
+            timerBusqueda.Stop();
+
+            string consulta = $"SELECT * FROM tbl_usuarios WHERE nombre LIKE '%{TxtUsuario.Text}%' OR usuario LIKE '%{TxtUsuario.Text}%'";
+
+            mu.Mostrar(consulta, DtgDatos, "tbl_usuarios");
         }
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
