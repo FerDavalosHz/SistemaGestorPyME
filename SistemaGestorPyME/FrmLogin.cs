@@ -32,7 +32,7 @@ namespace Taller_Kike
         {
             if (ml.validar(TxtUsuario, TxtClave))
             {
-                MessageBox.Show($"Bienvenido al sistema {Sesion.Nombre}..");
+       
                 FrmMenu ag = new FrmMenu();
                 ag.Show();
                 this.Hide();

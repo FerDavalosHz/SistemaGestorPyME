@@ -57,7 +57,6 @@
             // BtnLeidas
             // 
             this.BtnLeidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.BtnLeidas.Enabled = false;
             this.BtnLeidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLeidas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLeidas.Location = new System.Drawing.Point(813, 142);

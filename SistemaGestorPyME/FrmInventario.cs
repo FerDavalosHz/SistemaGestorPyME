@@ -131,6 +131,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmVentas fv = new FrmVentas();
             fv.Show();
+            fv.Focus();
         }
 
         private void BtnInventario_Click(object sender, EventArgs e)

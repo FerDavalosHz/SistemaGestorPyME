@@ -161,8 +161,7 @@ namespace SistemaGestorPyME
                 cantidad
             ));
 
-            MessageBox.Show($"Producto '{nombre}' agregado.", "Éxito",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+     
 
             Close();
         }
@@ -178,8 +177,11 @@ namespace SistemaGestorPyME
 
         private void TxtCantidad_KeyDown(object sender, KeyEventArgs e)
         {
-            TxtCantidad.KeyDown += TxtCantidad_KeyDown;
-            BtnAgregar.PerformClick();
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // evita el sonido "ding"
+                BtnAgregar.PerformClick();
+            }
         }
 
         private void TxtCantidad_TextChanged(object sender, EventArgs e)

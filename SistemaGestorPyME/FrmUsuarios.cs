@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Entidades;
 using Manejador;
 using SistemaGestorPyME;
@@ -52,6 +53,7 @@ namespace Taller_Kike
             }
 
             DtgDatos.Columns.Clear();
+            mu.Mostrar("SELECT * FROM tbl_usuarios", DtgDatos, "tbl_usuarios");
         }
 
         private void DtgDatos_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -76,6 +78,7 @@ namespace Taller_Kike
             this.Close();
             FrmProveedor Fp = new FrmProveedor();
             Fp.Show();
+            Fp.Focus();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -83,6 +86,7 @@ namespace Taller_Kike
             this.Close();
             FrmProducto frm = new FrmProducto();
             frm.Show();
+            frm.Focus();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -90,6 +94,7 @@ namespace Taller_Kike
             this.Close();
             FrmInventario Fi = new FrmInventario();
             Fi.Show();
+            Fi.Focus();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
@@ -97,6 +102,7 @@ namespace Taller_Kike
             this.Close();
             FrmVentas Fv = new FrmVentas();
             Fv.Show();
+            Fv.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -115,11 +121,23 @@ namespace Taller_Kike
             this.Close();
             FrmCategoria fc = new FrmCategoria();
             fc.Show();
+            fc.Focus();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ME.ExportarReporteVentasACsv();
+
+            string ruta = @"C:\Users\fermm\Documents\LECTURADEDATOSGESTORPYME.xlsm";
+
+            if (System.IO.File.Exists(ruta))
+            {
+                System.Diagnostics.Process.Start(ruta);
+            }
+            else
+            {
+                MessageBox.Show("El archivo no existe en la ruta especificada.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void TxtUsuario_TextChanged(object sender, EventArgs e)
@@ -139,7 +157,7 @@ namespace Taller_Kike
 
         private void DtgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-         if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
             try
             {
@@ -163,10 +181,19 @@ namespace Taller_Kike
                 return;
             }
 
-             if (DtgDatos.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            if (DtgDatos.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 var cellValue = DtgDatos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString() ?? "";
 
+               
+                if (usuario.UsuarioNombre.Equals("admin", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("El usuario 'admin' no puede ser modificado ni eliminado.",
+                        "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+          
                 if (cellValue.Equals("Modificar", StringComparison.OrdinalIgnoreCase))
                 {
                     using (FrmDatosUsuarios du = new FrmDatosUsuarios())
@@ -174,16 +201,18 @@ namespace Taller_Kike
                         du.ShowDialog();
                     }
                     DtgDatos.Columns.Clear();
+                    mu.Mostrar("SELECT * FROM tbl_usuarios", DtgDatos, "tbl_usuarios");
                 }
                 else if (cellValue.Equals("Borrar", StringComparison.OrdinalIgnoreCase))
                 {
                     mu.Borrar(usuario);
                     DtgDatos.Columns.Clear();
+                    mu.Mostrar("SELECT * FROM tbl_usuarios", DtgDatos, "tbl_usuarios");
                 }
 
                 return;
             }
-
         }
+
     }
 }

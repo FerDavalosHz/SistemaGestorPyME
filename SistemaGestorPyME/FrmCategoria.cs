@@ -89,6 +89,7 @@ namespace SistemaGestorPyME
                     {
                         FrmAgregarCategoria iu = new FrmAgregarCategoria();
                         iu.ShowDialog();
+                        iu.Focus();
                         DtgDatos.Columns.Clear();
                     }
                     break;
@@ -129,6 +130,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmVentas fv = new FrmVentas();
             fv.ShowDialog();
+            fv.Focus();
         }
 
         private void BtnInventario_Click(object sender, EventArgs e)
@@ -138,6 +140,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmInventario fi = new FrmInventario();
             fi.ShowDialog();
+            fi.Focus();
         }
 
     
@@ -148,6 +151,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmProducto fp = new FrmProducto();
             fp.ShowDialog();
+            fp.Focus();
         }
 
 
@@ -158,6 +162,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmProveedor fpr = new FrmProveedor();
             fpr.ShowDialog();
+            fpr.Focus();
         }
 
         private void BtnUsuarios_Click(object sender, EventArgs e)
@@ -167,6 +172,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmUsuarios fu = new FrmUsuarios();
             fu.ShowDialog();
+            fu.Focus();
         }
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)

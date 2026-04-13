@@ -12,7 +12,7 @@ namespace Manejador
 {
     public class ManejadorUsuarios
     {
-        Base b = new Base("localhost", "root", "1234", "gestorpyme");
+        Base b = new Base("localhost", "root", "", "gestorpyme");
 
         public void Guardar(Usuario u)
         {
@@ -82,9 +82,9 @@ namespace Manejador
 
             if (tabla.Columns.Contains("id_usuario")) tabla.Columns["id_usuario"].Visible = false;
             if (tabla.Columns.Contains("contrasena")) tabla.Columns["contrasena"].Visible = false;
-
-            tabla.Columns.Insert(6, Boton("Modificar", Color.Green));
-            tabla.Columns.Insert(7, Boton("Borrar", Color.Red));
+            if (tabla.Columns.Contains("correo")) tabla.Columns["correo"].Visible = false;
+            tabla.Columns.Insert(7, Boton("Modificar", Color.Green));
+            tabla.Columns.Insert(8, Boton("Borrar", Color.Red));
 
             tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tabla.AutoResizeRows();

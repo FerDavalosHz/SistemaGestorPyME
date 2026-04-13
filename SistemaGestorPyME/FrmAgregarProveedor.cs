@@ -53,7 +53,7 @@ namespace SistemaGestorPyME
             }
 
 
-              string estatus = CmbEstado.Text == "Activo" ? "activo" : "inactivo";
+              string estatus = CmbEstado.Text == "Activo" ? "Activo" : "Inactivo";
 
             Proveedor proveedorParaGuardar = new Proveedor(
                 FrmProveedor.proveedor.IdProveedor, // 0 para nuevo, >0 para modificar

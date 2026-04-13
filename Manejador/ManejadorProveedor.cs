@@ -9,7 +9,7 @@ namespace SistemaGestorPyme
 {
     public class ManejadorProveedor
     {
-        Base b = new Base("localhost", "root", "1234", "GestorPyme");
+        Base b = new Base("localhost", "root", "", "GestorPyme");
 
         public void Guardar(Proveedor proveedor)
         {
@@ -27,7 +27,6 @@ namespace SistemaGestorPyme
 
             if (rs == DialogResult.Yes)
             {
-                // Baja lógica: Cambiamos activo a 0 en lugar de eliminar el registro
                 b.Comando($"update tbl_proveedores set activo = 0 where id_proveedor={proveedor.IdProveedor}");
                 MessageBox.Show("Proveedor dado de baja con éxito.", "Baja Lógica", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

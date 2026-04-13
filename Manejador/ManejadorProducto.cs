@@ -13,7 +13,7 @@ namespace Manejador
 {
     public class ManejadorProducto
     {
-        Base b = new Base("localhost", "root", "1234", "GestorPyme");
+        Base b = new Base("localhost", "root", "", "GestorPyme");
 
         public void Guardar(Producto producto)
         {

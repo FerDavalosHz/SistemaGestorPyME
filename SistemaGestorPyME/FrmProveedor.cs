@@ -114,6 +114,7 @@ namespace SistemaGestorPyME
         {
             FrmAgregarProveedor iu = new FrmAgregarProveedor(3);
             iu.ShowDialog();
+            CargarDatos();
         }
 
         private void FrmProveedor_Load(object sender, EventArgs e)
@@ -125,7 +126,6 @@ namespace SistemaGestorPyME
         {
             Application.Exit();
         }
-
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -139,6 +139,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmProducto fp = new FrmProducto();
             fp.Show();
+            fp.Focus();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -146,6 +147,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmInventario Fi = new FrmInventario();
             Fi.Show();
+            Fi.Focus();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
@@ -153,6 +155,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmVentas Fv = new FrmVentas();
             Fv.Show();
+            Fv.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -166,6 +169,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmCategoria fc = new FrmCategoria();
             fc.Show();
+            fc.Focus();
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)

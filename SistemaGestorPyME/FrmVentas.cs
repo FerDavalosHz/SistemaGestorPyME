@@ -166,6 +166,7 @@ namespace SistemaGestorPyME
             this.Close();
             FrmInventario fi = new FrmInventario();
             fi.Show();
+            fi.Focus();
         }
 
 
@@ -178,6 +179,7 @@ namespace SistemaGestorPyME
                 this.Close();
                 FrmProducto fp = new FrmProducto();
                 fp.Show();
+                fp.Focus();
             }
         }
 
@@ -191,6 +193,7 @@ namespace SistemaGestorPyME
                 this.Close();
                 FrmCategoria fc = new FrmCategoria();
                 fc.Show();
+                fc.Focus();
             }
         }
 
@@ -214,6 +217,7 @@ namespace SistemaGestorPyME
             {
                 this.Close();
                 FrmUsuarios fu = new FrmUsuarios();
+                fu.Show();
                 fu.Show();
             }
         }
