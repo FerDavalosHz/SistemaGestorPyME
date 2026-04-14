@@ -57,8 +57,9 @@ namespace SistemaGestorPyME
         {
 
             FrmVentas fs = new FrmVentas();
+            this.Hide(); // Oculta el menú
+            fs.FormClosed += (s, args) => this.Show(); // Al cerrar ventas, muestra el menú
             fs.Show();
-            fs.Focus();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -67,8 +68,9 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 FrmProducto fs = new FrmProducto();
+                this.Hide();
+                fs.FormClosed += (s, args) => this.Show();
                 fs.Show();
-                fs.Focus();
             }
         }
 
@@ -95,8 +97,9 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 FrmUsuarios usuarios = new FrmUsuarios();
+                this.Hide();
+                usuarios.FormClosed += (s, args) => this.Show();
                 usuarios.Show();
-                usuarios.Focus();
             }
         }
 
@@ -106,19 +109,19 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 FrmProveedor proveedores = new FrmProveedor();
+                this.Hide();
+                proveedores.FormClosed += (s, args) => this.Show();
                 proveedores.Show();
-                proveedores.Focus();
             }
         }
 
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-    
-
             FrmInventario fi = new FrmInventario();
+            this.Hide();
+            fi.FormClosed += (s, args) => this.Show();
             fi.Show();
-            fi.Focus();
         }
 
         private void BtnCategoria_Click(object sender, EventArgs e)
@@ -126,8 +129,9 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 FrmCategoria fc = new FrmCategoria();
+                this.Hide();
+                fc.FormClosed += (s, args) => this.Show();
                 fc.Show();
-                fc.Focus();
             }
         }
 

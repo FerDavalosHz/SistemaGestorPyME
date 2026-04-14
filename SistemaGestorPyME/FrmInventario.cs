@@ -129,9 +129,6 @@ namespace SistemaGestorPyME
         private void BtnVentas_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmVentas fv = new FrmVentas();
-            fv.Show();
-            fv.Focus();
         }
 
         private void BtnInventario_Click(object sender, EventArgs e)
@@ -146,8 +143,6 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 this.Close();
-                FrmProducto fp = new FrmProducto();
-                fp.Show();
             }
         }
 
@@ -158,8 +153,6 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 this.Close();
-                FrmProveedor fp2 = new FrmProveedor();
-                fp2.Show();
             }
         }
 
@@ -170,8 +163,6 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 this.Close();
-                FrmUsuarios fu = new FrmUsuarios();
-                fu.Show();
             }
         }
 
@@ -181,8 +172,6 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 this.Close();
-                FrmCategoria fc = new FrmCategoria();
-                fc.Show();
             }
         }
     }

@@ -70,20 +70,23 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Datos.DefaultCellStyle = dataGridViewCellStyle3;
             this.Datos.EnableHeadersVisualStyles = false;
-            this.Datos.Location = new System.Drawing.Point(71, 122);
+            this.Datos.Location = new System.Drawing.Point(95, 150);
+            this.Datos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Datos.Name = "Datos";
             this.Datos.RowHeadersVisible = false;
             this.Datos.RowHeadersWidth = 51;
-            this.Datos.Size = new System.Drawing.Size(917, 569);
+            this.Datos.Size = new System.Drawing.Size(1223, 700);
             this.Datos.TabIndex = 0;
+            this.Datos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Datos_CellContentClick);
             // 
             // LblNombre
             // 
             this.LblNombre.AutoSize = true;
             this.LblNombre.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombre.Location = new System.Drawing.Point(67, 81);
+            this.LblNombre.Location = new System.Drawing.Point(89, 100);
+            this.LblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(169, 22);
+            this.LblNombre.Size = new System.Drawing.Size(208, 27);
             this.LblNombre.TabIndex = 1;
             this.LblNombre.Text = "NombreProducto";
             // 
@@ -91,9 +94,10 @@
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1013, 11);
+            this.btnCerrar.Location = new System.Drawing.Point(1351, 14);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(34, 29);
+            this.btnCerrar.Size = new System.Drawing.Size(45, 36);
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.Text = "X";
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -106,16 +110,18 @@
             this.panel1.Controls.Add(this.lblApartado);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1060, 52);
+            this.panel1.Size = new System.Drawing.Size(1413, 64);
             this.panel1.TabIndex = 4;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaGestorPyME.Properties.Resources.icons8_home_50;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(35, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox1.Size = new System.Drawing.Size(51, 42);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -125,21 +131,23 @@
             this.lblApartado.AutoSize = true;
             this.lblApartado.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApartado.ForeColor = System.Drawing.Color.Black;
-            this.lblApartado.Location = new System.Drawing.Point(73, 8);
+            this.lblApartado.Location = new System.Drawing.Point(97, 10);
+            this.lblApartado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApartado.Name = "lblApartado";
-            this.lblApartado.Size = new System.Drawing.Size(281, 37);
+            this.lblApartado.Size = new System.Drawing.Size(341, 44);
             this.lblApartado.TabIndex = 8;
             this.lblApartado.Text = "Historial inventario";
             // 
             // FrmHistorial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 731);
+            this.ClientSize = new System.Drawing.Size(1411, 900);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LblNombre);
             this.Controls.Add(this.Datos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmHistorial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHistorial";

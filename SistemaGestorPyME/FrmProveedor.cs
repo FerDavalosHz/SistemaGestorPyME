@@ -129,33 +129,21 @@ namespace SistemaGestorPyME
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmUsuarios fu = new FrmUsuarios();
-            fu.Show();
-            fu.Focus();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmProducto fp = new FrmProducto();
-            fp.Show();
-            fp.Focus();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmInventario Fi = new FrmInventario();
-            Fi.Show();
-            Fi.Focus();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmVentas Fv = new FrmVentas();
-            Fv.Show();
-            Fv.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -167,9 +155,6 @@ namespace SistemaGestorPyME
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmCategoria fc = new FrmCategoria();
-            fc.Show();
-            fc.Focus();
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
