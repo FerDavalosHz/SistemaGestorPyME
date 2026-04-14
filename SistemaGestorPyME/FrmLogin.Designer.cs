@@ -43,38 +43,42 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(62, 71);
+            this.label2.Location = new System.Drawing.Point(83, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 22);
+            this.label2.Size = new System.Drawing.Size(95, 27);
             this.label2.TabIndex = 22;
             this.label2.Text = "Usuario";
             // 
             // TxtUsuario
             // 
             this.TxtUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUsuario.Location = new System.Drawing.Point(151, 71);
+            this.TxtUsuario.Location = new System.Drawing.Point(201, 87);
+            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtUsuario.Multiline = true;
             this.TxtUsuario.Name = "TxtUsuario";
-            this.TxtUsuario.Size = new System.Drawing.Size(236, 28);
+            this.TxtUsuario.Size = new System.Drawing.Size(313, 34);
             this.TxtUsuario.TabIndex = 23;
             // 
             // TxtClave
             // 
             this.TxtClave.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtClave.Location = new System.Drawing.Point(151, 127);
+            this.TxtClave.Location = new System.Drawing.Point(201, 156);
+            this.TxtClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtClave.Multiline = true;
             this.TxtClave.Name = "TxtClave";
             this.TxtClave.PasswordChar = '*';
-            this.TxtClave.Size = new System.Drawing.Size(236, 28);
+            this.TxtClave.Size = new System.Drawing.Size(313, 34);
             this.TxtClave.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 127);
+            this.label1.Location = new System.Drawing.Point(27, 156);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 22);
+            this.label1.Size = new System.Drawing.Size(145, 27);
             this.label1.TabIndex = 24;
             this.label1.Text = "Contraseña";
             // 
@@ -84,9 +88,10 @@
             this.BtnAceptar.FlatAppearance.BorderSize = 0;
             this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAceptar.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAceptar.Location = new System.Drawing.Point(274, 195);
+            this.BtnAceptar.Location = new System.Drawing.Point(365, 240);
+            this.BtnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnAceptar.Name = "BtnAceptar";
-            this.BtnAceptar.Size = new System.Drawing.Size(112, 38);
+            this.BtnAceptar.Size = new System.Drawing.Size(149, 47);
             this.BtnAceptar.TabIndex = 29;
             this.BtnAceptar.Text = "INGRESAR";
             this.BtnAceptar.UseVisualStyleBackColor = false;
@@ -98,9 +103,10 @@
             this.BtnCancelar.FlatAppearance.BorderSize = 0;
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(166, 195);
+            this.BtnCancelar.Location = new System.Drawing.Point(221, 240);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(75, 38);
+            this.BtnCancelar.Size = new System.Drawing.Size(100, 47);
             this.BtnCancelar.TabIndex = 30;
             this.BtnCancelar.Text = "SALIR";
             this.BtnCancelar.UseVisualStyleBackColor = false;
@@ -110,31 +116,30 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(102)))), ((int)(((byte)(182)))));
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(-4, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(-5, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(423, 41);
+            this.panel1.Size = new System.Drawing.Size(564, 50);
             this.panel1.TabIndex = 31;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(133, 7);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(177, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 30);
+            this.label3.Size = new System.Drawing.Size(195, 37);
             this.label3.TabIndex = 1;
             this.label3.Text = "BIENVENIDO";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
-            this.ClientSize = new System.Drawing.Size(417, 268);
+            this.ClientSize = new System.Drawing.Size(558, 330);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BtnAceptar);
             this.Controls.Add(this.BtnCancelar);
@@ -143,6 +148,7 @@
             this.Controls.Add(this.TxtUsuario);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";

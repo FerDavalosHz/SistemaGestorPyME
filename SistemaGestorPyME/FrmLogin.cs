@@ -32,10 +32,12 @@ namespace Taller_Kike
         {
             if (ml.validar(TxtUsuario, TxtClave))
             {
-       
                 FrmMenu ag = new FrmMenu();
+
                 ag.Show();
+
                 this.Hide();
+
             }
             else
             {

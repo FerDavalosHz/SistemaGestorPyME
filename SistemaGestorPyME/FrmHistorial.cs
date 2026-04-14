@@ -36,6 +36,11 @@ namespace SistemaGestorPyME
         {
             Close();
         }
+
+        private void Datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

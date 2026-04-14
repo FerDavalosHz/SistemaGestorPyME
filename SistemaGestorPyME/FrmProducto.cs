@@ -149,8 +149,6 @@ namespace SistemaGestorPyME
         private void BtnVentas_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmVentas fs = new FrmVentas();
-            fs.Show();
         }
 
 
@@ -161,10 +159,8 @@ namespace SistemaGestorPyME
         {
             if (!TienePermisoAdmin()) return;
 
+            // Quitamos la creación de FrmInventario
             this.Close();
-            FrmInventario fi = new FrmInventario();
-            fi.Show();
-            fi.Focus();
 
         }
 
@@ -175,9 +171,6 @@ namespace SistemaGestorPyME
             if (!TienePermisoAdmin()) return;
 
             this.Close();
-            FrmProveedor proveedores = new FrmProveedor();
-            proveedores.Show();
-            proveedores.Focus();
         }
 
 
@@ -187,9 +180,6 @@ namespace SistemaGestorPyME
             if (!TienePermisoAdmin()) return;
 
             this.Close();
-            FrmUsuarios usuarios = new FrmUsuarios();
-            usuarios.Show();
-            usuarios.Focus();
         }
 
 
@@ -205,9 +195,6 @@ namespace SistemaGestorPyME
             if (!TienePermisoAdmin()) return;
 
             this.Close();
-            FrmCategoria fc = new FrmCategoria();
-            fc.Show();
-                fc.Focus();
         }
 
 

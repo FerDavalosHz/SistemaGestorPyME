@@ -44,7 +44,7 @@ namespace SistemaGestorPyME
 
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
@@ -109,6 +109,7 @@ namespace SistemaGestorPyME
             ProductosSeleccionados.RemoveAll(x => x.idProducto == idProducto);
             DtgProductos.Rows.Remove(fila);
             ActualizarTotal();
+            this.Close();
         }
 
         private void BtnCancelarVenta_Click(object sender, EventArgs e)
@@ -162,11 +163,8 @@ namespace SistemaGestorPyME
      
         private void BtnInventario_Click_1(object sender, EventArgs e)
         {
-           
+
             this.Close();
-            FrmInventario fi = new FrmInventario();
-            fi.Show();
-            fi.Focus();
         }
 
 
@@ -175,11 +173,7 @@ namespace SistemaGestorPyME
         {
             if (TienePermisoAdmin())
             {
-
                 this.Close();
-                FrmProducto fp = new FrmProducto();
-                fp.Show();
-                fp.Focus();
             }
         }
 
@@ -189,11 +183,7 @@ namespace SistemaGestorPyME
         {
             if (TienePermisoAdmin())
             {
-
                 this.Close();
-                FrmCategoria fc = new FrmCategoria();
-                fc.Show();
-                fc.Focus();
             }
         }
 
@@ -203,10 +193,7 @@ namespace SistemaGestorPyME
         {
             if (TienePermisoAdmin())
             {
-
                 this.Close();
-                FrmProveedor fpr = new FrmProveedor();
-                fpr.Show();
             }
         }
 
@@ -216,9 +203,6 @@ namespace SistemaGestorPyME
             if (TienePermisoAdmin())
             {
                 this.Close();
-                FrmUsuarios fu = new FrmUsuarios();
-                fu.Show();
-                fu.Show();
             }
         }
 
