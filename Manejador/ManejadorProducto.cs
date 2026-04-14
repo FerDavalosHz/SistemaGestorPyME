@@ -13,12 +13,11 @@ namespace Manejador
 {
     public class ManejadorProducto
     {
-        Base b = new Base("localhost", "root", "", "GestorPyme");
+        Base b = new Base("localhost", "root", "", "gestorpyme");
 
         public void Guardar(Producto producto)
         {
             int activoValue = producto.Activo ? 1 : 0;
-
             b.Comando($"insert into tbl_productos(nombre, descripcion, precio_venta_actual, stock_minimo, activo, id_categoria) " +
                       $"values('{producto.Nombre}', '{producto.Descripcion}', {producto.PrecioVentaActual}, {producto.StockMinimo}, {activoValue}, {producto.IdCategoria})");
 
@@ -32,19 +31,12 @@ namespace Manejador
             {
                 b.Comando($"delete from tbl_productos where id_producto={producto.IdProducto}");
                 MessageBox.Show("Producto eliminado con éxito.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
-            else if (rs == DialogResult.No)
-            {
-                MessageBox.Show("Borrar cancelado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
         }
 
         public void Modificar(Producto producto)
         {
             int activoValue = producto.Activo ? 1 : 0;
-
             b.Comando($"update tbl_productos set " +
                       $"nombre='{producto.Nombre}', " +
                       $"descripcion='{producto.Descripcion}', " +
@@ -55,7 +47,6 @@ namespace Manejador
                       $"where id_producto={producto.IdProducto}");
 
             MessageBox.Show("Producto modificado con éxito.", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         public void Mostrar(string consulta, DataGridView tabla, string datos)
@@ -63,77 +54,57 @@ namespace Manejador
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
             tabla.Columns["id_producto"].Visible = false;
-            if (tabla.Columns.Contains("id_categoria"))
-            {
-                tabla.Columns["id_categoria"].Visible = false;
-            }
-            if (tabla.Columns.Contains("Categoria"))
-            {
-                tabla.Columns["Categoria"].HeaderText = "Categoría";
-            }
+            if (tabla.Columns.Contains("id_categoria")) tabla.Columns["id_categoria"].Visible = false;
+
             tabla.Columns.Insert(7, Boton("Modificar", Color.Green));
             tabla.Columns.Insert(8, Boton("Eliminar", Color.Red));
             tabla.AutoResizeColumns();
-            tabla.AutoResizeRows();
         }
 
         DataGridViewButtonColumn Boton(string titulo, Color fondo)
         {
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.Text = titulo; 
+            btn.Text = titulo;
             btn.UseColumnTextForButtonValue = true;
             btn.FlatStyle = FlatStyle.Popup;
             btn.DefaultCellStyle.BackColor = fondo;
             btn.DefaultCellStyle.ForeColor = Color.White;
-
-            btn.Name = "btn" + titulo;  
-            btn.HeaderText = "";        
-
+            btn.Name = "btn" + titulo;
             return btn;
         }
 
         public DataTable ObtenerCategorias()
         {
-            string consulta = "SELECT id_categoria, nombre FROM tbl_categorias ORDER BY nombre";
-
-            return b.Consultar(consulta, "tbl_categorias").Tables[0];
+            return b.Consultar("SELECT id_categoria, nombre FROM tbl_categorias ORDER BY nombre", "tbl_categorias").Tables[0];
         }
+
         public void MostrarParaEntrada(string consulta, DataGridView tabla, string datos)
         {
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
-
             tabla.Columns["id_producto"].Visible = false;
             if (tabla.Columns.Contains("id_categoria")) tabla.Columns["id_categoria"].Visible = false;
             if (tabla.Columns.Contains("activo")) tabla.Columns["activo"].Visible = false;
-
             tabla.AutoResizeColumns();
         }
-        public void MostrarHistorialEntradas(DataGridView tabla)
-        {
-            tabla.Columns.Clear();
-            string consulta = "SELECT h.id_entrada, p.nombre, h.cantidad_agregada, h.fecha_registro " +
-                              "FROM tbl_historial_entradas h " +
-                              "INNER JOIN tbl_productos p ON h.id_producto = p.id_producto " +
-                              "ORDER BY h.fecha_registro DESC";
 
-            tabla.DataSource = b.Consultar(consulta, "tbl_historial_entradas").Tables[0];
-            tabla.AutoResizeColumns();
-        }
         public DataTable ObtenerProveedores()
         {
             return b.Consultar("SELECT id_proveedor, nombre FROM tbl_proveedores WHERE activo = 1", "tbl_proveedores").Tables[0];
         }
 
-        public void RegistrarEntrada(int idProducto, int cantidad, decimal precioCompra, int idProveedor, string nota)
+        // --- MÉTODO ACTUALIZADO ---
+        public void RegistrarEntrada(int idProducto, int cantidad, decimal precioCompra, int idProveedor, string nota, string fechaCaducidad)
         {
+            // Manejo de nulos para la fecha
+            string fechaSql = string.IsNullOrEmpty(fechaCaducidad) ? "NULL" : $"'{fechaCaducidad}'";
+
             string sql = $"INSERT INTO tbl_historial_entradas " +
-                         $"(id_producto, cantidad_agregada, precio_compra, id_usuario, id_proveedor, nota) " +
+                         $"(id_producto, cantidad_agregada, precio_compra, id_usuario, id_proveedor, nota, fecha_caducidad) " +
                          $"VALUES " +
-                         $"({idProducto}, {cantidad}, {precioCompra}, 1, {idProveedor}, '{nota}')";
+                         $"({idProducto}, {cantidad}, {precioCompra}, 1, {idProveedor}, '{nota}', {fechaSql})";
 
             b.Comando(sql);
         }
-
     }
 }

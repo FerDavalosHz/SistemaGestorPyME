@@ -15,8 +15,8 @@ namespace SistemaGestorPyME
     public partial class FrmMover : Form
     {
         ManejadorProducto mp;
-        int fila = 0; int columna = 0;
         int idProductoSeleccionado = 0;
+
         public FrmMover()
         {
             InitializeComponent();
@@ -27,14 +27,15 @@ namespace SistemaGestorPyME
         {
             CargarProveedores();
             LblNombreProducto.Text = "--- Seleccione un producto ---";
+            DtpFecha.Value = DateTime.Now;
         }
 
         private void CargarProveedores()
         {
             CmbProveedor.DataSource = mp.ObtenerProveedores();
-            CmbProveedor.DisplayMember = "nombre";       
-            CmbProveedor.ValueMember = "id_proveedor";   
-            CmbProveedor.SelectedIndex = -1;            
+            CmbProveedor.DisplayMember = "nombre";
+            CmbProveedor.ValueMember = "id_proveedor";
+            CmbProveedor.SelectedIndex = -1;
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -48,20 +49,12 @@ namespace SistemaGestorPyME
 
         private void dtgProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) 
+            if (e.RowIndex >= 0)
             {
                 idProductoSeleccionado = int.Parse(dtgProductos.Rows[e.RowIndex].Cells["id_producto"].Value.ToString());
-                string nombre = dtgProductos.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-
-                LblNombreProducto.Text = nombre;
-
+                LblNombreProducto.Text = dtgProductos.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
                 TxtCantidad.Focus();
             }
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -84,26 +77,26 @@ namespace SistemaGestorPyME
                     return;
                 }
 
+        
                 int cantidad = int.Parse(TxtCantidad.Text);
                 decimal precio = decimal.Parse(TxtPrecio.Text);
                 int idProveedor = int.Parse(CmbProveedor.SelectedValue.ToString());
                 string nota = TxtNotas.Text;
 
-                mp.RegistrarEntrada(idProductoSeleccionado, cantidad, precio, idProveedor, nota);
+                string fechaCad = DtpFecha.Value.ToString("yyyy-MM-dd");
+
+       
+                mp.RegistrarEntrada(idProductoSeleccionado, cantidad, precio, idProveedor, nota, fechaCad);
 
                 MessageBox.Show($"Entrada registrada correctamente.\nSe sumaron {cantidad} unidades al inventario.");
-
                 LimpiarCampos();
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Revise que la Cantidad y el Precio sean números válidos.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al registrar: " + ex.Message);
             }
         }
+
         public void LimpiarCampos()
         {
             TxtCantidad.Clear();
@@ -112,57 +105,14 @@ namespace SistemaGestorPyME
             CmbProveedor.SelectedIndex = -1;
             LblNombreProducto.Text = "--- Seleccione un producto ---";
             idProductoSeleccionado = 0;
+            DtpFecha.Value = DateTime.Now; 
         }
 
-        private void btnVentas_Click(object sender, EventArgs e)
-        {
-            FrmVentas fs = new FrmVentas();
-            fs.ShowDialog();
-            this.Hide();
-        }
 
-        private void btnInventario_Click(object sender, EventArgs e)
-        {
-            FrmInventario fi = new FrmInventario();
-            fi.ShowDialog();
-            this.Hide();
-        }
-
-        private void btnProductos_Click(object sender, EventArgs e)
-        {
-            FrmProducto fs = new FrmProducto();
-            fs.ShowDialog();
-            this.Hide();
-        }
-
-        private void btnProveedores_Click(object sender, EventArgs e)
-        {
-            FrmProveedor proveedores = new FrmProveedor();
-            proveedores.ShowDialog();
-        }
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            FrmUsuarios usuarios = new FrmUsuarios();
-            usuarios.ShowDialog();
-            this.Hide();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void BtnCategorias_Click(object sender, EventArgs e)
-        {
-            FrmCategoria fc = new FrmCategoria();
-            fc.ShowDialog();
-            this.Hide();
-        }
+        private void btnCerrar_Click(object sender, EventArgs e) { Application.Exit(); }
+        private void btnVentas_Click(object sender, EventArgs e) { new FrmVentas().Show(); this.Hide(); }
+        private void btnInventario_Click(object sender, EventArgs e) { new FrmInventario().Show(); this.Hide(); }
+        private void btnProductos_Click(object sender, EventArgs e) { new FrmProducto().Show(); this.Hide(); }
+        private void button1_Click(object sender, EventArgs e) { Close(); }
     }
 }

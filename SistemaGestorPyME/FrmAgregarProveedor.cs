@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Drawing;
-using Entidades;
-using Manejador;
 using Entidades;
 using SistemaGestorPyme;
 
