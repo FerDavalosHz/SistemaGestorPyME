@@ -23,8 +23,10 @@ namespace SistemaGestorPyME
 
             CargarCategoriasEnComboBox();
 
+            // Si el ID es mayor a 0, estamos editando un producto existente
             if (FrmProducto.producto.IdProducto > 0)
             {
+                TxtCodigo.Text = FrmProducto.producto.CodigoBarras; // Cargar código de barras
                 TxtNombre.Text = FrmProducto.producto.Nombre;
                 TxtDescripcion.Text = FrmProducto.producto.Descripcion;
                 TxtPrecio.Text = FrmProducto.producto.PrecioVentaActual.ToString();
@@ -34,74 +36,13 @@ namespace SistemaGestorPyME
             }
         }
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(TxtNombre.Text) ||
-        string.IsNullOrWhiteSpace(TxtDescripcion.Text) ||
-        string.IsNullOrWhiteSpace(TxtPrecio.Text))
-            {
-                MessageBox.Show("Error: Nombre, Descripción y Precio no pueden estar vacíos.");
-                return;
-            }
-
-            decimal precio;
-            if (!decimal.TryParse(TxtPrecio.Text, out precio))
-            {
-                MessageBox.Show("Error: El precio debe ser un número decimal válido.");
-                return;
-            }
-
-            int stock;
-            if (!int.TryParse(TxtStock.Text, out stock))
-            {
-                MessageBox.Show("Error: Ingresa un stock valido.");
-                return;
-            }
-
-            int idCategoria;
-            if (CmbCategoria.SelectedValue == null || !int.TryParse(CmbCategoria.SelectedValue.ToString(), out idCategoria))
-            {
-                MessageBox.Show("Error: Debe seleccionar una categoría válida.");
-                return;
-            }
-
-            Producto productoParaGuardar = new Producto(
-                FrmProducto.producto.IdProducto,
-                TxtNombre.Text,
-                TxtDescripcion.Text,
-                precio,
-                stock,
-                CbEstado.Checked,
-                idCategoria
-            );
-
-            if (FrmProducto.producto.IdProducto == 0)
-            {
-                mp.Guardar(productoParaGuardar);
-            }
-            else
-            {
-                mp.Modificar(productoParaGuardar);
-            }
-
-            Close();
-        }
-
         private void CargarCategoriasEnComboBox()
         {
             try
             {
                 DataTable dtCategorias = mp.ObtenerCategorias();
-
                 CmbCategoria.DataSource = dtCategorias;
-
                 CmbCategoria.DisplayMember = "nombre";
-
                 CmbCategoria.ValueMember = "id_categoria";
             }
             catch (Exception ex)
@@ -112,10 +53,18 @@ namespace SistemaGestorPyME
 
         private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
+            // --- VALIDACIONES ---
+            if (string.IsNullOrWhiteSpace(TxtCodigo.Text))
+            {
+                MessageBox.Show("El código de barras es obligatorio.");
+                TxtCodigo.Focus();
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(TxtNombre.Text))
             {
                 MessageBox.Show("El nombre no puede estar vacío.");
-                TxtNombre.Focus(); 
+                TxtNombre.Focus();
                 return;
             }
 
@@ -129,7 +78,7 @@ namespace SistemaGestorPyME
             decimal precio;
             if (!decimal.TryParse(TxtPrecio.Text, out precio))
             {
-                MessageBox.Show("Ingrese el Precio.");
+                MessageBox.Show("Ingrese un precio válido.");
                 TxtPrecio.Focus();
                 return;
             }
@@ -137,7 +86,7 @@ namespace SistemaGestorPyME
             int stock;
             if (!int.TryParse(TxtStock.Text, out stock))
             {
-                MessageBox.Show("Ponga el stock del producto");
+                MessageBox.Show("Ponga el stock mínimo del producto.");
                 TxtStock.Focus();
                 return;
             }
@@ -150,17 +99,20 @@ namespace SistemaGestorPyME
                 return;
             }
 
-
+            // --- EMPAQUETADO DE DATOS ---
+            // Se incluye el nuevo campo TxtCodigo.Text
             Producto productoParaGuardar = new Producto(
                 FrmProducto.producto.IdProducto,
+                TxtCodigo.Text,
                 TxtNombre.Text,
                 TxtDescripcion.Text,
                 precio,
                 stock,
-                CbEstado.Checked, 
+                CbEstado.Checked,
                 idCategoria
             );
 
+            // --- PERSISTENCIA ---
             if (FrmProducto.producto.IdProducto == 0)
             {
                 mp.Guardar(productoParaGuardar);
@@ -171,7 +123,6 @@ namespace SistemaGestorPyME
             }
 
             Close();
-
         }
 
         private void BtnCancelar_Click_1(object sender, EventArgs e)

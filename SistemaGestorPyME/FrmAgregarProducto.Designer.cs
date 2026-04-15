@@ -48,6 +48,8 @@
             this.lblApartado = new System.Windows.Forms.Label();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +100,7 @@
             this.BtnGuardar.BackColor = System.Drawing.SystemColors.Control;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.Location = new System.Drawing.Point(333, 470);
+            this.BtnGuardar.Location = new System.Drawing.Point(370, 488);
             this.BtnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(170, 58);
@@ -112,7 +114,7 @@
             this.BtnCancelar.BackColor = System.Drawing.SystemColors.Control;
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.Location = new System.Drawing.Point(601, 470);
+            this.BtnCancelar.Location = new System.Drawing.Point(638, 488);
             this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(170, 58);
@@ -167,7 +169,7 @@
             // 
             this.CbEstado.AutoSize = true;
             this.CbEstado.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbEstado.Location = new System.Drawing.Point(85, 431);
+            this.CbEstado.Location = new System.Drawing.Point(127, 506);
             this.CbEstado.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CbEstado.Name = "CbEstado";
             this.CbEstado.Size = new System.Drawing.Size(89, 25);
@@ -271,11 +273,33 @@
             this.btnCerrar.Text = "X";
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigo.Location = new System.Drawing.Point(228, 418);
+            this.TxtCodigo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(580, 27);
+            this.TxtCodigo.TabIndex = 66;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(4, 421);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(168, 21);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Codigo de barras:\r\n";
+            // 
             // FrmAgregarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 555);
+            this.ClientSize = new System.Drawing.Size(882, 577);
+            this.Controls.Add(this.TxtCodigo);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TxtDescripcion);
             this.Controls.Add(this.label2);
@@ -325,5 +349,7 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblApartado;
+        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.Label label4;
     }
 }

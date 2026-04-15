@@ -138,8 +138,8 @@ namespace SistemaGestorPyME
                             : x
                         ).ToList();
 
-                MessageBox.Show($"Cantidad actualizada para '{nombre}'.", "Actualizado",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+              //  MessageBox.Show($"Cantidad actualizada para '{nombre}'.", "Actualizado",
+                //    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Close();
                 return;

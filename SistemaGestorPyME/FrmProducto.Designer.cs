@@ -211,7 +211,7 @@
             this.BtnInicio.TabIndex = 6;
             this.BtnInicio.Text = "Inicio";
             this.BtnInicio.UseVisualStyleBackColor = false;
-            this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click);
+           this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click);
             // 
             // BtnUsuarios
             // 
@@ -239,7 +239,7 @@
             this.BtnProveedores.TabIndex = 4;
             this.BtnProveedores.Text = "Proveedores";
             this.BtnProveedores.UseVisualStyleBackColor = false;
-            this.BtnProveedores.Click += new System.EventHandler(this.BtnProveedores_Click);
+           this.BtnProveedores.Click += new System.EventHandler(this.BtnProveedores_Click);
             // 
             // BtnProductos
             // 
@@ -254,7 +254,7 @@
             this.BtnProductos.TabIndex = 3;
             this.BtnProductos.Text = "Productos";
             this.BtnProductos.UseVisualStyleBackColor = false;
-            this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
+           this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
             // 
             // BtnInventario
             // 
@@ -296,7 +296,7 @@
             this.BtnCategoría.TabIndex = 7;
             this.BtnCategoría.Text = "Categorías";
             this.BtnCategoría.UseVisualStyleBackColor = false;
-            this.BtnCategoría.Click += new System.EventHandler(this.button1_Click);
+           this.BtnCategoría.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmProducto
             // 

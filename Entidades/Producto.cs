@@ -8,9 +8,11 @@ namespace Entidades
 {
     public class Producto
     {
-        public Producto(int idProducto, string nombre, string descripcion, decimal precioVentaActual, int stockMinimo, bool activo, int idCategoria)
+    
+        public Producto(int idProducto, string codigoBarras, string nombre, string descripcion, decimal precioVentaActual, int stockMinimo, bool activo, int idCategoria)
         {
             IdProducto = idProducto;
+            CodigoBarras = codigoBarras; // Ahora es string
             Nombre = nombre;
             Descripcion = descripcion;
             PrecioVentaActual = precioVentaActual;
@@ -20,6 +22,7 @@ namespace Entidades
         }
 
         public int IdProducto { get; set; }
+        public string CodigoBarras { get; set; } 
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public decimal PrecioVentaActual { get; set; }
@@ -27,5 +30,4 @@ namespace Entidades
         public bool Activo { get; set; }
         public int IdCategoria { get; set; }
     }
-
 }

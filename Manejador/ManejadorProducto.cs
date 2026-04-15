@@ -18,8 +18,9 @@ namespace Manejador
         public void Guardar(Producto producto)
         {
             int activoValue = producto.Activo ? 1 : 0;
-            b.Comando($"insert into tbl_productos(nombre, descripcion, precio_venta_actual, stock_minimo, activo, id_categoria) " +
-                      $"values('{producto.Nombre}', '{producto.Descripcion}', {producto.PrecioVentaActual}, {producto.StockMinimo}, {activoValue}, {producto.IdCategoria})");
+            // Se agrega 'codigo_barras' a la consulta
+            b.Comando($"insert into tbl_productos(codigo_barras, nombre, descripcion, precio_venta_actual, stock_minimo, activo, id_categoria) " +
+                      $"values('{producto.CodigoBarras}', '{producto.Nombre}', '{producto.Descripcion}', {producto.PrecioVentaActual}, {producto.StockMinimo}, {activoValue}, {producto.IdCategoria})");
 
             MessageBox.Show("Producto registrado con éxito.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -37,7 +38,9 @@ namespace Manejador
         public void Modificar(Producto producto)
         {
             int activoValue = producto.Activo ? 1 : 0;
+            // Se agrega la actualización del 'codigo_barras'
             b.Comando($"update tbl_productos set " +
+                      $"codigo_barras='{producto.CodigoBarras}', " +
                       $"nombre='{producto.Nombre}', " +
                       $"descripcion='{producto.Descripcion}', " +
                       $"precio_venta_actual={producto.PrecioVentaActual}, " +
@@ -53,11 +56,15 @@ namespace Manejador
         {
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
-            tabla.Columns["id_producto"].Visible = false;
+
+            // Ocultamos el ID pero dejamos visible el Código de Barras
+            if (tabla.Columns.Contains("id_producto")) tabla.Columns["id_producto"].Visible = false;
             if (tabla.Columns.Contains("id_categoria")) tabla.Columns["id_categoria"].Visible = false;
 
-            tabla.Columns.Insert(7, Boton("Modificar", Color.Green));
-            tabla.Columns.Insert(8, Boton("Eliminar", Color.Red));
+            // Ajuste de los índices de los botones (ahora hay una columna más, movemos a 8 y 9)
+            tabla.Columns.Insert(tabla.ColumnCount, Boton("Modificar", Color.Green));
+            tabla.Columns.Insert(tabla.ColumnCount, Boton("Eliminar", Color.Red));
+
             tabla.AutoResizeColumns();
         }
 
@@ -82,7 +89,7 @@ namespace Manejador
         {
             tabla.Columns.Clear();
             tabla.DataSource = b.Consultar(consulta, datos).Tables[0];
-            tabla.Columns["id_producto"].Visible = false;
+            if (tabla.Columns.Contains("id_producto")) tabla.Columns["id_producto"].Visible = false;
             if (tabla.Columns.Contains("id_categoria")) tabla.Columns["id_categoria"].Visible = false;
             if (tabla.Columns.Contains("activo")) tabla.Columns["activo"].Visible = false;
             tabla.AutoResizeColumns();
@@ -93,10 +100,8 @@ namespace Manejador
             return b.Consultar("SELECT id_proveedor, nombre FROM tbl_proveedores WHERE activo = 1", "tbl_proveedores").Tables[0];
         }
 
-        // --- MÉTODO ACTUALIZADO ---
         public void RegistrarEntrada(int idProducto, int cantidad, decimal precioCompra, int idProveedor, string nota, string fechaCaducidad)
         {
-            // Manejo de nulos para la fecha
             string fechaSql = string.IsNullOrEmpty(fechaCaducidad) ? "NULL" : $"'{fechaCaducidad}'";
 
             string sql = $"INSERT INTO tbl_historial_entradas " +
@@ -106,5 +111,33 @@ namespace Manejador
 
             b.Comando(sql);
         }
+
+
+        public Producto ObtenerPorCodigo(string codigo)
+        {
+            // Buscamos el producto y su categoría mediante un JOIN
+            string sql = $"SELECT p.id_producto, p.codigo_barras, p.nombre, p.descripcion, " +
+                         $"p.precio_venta_actual, p.stock_minimo, p.activo, p.id_categoria " +
+                         $"FROM tbl_productos p WHERE p.codigo_barras = '{codigo}' AND p.activo = 1";
+
+            DataSet ds = b.Consultar(sql, "tbl_productos");
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                return new Producto(
+                    Convert.ToInt32(row["id_producto"]),
+                    row["codigo_barras"].ToString(),
+                    row["nombre"].ToString(),
+                    row["descripcion"].ToString(),
+                    Convert.ToDecimal(row["precio_venta_actual"]),
+                    Convert.ToInt32(row["stock_minimo"]),
+                    Convert.ToBoolean(row["activo"]),
+                    Convert.ToInt32(row["id_categoria"])
+                );
+            }
+            return null;
+        }
+
     }
 }

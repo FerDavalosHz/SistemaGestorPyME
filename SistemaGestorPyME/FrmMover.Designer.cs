@@ -93,7 +93,6 @@
             this.BtnCategorias.TabIndex = 7;
             this.BtnCategorias.Text = "Categorías";
             this.BtnCategorias.UseVisualStyleBackColor = false;
-          //  this.BtnCategorias.Click += new System.EventHandler(this.BtnCategorias_Click);
             // 
             // BtnInicio
             // 
@@ -119,7 +118,6 @@
             this.btnUsuarios.TabIndex = 5;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = false;
-        //    this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnProveedores
             // 
@@ -132,7 +130,6 @@
             this.btnProveedores.TabIndex = 4;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = false;
-          //  this.btnProveedores.Click += new System.EventHandler(this.//btnProveedores_Click);
             // 
             // btnProductos
             // 
@@ -395,7 +392,7 @@
             // DtpFecha
             // 
             this.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFecha.Location = new System.Drawing.Point(1171, 540);
+            this.DtpFecha.Location = new System.Drawing.Point(1156, 135);
             this.DtpFecha.Name = "DtpFecha";
             this.DtpFecha.Size = new System.Drawing.Size(200, 20);
             this.DtpFecha.TabIndex = 23;
