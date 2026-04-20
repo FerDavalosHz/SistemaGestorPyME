@@ -16,6 +16,7 @@ namespace SistemaGestorPyME
     {
         ManejadorProducto mp;
         int idProductoSeleccionado = 0;
+        private Timer timerBuscar;
 
         public FrmMover()
         {
@@ -26,6 +27,7 @@ namespace SistemaGestorPyME
         private void FrmMover_Load(object sender, EventArgs e)
         {
             CargarProveedores();
+            CargarProductos(); 
             LblNombreProducto.Text = "--- Seleccione un producto ---";
             DtpFecha.Value = DateTime.Now;
         }
@@ -40,11 +42,7 @@ namespace SistemaGestorPyME
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            string consulta = "SELECT id_producto, nombre, descripcion, stock_minimo " +
-                              "FROM tbl_productos " +
-                              $"WHERE nombre LIKE '%{TxtBuscar.Text}%' AND activo = 1";
-
-            mp.MostrarParaEntrada(consulta, dtgProductos, "tbl_productos");
+            CargarProductos(TxtBuscar.Text);
         }
 
         private void dtgProductos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -108,11 +106,35 @@ namespace SistemaGestorPyME
             DtpFecha.Value = DateTime.Now; 
         }
 
+        private void CargarProductos(string filtro = "")
+        {
+            string consulta = "SELECT id_producto, nombre, descripcion, stock_minimo " +
+                              "FROM tbl_productos " +
+                              $"WHERE nombre LIKE '%{filtro}%' AND activo = 1";
+
+            mp.MostrarParaEntrada(consulta, dtgProductos, "tbl_productos");
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            timer1?.Stop();
+            timer1?.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1?.Stop();
+
+            CargarProductos(TxtBuscar.Text);
+        }
+
 
         private void btnCerrar_Click(object sender, EventArgs e) { Application.Exit(); }
         private void btnVentas_Click(object sender, EventArgs e) { new FrmVentas().Show(); this.Hide(); }
         private void btnInventario_Click(object sender, EventArgs e) { new FrmInventario().Show(); this.Hide(); }
         private void btnProductos_Click(object sender, EventArgs e) { new FrmProducto().Show(); this.Hide(); }
         private void button1_Click(object sender, EventArgs e) { Close(); }
+
+       
     }
 }

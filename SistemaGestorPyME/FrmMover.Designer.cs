@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMover));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -59,6 +60,8 @@
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -262,6 +265,7 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(689, 26);
             this.TxtBuscar.TabIndex = 9;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // BtnBuscar
             // 
@@ -281,7 +285,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1114, 300);
+            this.label2.Location = new System.Drawing.Point(1112, 264);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 21);
@@ -291,7 +295,7 @@
             // TxtCantidad
             // 
             this.TxtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCantidad.Location = new System.Drawing.Point(1118, 324);
+            this.TxtCantidad.Location = new System.Drawing.Point(1117, 288);
             this.TxtCantidad.Name = "TxtCantidad";
             this.TxtCantidad.Size = new System.Drawing.Size(253, 26);
             this.TxtCantidad.TabIndex = 13;
@@ -300,7 +304,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1114, 468);
+            this.label4.Location = new System.Drawing.Point(1114, 494);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 21);
@@ -311,7 +315,7 @@
             // 
             this.CmbProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbProveedor.FormattingEnabled = true;
-            this.CmbProveedor.Location = new System.Drawing.Point(1118, 492);
+            this.CmbProveedor.Location = new System.Drawing.Point(1117, 532);
             this.CmbProveedor.Name = "CmbProveedor";
             this.CmbProveedor.Size = new System.Drawing.Size(253, 28);
             this.CmbProveedor.TabIndex = 16;
@@ -320,7 +324,7 @@
             // 
             this.LblNombreProducto.AutoSize = true;
             this.LblNombreProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreProducto.Location = new System.Drawing.Point(1114, 223);
+            this.LblNombreProducto.Location = new System.Drawing.Point(1113, 193);
             this.LblNombreProducto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblNombreProducto.Name = "LblNombreProducto";
             this.LblNombreProducto.Size = new System.Drawing.Size(210, 23);
@@ -331,7 +335,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1114, 381);
+            this.label6.Location = new System.Drawing.Point(1112, 345);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 21);
@@ -341,7 +345,7 @@
             // TxtPrecio
             // 
             this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPrecio.Location = new System.Drawing.Point(1118, 405);
+            this.TxtPrecio.Location = new System.Drawing.Point(1117, 369);
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(253, 26);
             this.TxtPrecio.TabIndex = 19;
@@ -349,7 +353,7 @@
             // TxtNotas
             // 
             this.TxtNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNotas.Location = new System.Drawing.Point(1118, 591);
+            this.TxtNotas.Location = new System.Drawing.Point(1117, 642);
             this.TxtNotas.Multiline = true;
             this.TxtNotas.Name = "TxtNotas";
             this.TxtNotas.Size = new System.Drawing.Size(253, 150);
@@ -359,7 +363,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1115, 567);
+            this.label7.Location = new System.Drawing.Point(1115, 609);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 21);
@@ -371,7 +375,7 @@
             this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(217)))), ((int)(((byte)(246)))));
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregar.Location = new System.Drawing.Point(1183, 782);
+            this.BtnAgregar.Location = new System.Drawing.Point(1182, 798);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(111, 44);
             this.BtnAgregar.TabIndex = 22;
@@ -383,7 +387,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1179, 415);
+            this.label3.Location = new System.Drawing.Point(1178, 379);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 21);
@@ -391,18 +395,36 @@
             // 
             // DtpFecha
             // 
+            this.DtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFecha.Location = new System.Drawing.Point(1156, 135);
+            this.DtpFecha.Location = new System.Drawing.Point(1117, 440);
             this.DtpFecha.Name = "DtpFecha";
-            this.DtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.DtpFecha.Size = new System.Drawing.Size(252, 26);
             this.DtpFecha.TabIndex = 23;
             this.DtpFecha.Value = new System.DateTime(2026, 4, 13, 0, 0, 0, 0);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(1114, 418);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(179, 21);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Fecha de Caducidad";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmMover
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1410, 900);
+            this.ClientSize = new System.Drawing.Size(1410, 884);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.DtpFecha);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.label7);
@@ -468,5 +490,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnCategorias;
         private System.Windows.Forms.DateTimePicker DtpFecha;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer timer1;
     }
 }
